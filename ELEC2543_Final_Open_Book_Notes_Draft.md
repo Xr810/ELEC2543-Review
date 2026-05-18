@@ -12,7 +12,7 @@
 - 如果不知道某道题属于哪一类，先查 **0.2 问题快查表**。
 - 再到对应的 **Part** 查看完整解释、代码和手算步骤。
 - 代码块、输出结果、Java 关键字和算法名称保持英文，方便考试时直接对照题目。
-- 标记为 **需要复核** 的地方，表示原始资料里前后有不一致，最终版应再对照 Past Paper 或 lecture slides。
+- 我已经把目前发现的前后不一致处改成了明确说明；后续如果新增资料，再按同样方式归并和复查。
 
 ---
 
@@ -25,9 +25,9 @@
 | 0. 使用方式与索引 | 0.1 多层级目录 | 本表 | 不知道整份资料怎么用时 |
 | 0. 使用方式与索引 | 0.2 问题快查表 | 按问题定位章节 | 看到题目但不知道查哪里时 |
 | 1. 整体考试地图 | 1.1 Past Paper 2025 考点分布 | Q1-Q6 对应知识点 | 想知道每道大题考什么时 |
-| 1. 整体考试地图 | 1.2 10 个 Part 总览 | 10 个复习模块 | 想按章节系统复习时 |
+| 1. 整体考试地图 | 1.2 Part 0 + 10 个 Part 总览 | 基础区 + 10 个复习模块 | 想按章节系统复习时 |
 | 2. Past Paper 速查表 | Q1-Q5 关键答案 | MCQ/output/BST/AVL/sorting 答案 | 考前快速背答案时 |
-| 3. Java Basics / Output Tracing | 3.1-3.6 | JVM、default value、package、`final`、`String`、array/reference | Q1 MCQ 或 Q2(a) output tracing |
+| Part 0. 第 13 讲以前 Java 基础区 | 0.1-0.11 | Java basics、class/object、reference、library、array、method、static、wrapper、syntax、midterm templates | Q1 MCQ、Q2(a)、基础代码题、期中旧题 |
 | Part 1. Interface | 1.1-1.8 | interface 默认规则、`implements`、多 interfaces、`Comparable` | Q6 interface 或 `Comparable` 题 |
 | Part 2. Inheritance | 2.1-2.11 | `extends`、`protected`、`this/super`、overriding、abstract class | Q6 inheritance / abstract class 题 |
 | Part 3. Polymorphism | 3.1-3.7 | late binding、declared type、casting、interface polymorphism | 看到 parent reference 指向 child object 时 |
@@ -44,14 +44,42 @@
 
 | 你遇到的问题 / 题目关键词 | 先查哪里 | 具体位置 |
 |---|---|---|
-| JVM 是什么？Java 怎么执行？ | Java Basics | 第 3 大条 -> 3.1 Java 执行流程和 JVM |
-| `boolean` 默认值是什么？`Boolean` 呢？ | Java Basics | 第 3 大条 -> 3.2 Default Values |
-| `System`、`String`、`Scanner`、`IOException` 在哪个 package？ | Java Basics | 第 3 大条 -> 3.3 Package 记忆 |
-| `final` 能做什么？ | Java Basics | 第 3 大条 -> 3.4 `final` Keyword |
-| `String.concat()` 为什么没有改变原来的 string？ | Java Basics | 第 3 大条 -> 3.5 `String` Immutable、`concat()` 和拼接 |
-| `"Result: " + 10 + 20` 输出什么？ | Java Basics | 第 3 大条 -> 3.5 `String` Immutable、`concat()` 和拼接 |
-| method 传 `int` 和传 `int[]` 有什么区别？ | Java Basics | 第 3 大条 -> 3.6 Method 参数、Primitive 和 Array Reference |
-| Q2(a) array output tracing 怎么做？ | Java Basics | 第 3 大条 -> 3.6 Method 参数、Primitive 和 Array Reference |
+| JVM 是什么？Java 怎么执行？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `boolean` 默认值是什么？`Boolean` 呢？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `System`、`String`、`Scanner`、`IOException` 在哪个 package？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| `final` 能做什么？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `String.concat()` 为什么没有改变原来的 string？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| `"Result: " + 10 + 20` 输出什么？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| method 传 `int` 和传 `int[]` 有什么区别？ | Part 0 基础区 | Part 0 -> 0.3 / 0.6 |
+| Q2(a) array output tracing 怎么做？ | Part 0 基础区 | Part 0 -> 0.3 / 0.6 |
+| `main` method 每个词是什么意思？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `char` 和 `String` 怎么区分？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| casting 是四舍五入吗？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `switch` 忘写 `break` 会怎样？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| `nextInt()` 后面接 `nextLine()` 为什么会被跳过？ | Part 0 基础区 | Part 0 -> 0.1 Java Basics |
+| 怎样按 UML 写 class？ | Part 0 基础区 | Part 0 -> 0.2 Class 与 Object |
+| constructor 为什么不能写 `void`？ | Part 0 基础区 | Part 0 -> 0.2 Class 与 Object |
+| `toString()` 什么时候自动调用？ | Part 0 基础区 | Part 0 -> 0.2 Class 与 Object |
+| 有 `new` 和没有 `new` 的 reference 有什么区别？ | Part 0 基础区 | Part 0 -> 0.3 Object Reference 与 Memory |
+| `NullPointerException` 常见原因是什么？ | Part 0 基础区 | Part 0 -> 0.3 / 0.9 |
+| `String` 常用 methods 怎么用？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| `Math.random()` 范围是什么？`Random.nextInt(10)` 范围是什么？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| enum 怎么写？constructor 为什么 private？ | Part 0 基础区 | Part 0 -> 0.4 Common Libraries 与 Enum |
+| array、String、ArrayList 的长度分别怎么写？ | Part 0 基础区 | Part 0 -> 0.5 Array 与 ArrayList |
+| Object array 为什么初始全是 `null`？ | Part 0 基础区 | Part 0 -> 0.5 Array 与 ArrayList |
+| ArrayList 能不能存 `int`？ | Part 0 基础区 | Part 0 -> 0.5 Array 与 ArrayList |
+| method overloading 的 signature 是什么？ | Part 0 基础区 | Part 0 -> 0.6 Method、Parameter Passing 与 Static |
+| `varargs` 怎么写？有什么限制？ | Part 0 基础区 | Part 0 -> 0.6 Method、Parameter Passing 与 Static |
+| `static` method 为什么不能访问 instance variable？ | Part 0 基础区 | Part 0 -> 0.6 Method、Parameter Passing 与 Static |
+| `String`、object、double、wrapper class 应该怎么比较？ | Part 0 基础区 | Part 0 -> 0.7 Comparison、Wrapper Class、`equals` |
+| `equals` 怎么重写？ | Part 0 基础区 | Part 0 -> 0.7 Comparison、Wrapper Class、`equals` |
+| `Integer` 的 `==` 为什么有时候 true 有时候 false？ | Part 0 基础区 | Part 0 -> 0.7 Comparison、Wrapper Class、`equals` |
+| 分号、括号、命名规则、operator precedence 怎么查？ | Part 0 基础区 | Part 0 -> 0.8 语法细节速查 |
+| 常见 compile error 怎么修？ | Part 0 基础区 | Part 0 -> 0.9 常见错误速查 |
+| midterm 题型：while 条件怎么补？ | Part 0 基础区 | Part 0 -> 0.10 Midterm 题型模板 |
+| midterm 题型：Array 改 ArrayList 哪些会变？ | Part 0 基础区 | Part 0 -> 0.10 Midterm 题型模板 |
+| midterm 题型：rotateLeft 怎么写？ | Part 0 基础区 | Part 0 -> 0.10 Midterm 题型模板 |
+| 写代码题最后怎么检查？ | Part 0 基础区 | Part 0 -> 0.11 考前代码检查清单 |
 | interface 是什么？method 为什么没有 body？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
 | interface method 默认是什么 modifier？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
 | interface variable 默认是什么？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
@@ -117,10 +145,11 @@
 | Q5 | Merge Sort + Quick Sort | 手算步骤、average/worst complexity |
 | Q6 | Inheritance + Interface | `extends`、`implements`、abstract class vs interface |
 
-### 1.2 10 个 Part 总览
+### 1.2 Part 0 + 10 个 Part 总览
 
 | Part | 内容 | 考试重要性 |
 |---|---|---|
+| Part 0 | 第 13 讲以前 Java 基础区：Java basics、class/object、reference、array、method、static、wrapper、syntax | 很高 |
 | Part 1 | Interface：定义、`implements`、`Comparable` | 高 |
 | Part 2 | Inheritance：`extends`、`protected`、`super`、abstract class | 很高 |
 | Part 3 | Polymorphism：late binding、inheritance/interface polymorphism | 高 |
@@ -162,11 +191,22 @@
 
 ---
 
-## 3. Java Basics / Output Tracing 补充速查
+# Part 0：第 13 讲以前 Java 基础区
 
-这一节放的是 Past Paper MCQ 和 output tracing 里容易散落出现的小规则。考试时如果题目不是某个大算法，而是在问 Java 基础语法，优先查这里。
+这一块来自期中开卷笔记，覆盖第 13 讲以前的基础内容。它放在 Part 1 前面，因为这些知识是后面 interface、inheritance、exception、sorting、tree 的基础。考试时如果你看到的是基础语法、代码输出、写 class、array、ArrayList、method、static、wrapper、`equals` 这类问题，先查 Part 0。
 
-### 3.1 Java 执行流程和 JVM
+零基础使用方式：
+
+```text
+如果题目问定义：先写一句定义，再写 2-3 条规则，再给一个小例子。
+如果题目让看 output：逐行 trace，遇到 new 画 object，遇到 method call 对参数。
+如果题目让写 code：先套模板，再改 class name / variable name / method body。
+如果题目问“会不会变”：判断 primitive value、reference、object 内部是否被改。
+```
+
+## 0.1 Java Basics
+
+### Java 执行流程和 JVM
 
 ```text
 .java source code
@@ -183,7 +223,203 @@ Compiler translates; JVM executes.
 
 `JVM` = `Java Virtual Machine`，作用是在具体平台上执行 Java bytecode。
 
-### 3.2 Default Values
+Java 跨平台的原因：`.java` 会先被 compiler 编译成 bytecode，bytecode 可以在不同平台的 JVM 上执行。
+
+### `main` method：程序入口
+
+```java
+public static void main(String[] args) {
+}
+```
+
+逐词解释：
+
+| 词 | 含义 |
+|---|---|
+| `public` | 谁都能访问 |
+| `static` | 不需要先创建 object，就可以运行 |
+| `void` | 不返回值 |
+| `main` | Java 程序入口 method name |
+| `String[] args` | 命令行参数，类型是 String array |
+
+如果一个 class 没有 `main` method，通常可以 compile，但直接运行时 launcher 会报 runtime error：找不到 main method。
+
+### 8 种 Primitive Types
+
+| Type | 大小 | 说明 |
+|---|---:|---|
+| `int` | 32-bit | 最常用整数 |
+| `double` | 64-bit | 最常用小数 |
+| `char` | 16-bit | 单个字符，用单引号，例如 `'A'` |
+| `boolean` | - | 只有 `true` / `false` |
+| `byte` | 8-bit | 很少用 |
+| `short` | 16-bit | 很少用 |
+| `long` | 64-bit | 大整数 |
+| `float` | 32-bit | 小数，不常用 |
+
+重点坑：
+
+```text
+char 用单引号: 'A'
+String 用双引号: "hello"
+String 不是 primitive，是 class。
+```
+
+记忆：
+
+```text
+大多数小写开头的基本类型是 primitive，复制 value。
+大多数大写开头的是 class/object reference，复制 reference。
+例外：array 例如 int[] 虽然写着 int，但 array 本身是 object。
+```
+
+### 变量与常量
+
+```java
+int age = 20;           // variable，可以改
+final double PI = 3.14; // constant，不能改
+```
+
+`final` 修饰 variable 后，这个 variable 不能重新 assign。
+
+`final` 常见用途：
+
+```text
+final variable  -> constant，不能重新 assign
+final method    -> 不能被 override
+final class     -> 不能被 extended
+```
+
+所以 Past Paper MCQ 里如果问 `final` 的用途，通常是 `All of the above`。
+
+### Type Conversion
+
+Widening：自动转换，小类型到大类型，不丢数据。
+
+```java
+int x = 5;
+double y = x;  // y = 5.0
+```
+
+Narrowing：手动 casting，大类型到小类型，可能丢数据。
+
+```java
+double a = 3.99;
+int b = (int) a;  // b = 3
+```
+
+重点坑：
+
+```text
+casting 是截断，不是四舍五入。
+(int)3.99 = 3，不是 4。
+```
+
+### Control Flow
+
+`if-else`：
+
+```java
+if (condition) {
+    ...
+} else if (condition2) {
+    ...
+} else {
+    ...
+}
+```
+
+`switch`：
+
+```java
+switch (value) {
+    case 1:
+        ...
+        break;
+    default:
+        ...
+}
+```
+
+重点坑：
+
+```text
+switch 里忘写 break 会 fall through。
+也就是从匹配到的 case 开始，后面 case 会继续执行，直到遇到 break 或 switch 结束。
+```
+
+`for loop`：
+
+```java
+for (int i = 0; i < 5; i++) {
+    ...
+}
+```
+
+执行次数：
+
+```text
+i = 0, 1, 2, 3, 4
+一共 5 次
+```
+
+重点坑：
+
+```text
+i < 5  执行 5 次：0 到 4
+i <= 5 执行 6 次：0 到 5
+```
+
+Enhanced for loop：
+
+```java
+for (int n : nums) {
+    System.out.println(n);
+}
+```
+
+### Scanner 输入
+
+```java
+import java.util.Scanner;
+
+Scanner scan = new Scanner(System.in);
+int num = scan.nextInt();       // 读整数
+String word = scan.next();      // 读一个单词
+String line = scan.nextLine();  // 读一整行
+```
+
+重点坑：
+
+```text
+nextInt() 后面直接接 nextLine()，nextLine() 可能会读到上一行剩下的回车，所以看起来像被跳过。
+解决：中间加一个空的 scan.nextLine() 吃掉回车。
+```
+
+```java
+int num = scan.nextInt();
+scan.nextLine();          // eat leftover newline
+String line = scan.nextLine();
+```
+
+### `print` vs `println`
+
+```java
+System.out.print("A");    // 打印后不换行
+System.out.println("A");  // 打印后换行
+```
+
+### 逻辑运算符
+
+| Operator | 含义 |
+|---|---|
+| `&&` | AND，两边都 true 才 true |
+| `||` | OR，一个 true 就 true |
+| `!` | NOT，取反 |
+| `==` / `!=` | 等于 / 不等于 |
+| `>` `<` `>=` `<=` | 大小比较 |
+
+### Default Values
 
 Java 的 instance variables 有 default value，但 local variables 没有自动 default value。
 
@@ -210,7 +446,294 @@ class Test {
 primitive 有自己的 default value；object reference 默认 null。
 ```
 
-### 3.3 Package 记忆
+## 0.2 Class 与 Object
+
+Class = 蓝图 / 模板。Object = 按照 class 这个蓝图创建出来的实例。
+
+每个 object 通常有：
+
+```text
+state    = 属性 / instance variables
+behavior = methods
+```
+
+### 完整 Class 结构模板
+
+```java
+public class Student {
+    private String name;  // instance variable
+    private int age;
+
+    public Student(String name, int age) {  // constructor
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String toString() {
+        return name + " (age: " + age + ")";
+    }
+}
+```
+
+各部分说明：
+
+| 部分 | 作用 | 注意 |
+|---|---|---|
+| instance variable | object 的数据，每个 object 各一份 | 通常用 `private` |
+| constructor | 创建 object 时自动调用 | 名字必须等于 class 名；没有返回类型 |
+| getter / setter | 读写 private variables | 通常用 `public` |
+| `toString()` | `println(object)` 时自动调用 | 不写可能输出类似 `Student@1fee6fc` |
+| `this` | 当前 object | 用来区分 instance variable 和 parameter |
+
+### Constructor 规则
+
+```text
+如果没有写任何 constructor，Java 会送一个空的 default constructor。
+一旦自己写了任何 constructor，Java 不再自动送 default constructor。
+constructor 没有返回类型，连 void 也不能写。
+```
+
+错误例子：
+
+```java
+public void Student(String name, int age) {
+    ...
+}
+```
+
+这不是 constructor，而是普通 method，因为它写了 `void`。
+
+### 创建和使用 Object
+
+```java
+Student s = new Student("Tom", 20);
+s.getName();
+System.out.println(s);  // 自动调用 s.toString()
+```
+
+### `this` 的用途
+
+```java
+public Student(String name, int age) {
+    this.name = name;
+    this.age = age;
+}
+```
+
+解释：
+
+```text
+this.name = instance variable
+name      = parameter
+```
+
+重点坑：
+
+```java
+name = name;
+```
+
+如果 parameter 也叫 `name`，这行会把 parameter 赋给 parameter 自己，instance variable 没变。为了安全，constructor 和 setter 里建议用 `this.`。
+
+### Instance Variable vs Local Variable
+
+| | Instance Variable | Local Variable |
+|---|---|---|
+| 定义位置 | class 里，method 外 | method 里面 |
+| 作用范围 | 整个 object / class 内可用 | 只在那个 method 或 block 内 |
+| default value | 有，例如 `int=0`, `boolean=false`, reference=`null` | 没有，必须手动赋值 |
+
+重点坑：
+
+```text
+local variable 不赋值就使用 -> compile error
+常见信息：variable might not have been initialized
+```
+
+### UML 类图
+
+UML class diagram 通常分三格：
+
+```text
+ClassName
+attributes
+methods
+```
+
+例子：
+
+```text
+Student
+- name: String
+- age: int
++ Student(name: String, age: int)
++ getName(): String
++ setAge(age: int): void
++ toString(): String
+```
+
+UML 符号：
+
+| 符号 | Java modifier |
+|---|---|
+| `+` | `public` |
+| `-` | `private` |
+| `#` | `protected` |
+
+UML 格式：
+
+```text
+attribute: type
+method(parameterName: ParameterType): ReturnType
+```
+
+UML 箭头：
+
+| 箭头 | 含义 |
+|---|---|
+| 虚线箭头 | dependency / uses |
+| 实线 + 空心三角 | inheritance / `extends` |
+| 虚线 + 空心三角 | interface implementation / `implements` |
+
+箭头方向：child class 指向 parent class；implementation class 指向 interface。
+
+从 UML 写代码例子：
+
+```text
+Book
+- title: String
+- price: double
++ getTitle(): String
++ setPrice(price: double): void
+```
+
+对应代码：
+
+```java
+public class Book {
+    private String title;
+    private double price;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+}
+```
+
+## 0.3 Object Reference 与 Memory
+
+### Primitive vs Reference Assignment
+
+| 类型 | assignment 行为 |
+|---|---|
+| primitive | copy value，改一个不影响另一个 |
+| object reference | copy address / reference，两个变量可能指向同一个 object |
+
+Primitive 例子：
+
+```java
+int a = 5;
+int b = a;
+b = 10;
+```
+
+结果：
+
+```text
+a = 5
+b = 10
+```
+
+Reference 例子：
+
+```java
+Student s1 = new Student("Tom", 20);
+Student s2 = s1;
+s2.setAge(99);
+```
+
+结果：`s1` 和 `s2` 指向同一个 object，所以 `s1` 的 age 也变成 99。
+
+记忆：
+
+```text
+有 new = 新 object
+没有 new = 复制 reference，可能 alias 同一个 object
+assignment 只是复制那一刻的 value/reference
+```
+
+### 参数传递三规则
+
+| 情况 | method 里改了以后，外面会变吗？ | 例子 |
+|---|---|---|
+| primitive parameter | 不会 | `change(num)` 后 `num` 不变 |
+| object parameter + 修改 object 内部 | 会 | `s.setAge(99)` 外面也变 |
+| object parameter + 指向 new object | 不会 | `s = new Student()` 外面的 reference 不变 |
+| array parameter + 修改元素 | 会 | `arr[0] = 99` 外面也变 |
+
+记忆：
+
+```text
+改内部会变
+指新 object 不变
+primitive 永远不变
+```
+
+### Garbage Collection
+
+当一个 object 没有任何 reference 指向它时，它变成 garbage，Java 会自动回收。
+
+```java
+s1 = s2;
+```
+
+如果原来 `s1` 指向的 object 没有其他 reference 了，它就变成 garbage。
+
+### 声明不等于创建
+
+```java
+Student s;      // 只声明，没有 new object
+s.getName();    // 可能 NullPointerException
+```
+
+正确：
+
+```java
+Student s = new Student("Tom", 20);
+s.getName();
+```
+
+### Array 也是 Object
+
+```java
+int[] a = {1, 2, 3};
+int[] b = a;
+b[0] = 99;
+```
+
+结果：
+
+```text
+a[0] 也变成 99
+```
+
+因为 `a` 和 `b` 指向同一个 array object。
+
+## 0.4 Common Libraries 与 Enum
+
+### Package 记忆
 
 | Package | 常见 classes | 记法 |
 |---|---|---|
@@ -235,68 +758,243 @@ File/IOException -> java.io
 NumberFormat/DecimalFormat -> java.text
 ```
 
-### 3.4 `final` Keyword
+### String 常用 Methods
 
-`final` 常见用途：
+`String` 是 immutable，所以这些 methods 通常返回一个新 `String`，不会修改原 object。
+
+| Method | 作用 | 例子 |
+|---|---|---|
+| `s.length()` | 字符数 | `"hello".length()` -> `5` |
+| `s.charAt(i)` | 第 `i` 个字符 | `"hello".charAt(0)` -> `'h'` |
+| `s.indexOf(str)` | 找 substring 位置 | `"hello".indexOf("ll")` -> `2` |
+| `s.toUpperCase()` | 转大写，返回新的 String | 原 `s` 不变 |
+| `s.substring(a, b)` | 截取 `[a, b)` | `"hello".substring(0,3)` -> `"hel"` |
+| `s.equals(other)` | 比较内容 | 比较 String 必须用这个 |
+| `s.compareTo(other)` | 字典序比较 | 负数 / 0 / 正数 |
+
+重点：
+
+```java
+String s = "hello";
+s.toUpperCase();
+System.out.println(s);  // hello
+```
+
+要保存结果：
+
+```java
+s = s.toUpperCase();
+```
+
+String 拼接规则：
+
+| Expression | Result | 原因 |
+|---|---|---|
+| `1 + 2 + "abc"` | `"3abc"` | 先算 `1+2`，再拼接 |
+| `"abc" + 1 + 2` | `"abc12"` | 遇到 String 后继续拼接 |
+| `1 + 2 + "abc" + 3 + 4` | `"3abc34"` | 左到右 |
+| `"" + 1 + 2` | `"12"` | 空 String 开头，后面全拼接 |
+
+记忆：
 
 ```text
-final variable  -> constant，不能重新 assign
-final method    -> 不能被 override
-final class     -> 不能被 extended
+见 String 前算术，见 String 后拼接。
+想先算就用括号："abc" + (1 + 2) -> "abc3"
 ```
 
-所以 Past Paper MCQ 里如果问 `final` 的用途，通常是 `All of the above`。
+### Math
 
-### 3.5 `String` Immutable、`concat()` 和拼接
-
-`String` 是 immutable。`concat()` 会返回一个新的 `String`，但不会改变原来的 object。
+`Math` 的 methods 都是 static，所以直接用 `Math.method()`。
 
 ```java
-String s = "blue";
-s.concat("berry");
-System.out.println(s);
+Math.abs(-5);      // 5
+Math.pow(2, 3);    // 8.0
+Math.sqrt(16);     // 4.0
+Math.max(3, 7);    // 7
+Math.random();     // 0.0 <= value < 1.0
 ```
 
-输出仍然是：
+### Random
+
+```java
+import java.util.Random;
+
+Random rand = new Random();
+rand.nextInt(10);     // 0 到 9，不包括 10
+rand.nextInt(6) + 1;  // 1 到 6，模拟骰子
+```
+
+### NumberFormat / DecimalFormat
+
+```java
+NumberFormat fmt = NumberFormat.getCurrencyInstance();
+fmt.format(1234.5);  // $1,234.50，具体符号可能受 locale 影响
+```
+
+```java
+DecimalFormat df = new DecimalFormat("0.00");
+df.format(3.1);  // 3.10
+```
+
+### Enum
+
+enum 用来表示固定的一组值。
+
+```java
+public enum Season {
+    SPRING, SUMMER, FALL, WINTER
+}
+```
+
+使用：
+
+```java
+Season s = Season.SUMMER;
+s.ordinal();  // 1，从 0 开始
+s.name();     // "SUMMER"
+```
+
+enum 可以有 constructor 和 method：
+
+```java
+public enum Season {
+    SPRING("warm"), SUMMER("hot"), FALL("cool"), WINTER("cold");
+
+    private String weather;
+
+    private Season(String weather) {
+        this.weather = weather;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+}
+```
+
+```java
+Season.SUMMER.getWeather();  // "hot"
+```
+
+重点坑：
 
 ```text
-blue
+enum constructor 必须 private，因为 enum values 由 Java 自动创建，不能用 new。
+普通 class constructor 通常 public。
 ```
 
-要得到 `"blueberry"`，必须保存返回值：
+## 0.5 Array 与 ArrayList
+
+### Array 创建
 
 ```java
-s = s.concat("berry");
+int[] nums = new int[5];             // 5 个格子，默认 0
+int[] nums = {10, 20, 30};           // 声明时直接给值
+int[] nums = new int[]{10, 20, 30};  // 重新赋值或传参时可用
 ```
 
-也可以写：
+### Array 使用
 
 ```java
-s = s + "berry";
+nums[0];       // 读取，index 从 0 开始
+nums[2] = 99;  // 修改
+nums.length;   // 长度，没有括号
 ```
 
-字符串和数字拼接时，一旦左边已经是 `String`，后面的 `+` 会继续做 string concatenation。
-
-```java
-System.out.println("Result: " + 10 + 20);
-```
-
-输出：
+重点坑：
 
 ```text
-Result: 1020
+5 个元素的 index 是 0 到 4，没有 index 5。
+越界访问 -> ArrayIndexOutOfBoundsException。
 ```
 
-Java 大小写敏感：
+### Object Array
 
 ```java
-System.out.println(s);  // correct
-system.out.println(s);  // wrong
+Student[] students = new Student[3];  // 初始全是 null
+students[0] = new Student("Tom", 20); // 必须逐个 new
 ```
 
-### 3.6 Method 参数、Primitive 和 Array Reference
+重点坑：
 
-method header：
+```java
+students[0].getName();  // 如果 students[0] 还是 null，会 NullPointerException
+```
+
+### 二维数组
+
+```java
+int[][] grid = new int[3][4];  // 3 行 4 列
+grid[1][2] = 5;
+
+grid.length;     // 行数
+grid[0].length;  // 第 0 行的列数
+```
+
+### ArrayList
+
+```java
+import java.util.ArrayList;
+
+ArrayList<String> list = new ArrayList<String>();
+```
+
+常用 methods：
+
+| Method | 作用 |
+|---|---|
+| `list.add("Tom")` | 加到末尾 |
+| `list.add(0, "Bob")` | 插入到 index 0 |
+| `list.get(i)` | 读取 index `i` |
+| `list.set(i, "Jack")` | 修改 index `i` |
+| `list.remove(i)` | 删除 index `i`，后面元素自动前移 |
+| `list.size()` | 元素个数 |
+| `list.contains("Jack")` | 是否包含，返回 boolean |
+
+重点坑：
+
+```text
+ArrayList 只能存 object，不能直接存 primitive。
+int -> Integer
+double -> Double
+char -> Character
+boolean -> Boolean
+```
+
+### Array vs String vs ArrayList 长度
+
+| 类型 | 写法 | 有没有括号 |
+|---|---|---|
+| Array | `array.length` | 没有括号 |
+| String | `string.length()` | 有括号 |
+| ArrayList | `list.size()` | 有括号，叫 `size` |
+
+## 0.6 Method、Parameter Passing 与 Static
+
+### Method 格式
+
+```java
+public static int add(int a, int b) {
+    return a + b;
+}
+```
+
+结构：
+
+```text
+visibility static? returnType methodName(parameter list) { body }
+```
+
+### 参数传递
+
+| 情况 | 外面会变吗？ | 例子 |
+|---|---|---|
+| primitive parameter | 不会 | `change(num)` 后 `num` 不变 |
+| object parameter + 修改内部 | 会 | `s.setAge(99)` 外面也变 |
+| object parameter + 指向 new object | 不会 | `s = new Student()` 外面不变 |
+| array parameter + 修改元素 | 会 | `arr[0] = 99` 外面也变 |
+
+Past Paper Q2(a) 这类题的读法：
 
 ```java
 public static void mystery(int[] a, int x, int y)
@@ -324,12 +1022,7 @@ method 的 x = main 的 y
 method 的 y = main 的 x
 ```
 
-核心规则：
-
-- `int` 是 primitive，传进 method 是复制 value。method 里改 `x`、`y` 不影响 main 里的 `x`、`y`。
-- `int[]` 是 array object，传进 method 是复制 reference。method 里改 `a[2]` 会影响 main 里的同一个 array。
-
-输出代码：
+输出 array 的常见代码：
 
 ```java
 System.out.print(x + " " + y + " ");
@@ -348,21 +1041,492 @@ System.out.println();
 最后 println() 换行
 ```
 
-Past Paper Q2(a) 的答案输出：
+Past Paper Q2(a) 答案输出：
 
 ```text
 2 3 0 0 10 0
 1 0 10 0 10 0
 ```
 
+### Method Overloading
+
+overloading = 同名 method，但 parameter list 不同。
+
+parameter list 不同可以是：
+
+```text
+parameter type 不同
+parameter number 不同
+parameter order 不同
+```
+
+重点坑：
+
+```text
+return type 不算 overloading。
+如果 method name 和 parameter list 一样，只是 return type 不同，会 compile error。
+```
+
+Method signature：
+
+```text
+method name + parameter list
+```
+
+### Varargs
+
+varargs = 可变长度参数。
+
+```java
+public static int sum(int... nums) {
+    int total = 0;
+    for (int n : nums)
+        total += n;
+    return total;
+}
+```
+
+调用：
+
+```java
+sum(1, 2);
+sum(1, 2, 3, 4);
+```
+
+重点坑：
+
+```text
+varargs 必须放在 parameter list 最后。
+一个 method 只能有一个 varargs。
+```
+
+### Static
+
+| | 普通 method | static method |
+|---|---|---|
+| 属于 | object | class |
+| 调用方式 | `object.method()` | `Class.method()` |
+| 能访问 instance variable？ | 可以 | 不可以直接访问 |
+| 例子 | `s.getName()` | `Math.abs(-5)` |
+
+重点坑：
+
+```text
+static method 不能直接访问 non-static instance variable。
+原因：static 属于 class，不知道你指的是哪个 object。
+```
+
+`System.out.println()` 为什么不用 `new System()`？
+
+```text
+out 是 System class 的 static field，类型是 PrintStream，所以可以直接写 System.out.println()。
+```
+
+## 0.7 Comparison、Wrapper Class、`equals`
+
+### 各种类型怎么比较
+
+| 类型 | 用什么比较 | 注意 |
+|---|---|---|
+| `int`, `char`, `boolean` | `==` | primitive 直接比 value |
+| `double`, `float` | `Math.abs(a - b) < tolerance` | 不建议直接用 `==` |
+| `String` | `.equals()` | `==` 比 reference，`.equals()` 比内容 |
+| 自己写的 object | override `.equals()` | 默认 `.equals()` 通常也是比 reference |
+| `Integer` 等 wrapper | `.equals()` | `==` 只在 cache 范围内看起来可靠 |
+| `null` | `== null` 或 `!= null` | 不能对 `null` 调 `.equals()` |
+
+重点坑：
+
+```java
+null.equals("abc");  // NullPointerException
+```
+
+更安全：
+
+```java
+"abc".equals(variable);
+```
+
+### 重写 `equals` 模板
+
+```java
+public boolean equals(Object obj) {
+    if (!(obj instanceof Student))
+        return false;
+
+    Student other = (Student) obj;
+
+    return this.name.equals(other.name)
+        && this.age == other.age;
+}
+```
+
+规则：
+
+```text
+equals 的 parameter type 是 Object。
+primitive field 用 ==。
+object field 用 .equals()。
+先做 instanceof 检查，再 cast。
+```
+
+### Wrapper Class
+
+| Primitive | Wrapper Class | 常见转换 |
+|---|---|---|
+| `int` | `Integer` | `Integer.parseInt("123")` |
+| `double` | `Double` | `Double.parseDouble("3.14")` |
+| `char` | `Character` | - |
+| `boolean` | `Boolean` | - |
+
+Autoboxing / unboxing：
+
+```java
+Integer x = 5;  // autoboxing: int -> Integer
+int y = x;      // unboxing: Integer -> int
+```
+
+`Integer` cache：
+
+```java
+Integer num1 = 100;
+Integer num2 = 100;
+Integer num3 = 500;
+Integer num4 = 500;
+```
+
+通常：
+
+```text
+num1 == num2  -> true，因为 Java 保证 -128 到 127 范围内的 Integer 会被 cache
+num3 == num4  -> false，因为两个 500 通常是不同 Integer object
+```
+
+考试写法：
+
+```java
+num1.equals(num2);
+num3.equals(num4);
+```
+
+### `compareTo`
+
+如果使用 generic interface：
+
+```java
+public class Student implements Comparable<Student> {
+    public int compareTo(Student other) {
+        return this.age - other.age;
+    }
+}
+```
+
+返回值：
+
+```text
+负数 -> this 排前面 / this < other
+0    -> 相等
+正数 -> this 排后面 / this > other
+```
+
+排序方向：
+
+```java
+return this.age - other.age;  // 从小到大
+return other.age - this.age;  // 从大到小
+```
+
+注意：
+
+```text
+如果 implements Comparable<Student>，compareTo 的 parameter type 是 Student。
+如果使用 raw Comparable，compareTo 的 parameter type 是 Object。
+equals 的 parameter type 通常是 Object。
+```
+
+## 0.8 语法细节速查
+
+### 分号 `;`
+
+需要加分号：
+
+```text
+variable declaration
+method call
+return
+import
+new statement
+break / continue
+do-while 结尾
+```
+
+不加分号：
+
+```text
+class declaration
+method declaration
+if / else
+for
+while
+switch
+interface
+enum
+单独的右花括号 }
+```
+
+重点坑：
+
+```java
+if (x > 0); {
+    ...
+}
+```
+
+这个多出来的 `;` 会让 `if` 变成空语句，后面的 `{ ... }` 无论如何都会执行。`for` 后面误加分号也类似。
+
+### 括号
+
+| 括号 | 用途 | 例子 |
+|---|---|---|
+| `( )` | method 参数、条件、casting | `setAge(25)`, `if (x > 0)`, `(int) 3.14` |
+| `{ }` | code block | `class Student { }` |
+| `[ ]` | array 声明和访问 | `int[] nums`, `nums[0]` |
+| `< >` | generics | `ArrayList<String>` |
+
+### 命名规则
+
+| 类别 | 规则 | 例子 |
+|---|---|---|
+| Class / Interface | 大写开头，CamelCase | `Student`, `ArrayList` |
+| Method | 小写开头，camelCase | `getName()`, `compareTo()` |
+| Variable | 小写开头，camelCase | `firstName`, `myAge` |
+| Constant (`final`) | 全大写 + 下划线 | `MAX_SIZE`, `PI` |
+| Enum value | 全大写 | `SPRING`, `SUMMER` |
+
+### Operator Precedence
+
+从高到低：
+
+```text
+() [] .
+! ++ -- (type)
+* / %
++ -
+< > <= >= instanceof
+== !=
+&&
+||
+= += -=
+```
+
+重点坑：
+
+```text
+&& 优先级高于 ||。
+a || b && c 等于 a || (b && c)，不是 (a || b) && c。
+不确定就加括号。
+```
+
+### Java 文件命名规则
+
+```text
+一个 .java 文件最多只能有一个 public class。
+文件名必须和 public class 名一模一样，大小写敏感。
+```
+
+## 0.9 常见错误速查
+
+| 错误信息 / 现象 | 常见原因与修复 |
+|---|---|
+| `';' expected` | 语句末尾忘了分号 |
+| `cannot find symbol` | 变量/method 名拼错，或者忘了 import |
+| `incompatible types` | 类型不匹配，检查 type 或加 casting |
+| `missing return statement` | 有 return type 的 method 某些路径没有 `return` |
+| `non-static cannot be referenced` | static method 里直接用了 non-static member |
+| `NullPointerException` | 对 `null` 调用了 method；先检查是否 `null`，或先 `new` object |
+| `ArrayIndexOutOfBoundsException` | array index 越界，检查 `0` 到 `length - 1` |
+
+## 0.10 Midterm 题型模板
+
+### 题型 1：补 while loop 条件
+
+例子：在一个 lowercase word 中找第一个 vowel，补全 while condition。
+
+答案模式：
+
+```java
+while (position < word.length() && !found) {
+    ...
+}
+```
+
+解题步骤：
+
+1. 先问：循环什么时候应该停止？
+2. 停止条件通常是：找到了，或者已经查到末尾。
+3. `while` 里写的是继续条件，不是停止条件。
+4. 继续条件 = 还没查完 AND 还没找到。
+
+```text
+还没查完: position < word.length()
+还没找到: !found
+合起来: position < word.length() && !found
+```
+
+### 题型 2：Array 改 ArrayList，哪些部分会变？
+
+核心原则：encapsulation。内部 implementation 变了，但 public interface 和 client code 不应该变。
+
+| 部分 | 会变吗？ | 原因 |
+|---|---|---|
+| instance variables | YES | `String[] + numNames` 变成 `ArrayList<String>` |
+| public method headers | NO | 对外 method signature 不变 |
+| representation invariant | YES | 内部数据结构变了 |
+| public method comments | NO | 对外功能描述不变 |
+| public method implementations | YES | 内部用 ArrayList API 重写 |
+| private helper methods | 通常 YES | 它们依赖内部 representation |
+| client code | NO | 调用方式不变 |
+| class comment | 通常 NO | class 整体功能没变 |
+
 记忆：
 
 ```text
-primitive parameter = copy value
-array parameter = copy reference to same array object
+public API 不变，private implementation 会变。
 ```
 
----
+### 题型 3：Inheritance vs Interface + private access
+
+先背表：
+
+| | Inheritance | Interface |
+|---|---|---|
+| 关键字 | `extends` | `implements` |
+| 多继承 | class 只能 extends 一个 class | class 可以 implements 多个 interfaces |
+| 内容 | 继承代码和状态 | 定义 behavior contract |
+| 关系 | is-a | can-do / 能力合同 |
+
+private access 例子：
+
+```java
+public class Super {
+    private int priv;
+    public int pub;
+}
+
+public class Sub extends Super {
+    public void printSub(Sub sub) {
+        // sub.priv;  // compile error
+        // sub.pub;   // OK
+    }
+}
+```
+
+解决方法：
+
+```text
+方案 A: 把 private 改成 protected。
+方案 B: 在 Super 里加 public getter。
+```
+
+### 题型 4：Array rotateLeft
+
+目标：把 array 左旋转 `k` 位。
+
+解法 1：一个 loop + `%`
+
+```java
+public static int[] rotateLeft(int[] nums, int k) {
+    int[] result = new int[nums.length];
+    k = k % nums.length;
+
+    for (int dest = 0; dest < nums.length; dest++) {
+        result[dest] = nums[(dest + k) % nums.length];
+    }
+
+    return result;
+}
+```
+
+解法 2：两个 loops
+
+```java
+public static int[] rotateLeft(int[] nums, int k) {
+    int[] result = new int[nums.length];
+    k = k % nums.length;
+
+    int dest = 0;
+
+    for (int src = k; src < nums.length; src++) {
+        result[dest++] = nums[src];
+    }
+
+    for (int src = 0; src < k; src++) {
+        result[dest++] = nums[src];
+    }
+
+    return result;
+}
+```
+
+关键：
+
+```text
+k = k % nums.length
+长度 7 左旋 10 位 = 左旋 3 位
+```
+
+### 题型 5：完整 Class 编程模板
+
+写 class 时按这个顺序检查：
+
+```text
+1. public class ClassName { }
+2. private instance variables
+3. constructor: 名字和 class 一样，没有 return type
+4. getters
+5. setters
+6. toString()
+7. equals(Object obj)
+8. compareTo(...) 如果题目要求 Comparable
+9. 每条语句末尾加 ;
+```
+
+### 题型 6：Object output tracing
+
+看到代码追踪题，用内存图：
+
+```text
+看到 new -> 画一个新 object
+看到 object assignment -> 复制 reference，画到同一个 object
+看到 .setXxx() -> 修改 object 内部
+看到 println(object) -> 调用 toString()
+```
+
+## 0.11 考前代码检查清单
+
+写完代码后按顺序检查：
+
+1. 每条 statement 末尾有 `;`。
+2. class name 大写开头；method/variable name 小写开头。
+3. constructor 没有 return type，`void` 也不能写。
+4. instance variables 用 `private`。
+5. 比较 `String` 用 `.equals()`，不用 `==`。
+6. 比较 `double` 用 `Math.abs(a - b) < tolerance`。
+7. array 用 `.length`；String 用 `.length()`；ArrayList 用 `.size()`。
+8. array index 从 0 开始，最后一个是 `length - 1`。
+9. ArrayList 不能直接写 primitive type，要用 wrapper class。
+10. `equals` parameter type 通常是 `Object`。
+11. `compareTo` parameter type 取决于是否使用 generic `Comparable<T>`。
+12. static method 不能直接访问 non-static member。
+13. subclass 不能直接访问 parent class 的 `private` variable。
+
+快速口诀：
+
+```text
+有 new 新对象，没 new 同地址。
+改内部会变，指新不变，primitive 永不变。
+见 String 前算术，见 String 后拼接。
+```
 
 # Part 1 / 10：Interface
 
@@ -2801,7 +3965,7 @@ if current position is null -> insert new node there
        25 46 55 63 70
 ```
 
-**需要复核：** 原始整理中曾把 `63` 放在 `55` 下面，但按照 insertion rule 和 traversal answers，`63` 应该是 `65` 的 left child。
+**已修正说明：** 原始整理中曾把 `63` 放在 `55` 下面；按照 insertion rule 和 traversal answers，`63` 应该是 `65` 的 left child。
 
 ## 9.7 Past Paper Q3 Traversal Answers
 
@@ -3343,6 +4507,9 @@ java.text: NumberFormat, DecimalFormat
 String is immutable: s.concat("berry") 不改变原来的 s
 primitive parameter = copy value
 array parameter = copy reference
+constructor: 名字等于 class 名，没有 return type
+array.length / string.length() / list.size()
+String 比内容用 .equals()
 ```
 
 ## Java OOP
