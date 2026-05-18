@@ -1,17 +1,17 @@
-# ELEC2543 Final 2025 Past Paper Solutions
+# ELEC2543 Final 2025 Past Paper 答案
 
-这份是答案版，不重复抄完整题目。重点写法按 open-book exam 使用：先给最终答案，再给可以直接写进答题纸的解释。
+这份是答案版，不重复抄完整题目。重点写法按开卷考试使用：先给最终答案，再给可以直接写进答题纸的解释。题目选项保留英文原文，解释尽量用普通话；Java 术语例如 Object、Class、Wrapper Class、String、Exception 等保留英文。
 
-## Question 1 Multiple Choice
+## Question 1 选择题
 
 ### Q1(i)
 
-**Answer: a) Java Virtual Machine**
+**答案：a) Java Virtual Machine**
 
-- a) Java Virtual Machine: correct. JVM 负责在某个平台上执行已经编译好的 Java bytecode，也就是 `.class` file。
-- b) Java Compiler: incorrect. Compiler 的工作是把 `.java` source code 编译成 `.class` bytecode，不是执行 bytecode。
-- c) Java Programming Manual: incorrect. Manual 只是文档，不会执行程序。
-- d) Eclipse Editor: incorrect. Eclipse 是 IDE/editor，用来写和运行项目，但它本身不是 Java 语言执行 bytecode 的核心程序。
+- a) Java Virtual Machine：正确。JVM 负责在具体平台上执行已经编译好的 Java bytecode，也就是 `.class` file。
+- b) Java Compiler：错误。Compiler 的工作是把 `.java` source code 编译成 `.class` bytecode，不是执行 bytecode。
+- c) Java Programming Manual：错误。Manual 只是文档，不会执行程序。
+- d) Eclipse Editor：错误。Eclipse 是 IDE/editor，用来写和运行项目，但它本身不是 Java 语言执行 bytecode 的核心程序。
 
 记忆：
 
@@ -22,41 +22,41 @@ JVM executes bytecode.
 
 ### Q1(ii)
 
-**Answer: c) False**
+**答案：c) False**
 
-- a) Null: incorrect for primitive `boolean`. `null` 是 object reference 的默认值。如果题目是 wrapper class `Boolean`，默认值才是 `null`。
-- b) True: incorrect. Java 的 boolean 默认值不是 `true`。
-- c) False: correct. Class field / instance variable / static variable 如果是 primitive `boolean`，默认值是 `false`。
-- d) 0: incorrect. `0` 是 numeric primitive type 例如 `int` 的默认值，不是 boolean 的值。
+- a) Null：错误。对于 primitive `boolean` 来说，默认值不是 `null`。`null` 是 object reference 的默认值。如果题目写的是 Wrapper Class `Boolean`，默认值才是 `null`。
+- b) True：错误。Java 的 `boolean` 默认值不是 `true`。
+- c) False：正确。Class field / instance variable / static variable 如果是 primitive `boolean`，默认值是 `false`。
+- d) 0：错误。`0` 是 numeric primitive type 例如 `int` 的默认值，不是 boolean 的值。
 
-注意：local variable 没有默认值，必须先 assign 才能使用。
+注意：local variable 没有默认值，必须先赋值才能使用。
 
 ### Q1(iii)
 
-**Answer: c) Supports multiple inheritance**
+**答案：c) Supports multiple inheritance**
 
-- a) Platform-independent: incorrect as the answer, because this is a Java feature. Java source code compiled into bytecode, then different platforms use their own JVM to run it.
-- b) High-performance: incorrect as the answer. Java usually被描述为有比较好的 performance，特别是有 JIT compilation。
-- c) Supports multiple inheritance: correct. Java class 不支持 multiple inheritance。一个 class 只能 `extends` 一个 superclass。
-- d) Automatic memory management: incorrect as the answer. Java 有 garbage collection，所以这是 Java feature。
+- a) Platform-independent：不是本题答案，因为这是 Java 的特点。Java source code 会先编译成 bytecode，然后不同平台用各自的 JVM 运行。
+- b) High-performance：不是本题答案。Java 通常被认为有较好的 performance，尤其是有 JIT compilation。
+- c) Supports multiple inheritance：正确。Java 的 Class 不支持 multiple inheritance。一个 Class 只能 `extends` 一个 superclass。
+- d) Automatic memory management：不是本题答案。Java 有 garbage collection，所以这也是 Java 的特点。
 
 重点：
 
 ```java
-class C extends A, B { }      // invalid
-class C implements X, Y { }   // valid if X and Y are interfaces
+class C extends A, B { }      // 不合法
+class C implements X, Y { }   // 如果 X 和 Y 是 interfaces，则合法
 ```
 
 ### Q1(iv)
 
-**Answer: c) java.lang**
+**答案：c) java.lang**
 
-- a) java.util: incorrect. `java.util` 常见的是 `Scanner`, `Random`, `ArrayList`, `HashMap`。
-- b) java.io: incorrect. `java.io` 主要是 file 和 input/output，例如 `File`, `FileReader`, `IOException`。
-- c) java.lang: correct. `System`, `String`, `Math`, `Object` 都在 `java.lang`。
-- d) java.text: incorrect. `java.text` 常用于格式化，例如 `NumberFormat`, `DecimalFormat`。
+- a) java.util：错误。`java.util` 常见的是 `Scanner`, `Random`, `ArrayList`, `HashMap`。
+- b) java.io：错误。`java.io` 主要和 file、input/output 有关，例如 `File`, `FileReader`, `IOException`。
+- c) java.lang：正确。`System`, `String`, `Math`, `Object` 都在 `java.lang`。
+- d) java.text：错误。`java.text` 常用于格式化，例如 `NumberFormat`, `DecimalFormat`。
 
-`java.lang` 会自动 imported，所以平时不需要写：
+`java.lang` 会自动 import，所以平时不需要写：
 
 ```java
 import java.lang.String;
@@ -65,12 +65,12 @@ import java.lang.System;
 
 ### Q1(v)
 
-**Answer: d) Compile-time exception**
+**答案：d) Compile-time exception**
 
-- a) Checked exception: incorrect as the answer. Checked exception 是 Java exception 的正式分类，compiler 会要求你 handle 或 declare。
-- b) Unchecked exception: incorrect as the answer. Unchecked exception 也是 Java exception 分类，compiler 不强制处理。
-- c) Runtime exception: incorrect as the answer. `RuntimeException` 是 unchecked exception 的重要类别。
-- d) Compile-time exception: correct. Java 常见分类是 checked exception / unchecked exception，不把 "compile-time exception" 作为 exception type。
+- a) Checked exception：不是本题答案。Checked exception 是 Java Exception 的正式分类，compiler 会要求你处理，或者在 method header 用 `throws` 声明。
+- b) Unchecked exception：不是本题答案。Unchecked exception 也是 Java Exception 分类，compiler 不强制处理。
+- c) Runtime exception：不是本题答案。`RuntimeException` 是 unchecked exception 的重要类别。
+- d) Compile-time exception：正确。Java 常见分类是 checked exception / unchecked exception，不把 "compile-time exception" 当作正式的 exception type。
 
 例子：
 
@@ -81,31 +81,31 @@ Unchecked / Runtime: NullPointerException, ArithmeticException, ArrayIndexOutOfB
 
 ### Q1(vi)
 
-**Answer: d) All of the above**
+**答案：d) All of the above**
 
-- a) To define a constant: correct but incomplete. `final` variable cannot be reassigned, so it is commonly used for constants.
-- b) To prevent method overriding: correct but incomplete. `final` method cannot be overridden by subclass.
-- c) To prevent inheritance: correct but incomplete. `final` class cannot be extended.
-- d) All of the above: correct. `final` can apply to variables, methods, and classes.
+- a) To define a constant：这个说法正确，但不完整。`final` variable 不能被重新赋值，所以常用于表示 constant。
+- b) To prevent method overriding：这个说法正确，但不完整。`final` method 不能被 subclass override。
+- c) To prevent inheritance：这个说法正确，但不完整。`final` class 不能被其他 Class extend。
+- d) All of the above：正确。`final` 可以用于 variable、method、class，所以前三个都对。
 
-Examples:
+例子：
 
 ```java
 final int MAX = 100;          // constant
-public final void run() { }   // cannot override
-public final class Test { }   // cannot extend
+public final void run() { }   // 不能 override
+public final class Test { }   // 不能 extend
 ```
 
 ### Q1(vii)
 
-**Answer: b) Runtime error**
+**答案：b) Runtime error**
 
-- a) Compilation error: incorrect. A Java class can compile even if it does not contain `main`.
-- b) Runtime error: correct. If you try to run that class directly, Java launcher cannot find the entry point and reports that the main method is missing.
-- c) The program will run normally: incorrect. Without a valid `main`, there is no normal starting point for standalone execution.
-- d) None of the above: incorrect because b is the best answer.
+- a) Compilation error：错误。一个 Java Class 即使没有 `main` method，也可以成功 compile。
+- b) Runtime error：正确。如果你直接运行这个 Class，Java launcher 找不到程序入口，就会报告 main method missing。
+- c) The program will run normally：错误。没有合法的 `main` method，就没有 standalone program 的正常入口。
+- d) None of the above：错误，因为 b 是最合适的答案。
 
-Valid main method:
+合法的 main method：
 
 ```java
 public static void main(String[] args)
@@ -113,26 +113,26 @@ public static void main(String[] args)
 
 ### Q1(viii)
 
-**Answer: a) It refers to the immediate superclass object**
+**答案：a) It refers to the immediate superclass object**
 
-- a) It refers to the immediate superclass object: correct. `super` is used to access superclass constructor, method, or field.
-- b) It refers to the current class object: incorrect. Current object is `this`, not `super`.
-- c) It refers to the constructor: incorrect. `super()` can call superclass constructor, but `super` itself means superclass side of the current object.
-- d) It refers to a static method: incorrect. Static methods belong to class, and `super` is mainly about superclass instance members / constructor calls.
+- a) It refers to the immediate superclass object：正确。`super` 用来访问 immediate superclass 的 constructor、method 或 field。
+- b) It refers to the current class object：错误。当前 object 应该用 `this`，不是 `super`。
+- c) It refers to the constructor：错误。`super()` 可以调用 superclass constructor，但 `super` 本身不是 constructor。
+- d) It refers to a static method：错误。Static method 属于 Class；`super` 主要和 superclass 的 instance member 或 constructor call 有关。
 
-Examples:
+例子：
 
 ```java
-super();          // call superclass constructor
-super.eat();      // call superclass method
-super.name;       // access superclass field if visible
+super();          // 调用 superclass constructor
+super.eat();      // 调用 superclass method
+super.name;       // 如果可见，则访问 superclass field
 ```
 
 ### Q1(ix)
 
-**Answer: d) Compilation Error**
+**答案：d) Compilation Error**
 
-As written:
+按题目原代码：
 
 ```java
 String s = "blue";
@@ -140,29 +140,29 @@ s.concat("berry");
 system.out.println(s);
 ```
 
-- a) blue: would be the output if the last line were `System.out.println(s);`, because `String` is immutable and `concat` returns a new String without changing `s`. But the code as written has `system`, lowercase.
-- b) blueberry: incorrect. Even if `System` were capitalized, `s.concat("berry")` does not modify `s` unless assigned back, for example `s = s.concat("berry");`.
-- c) berry: incorrect. Nothing assigns `"berry"` to `s`.
-- d) Compilation Error: correct. Java is case-sensitive. `System` must start with capital `S`; `system` is not the standard class.
+- a) blue：如果最后一行写的是 `System.out.println(s);`，那输出会是 `blue`，因为 `String` 是 immutable，`concat` 会返回一个新的 String，不会直接改掉原本的 `s`。但题目里写的是小写 `system`。
+- b) blueberry：错误。即使把 `System` 大写，`s.concat("berry")` 也不会直接修改 `s`，除非写成 `s = s.concat("berry");`。
+- c) berry：错误。代码没有把 `"berry"` 赋值给 `s`。
+- d) Compilation Error：正确。Java 大小写敏感，标准 class 是 `System`，不是 `system`。
 
-Exam note: If the teacher treats lowercase `system` as a typo, then the conceptual output would be `blue`. But based on the code exactly printed, the MCQ answer is compilation error.
+考试注意：如果老师把小写 `system` 当作印刷错误，那么概念上会输出 `blue`。但按照题目代码原样判断，MCQ 答案应是 compilation error。
 
 ### Q1(x)
 
-**Answer: a) Result: 1020**
+**答案：a) Result: 1020**
 
-Code:
+代码：
 
 ```java
 System.out.println("Result: " + 10 + 20);
 ```
 
-- a) Result: 1020: correct. Evaluation is left-to-right. Once `"Result: " + 10` becomes a String, the following `+ 20` is also string concatenation.
-- b) Result: 30: incorrect. That would require arithmetic first, such as `"Result: " + (10 + 20)`.
-- c) Result: Error: incorrect. This is valid Java.
-- d) Result: 2010: incorrect. There is no right-to-left concatenation here.
+- a) Result: 1020：正确。`+` 从左到右计算。只要 `"Result: " + 10` 已经变成 String，后面的 `+ 20` 也会继续做 string concatenation。
+- b) Result: 30：错误。要得到 30，必须先做 arithmetic，例如 `"Result: " + (10 + 20)`。
+- c) Result: Error：错误。这段是合法 Java code。
+- d) Result: 2010：错误。这里不会从右往左先算 `20 + 10`。
 
-Key rule:
+关键规则：
 
 ```text
 "Result: " + 10 + 20
@@ -170,20 +170,20 @@ Key rule:
 -> "Result: 1020"
 ```
 
-## Question 2 Program Output
+## Question 2 程序输出
 
 ### Q2(a)
 
-**Output:**
+**输出：**
 
 ```text
 2 3 0 0 10 0
 1 0 10 0 10 0
 ```
 
-Detailed trace:
+详细追踪：
 
-In `main`:
+在 `main` 里面：
 
 ```java
 int y = 1;
@@ -192,19 +192,19 @@ int[] a = new int[4];   // [0, 0, 0, 0]
 mystery(a, y, x);
 ```
 
-The first call is:
+第一次调用是：
 
 ```java
 mystery(a, 1, 3)
 ```
 
-Inside `mystery`, the parameter names are:
+`mystery` 里面的参数名是：
 
 ```java
 public static void mystery(int[] a, int x, int y)
 ```
 
-So inside the first call:
+所以第一次调用进入 method 后：
 
 ```text
 x = 1
@@ -212,38 +212,38 @@ y = 3
 a = [0, 0, 0, 0]
 ```
 
-Since `x < y` is `1 < 3`, the `if` branch runs:
+因为 `x < y` 也就是 `1 < 3` 成立，所以执行 `if` 分支：
 
 ```java
-x++;       // x becomes 2
+x++;       // x 变成 2
 a[x] = 10; // a[2] = 10
 ```
 
-Then it prints:
+然后输出：
 
 ```text
 2 3 0 0 10 0
 ```
 
-Back in `main`:
+回到 `main`：
 
 ```java
 x = y - 1;
 ```
 
-Since `y` in main is still `1`, `x` becomes `0`. The array is still changed because arrays are objects and the method modified the same array:
+因为 main 里面的 `y` 仍然是 `1`，所以 `x` 变成 `0`。array 的内容仍然被保留修改，因为 array 是 object，method 改的是同一个 array：
 
 ```text
 a = [0, 0, 10, 0]
 ```
 
-The second call is:
+第二次调用是：
 
 ```java
 mystery(a, 1, 0)
 ```
 
-Inside the second call:
+第二次调用进入 method 后：
 
 ```text
 x = 1
@@ -251,51 +251,51 @@ y = 0
 a = [0, 0, 10, 0]
 ```
 
-Now `x < y` is `1 < 0`, false, so the `else` branch runs:
+现在 `x < y` 也就是 `1 < 0` 不成立，所以执行 `else` 分支：
 
 ```java
 a[y] = 10;  // a[0] = 10
 ```
 
-Then it prints:
+然后输出：
 
 ```text
 1 0 10 0 10 0
 ```
 
-Important concept:
+重要概念：
 
 ```text
-primitive int parameter: copied value, changing it inside method does not change main's variable.
-array parameter: copied reference, changing array elements affects the original array object.
+primitive `int` 参数：传进去的是值的 copy，所以 method 里面改参数，不会改 main 里面的原变量。
+array 参数：传进去的是 reference 的 copy，所以 method 里面改 array element，会影响原本那个 array object。
 ```
 
 ### Q2(b)
 
-**Output:**
+**输出：**
 
 ```text
 abcde
 ```
 
-Trace:
+过程：
 
-1. `System.out.print("a");` prints `a`.
-2. Enter `try`.
-3. `System.out.print("b");` prints `b`.
-4. `throw new IllegalArgumentException();` throws an exception.
-5. `IllegalArgumentException` is a subclass of `RuntimeException`, so the `catch (RuntimeException e)` block catches it.
-6. Catch block prints `c`.
-7. `finally` always runs, so it prints `d`.
-8. After try-catch-finally finishes, execution continues after the block and prints `e`.
+1. `System.out.print("a");` 输出 `a`。
+2. 进入 `try`。
+3. `System.out.print("b");` 输出 `b`。
+4. `throw new IllegalArgumentException();` 抛出一个 exception。
+5. `IllegalArgumentException` 是 `RuntimeException` 的 subclass，所以 `catch (RuntimeException e)` 可以抓住它。
+6. catch block 输出 `c`。
+7. `finally` 一定会执行，所以输出 `d`。
+8. try-catch-finally 结束后，程序继续执行后面的语句，输出 `e`。
 
-So the output is:
+所以输出是：
 
 ```text
 a b c d e
 ```
 
-Without spaces:
+去掉空格后：
 
 ```text
 abcde
@@ -303,29 +303,29 @@ abcde
 
 ### Q2(c)
 
-**Output if the throw line is commented:**
+**如果 throw 那一行被注释掉，输出是：**
 
 ```text
 abde
 ```
 
-Trace:
+过程：
 
-1. Print `a`.
-2. Enter `try`.
-3. Print `b`.
-4. No exception is thrown.
-5. `catch` is skipped because there is no exception.
-6. `finally` still runs and prints `d`.
-7. After the try-catch-finally block, print `e`.
+1. 输出 `a`。
+2. 进入 `try`。
+3. 输出 `b`。
+4. 没有 exception 被抛出。
+5. 因为没有 exception，所以跳过 `catch`。
+6. `finally` 仍然会执行，并输出 `d`。
+7. try-catch-finally block 结束后，输出 `e`。
 
-So:
+所以：
 
 ```text
 a b d e
 ```
 
-Without spaces:
+去掉空格后：
 
 ```text
 abde
@@ -333,14 +333,14 @@ abde
 
 ### Q2(d)
 
-**Output:**
+**输出：**
 
 ```text
 num1 == num2
 num3 != num4
 ```
 
-Explanation:
+解释：
 
 ```java
 Integer num1 = 100;
@@ -349,45 +349,45 @@ Integer num3 = 500;
 Integer num4 = 500;
 ```
 
-`Integer` is a wrapper class, so variables like `num1` and `num2` are object references. For objects, `==` compares whether two references point to the same object, not whether their values are mathematically equal.
+`Integer` 是 Wrapper Class，所以 `num1`、`num2` 这类变量是 object reference。对 object 来说，`==` 比较的是两个 reference 是否指向同一个 object，不是比较数值是否相等。
 
-However, Java caches many small `Integer` objects, usually from `-128` to `127`. Therefore:
+不过 Java 会 cache 很多小的 `Integer` object，通常范围是 `-128` 到 `127`。所以：
 
 ```java
 Integer num1 = 100;
 Integer num2 = 100;
 ```
 
-usually refer to the same cached object, so:
+通常会指向同一个 cached object，所以：
 
 ```text
 num1 == num2
 ```
 
-For `500`, it is outside the usual cache range, so:
+对于 `500`，它超出常见 cache 范围，所以：
 
 ```java
 Integer num3 = 500;
 Integer num4 = 500;
 ```
 
-usually create / refer to different objects, so:
+通常会创建或指向不同 object，所以：
 
 ```text
 num3 != num4
 ```
 
-Exam-safe note:
+考试保险写法：
 
 ```java
 num3.equals(num4)
 ```
 
-would compare values and return `true`. But `num3 == num4` compares references.
+会比较数值，并返回 `true`。但 `num3 == num4` 比较的是 reference。
 
 ## Question 3 Binary Search Tree
 
-Numbers inserted:
+插入顺序：
 
 ```text
 60, 41, 74, 16, 53, 65, 25, 46, 55, 63, 70
@@ -395,7 +395,7 @@ Numbers inserted:
 
 ### Q3(a)
 
-**Final BST:**
+**最终 BST：**
 
 ```text
             60
@@ -407,7 +407,7 @@ Numbers inserted:
        25 46 55 63 70
 ```
 
-Same tree, written more structurally:
+同一棵树，用结构方式写是：
 
 ```text
 60
@@ -423,33 +423,33 @@ Same tree, written more structurally:
         └── right: 70
 ```
 
-Insertion logic:
+插入逻辑：
 
-- 60 becomes root.
-- 41 < 60, so 41 is left child of 60.
-- 74 > 60, so 74 is right child of 60.
-- 16 < 60 and 16 < 41, so 16 is left child of 41.
-- 53 < 60 but 53 > 41, so 53 is right child of 41.
-- 65 > 60 but 65 < 74, so 65 is left child of 74.
-- 25 < 60, < 41, but > 16, so 25 is right child of 16.
-- 46 < 60, > 41, < 53, so 46 is left child of 53.
-- 55 < 60, > 41, > 53, so 55 is right child of 53.
-- 63 > 60, < 74, < 65, so 63 is left child of 65.
-- 70 > 60, < 74, > 65, so 70 is right child of 65.
+- 60 成为 root。
+- 41 < 60，所以 41 是 60 的 left child。
+- 74 > 60，所以 74 是 60 的 right child。
+- 16 < 60，而且 16 < 41，所以 16 是 41 的 left child。
+- 53 < 60，但 53 > 41，所以 53 是 41 的 right child。
+- 65 > 60，但 65 < 74，所以 65 是 74 的 left child。
+- 25 < 60，25 < 41，但 25 > 16，所以 25 是 16 的 right child。
+- 46 < 60，46 > 41，46 < 53，所以 46 是 53 的 left child。
+- 55 < 60，55 > 41，55 > 53，所以 55 是 53 的 right child。
+- 63 > 60，63 < 74，63 < 65，所以 63 是 65 的 left child。
+- 70 > 60，70 < 74，70 > 65，所以 70 是 65 的 right child。
 
 ### Q3(b)
 
-**Traversal that gives sorted order: inorder traversal.**
+**会得到 sorted order 的 traversal：inorder traversal。**
 
-Inorder means:
+Inorder 的意思是：
 
 ```text
 left subtree -> root -> right subtree
 ```
 
-For a BST, inorder traversal prints values from smallest to largest.
+对 BST 来说，inorder traversal 会按照从小到大的顺序输出数值。
 
-**Result:**
+**结果：**
 
 ```text
 16, 25, 41, 46, 53, 55, 60, 63, 65, 70, 74
@@ -457,81 +457,81 @@ For a BST, inorder traversal prints values from smallest to largest.
 
 ### Q3(c)
 
-**Preorder traversal:**
+**Preorder traversal：**
 
-Preorder means:
+Preorder 的意思是：
 
 ```text
 root -> left subtree -> right subtree
 ```
 
-**Result:**
+**结果：**
 
 ```text
 60, 41, 16, 25, 53, 46, 55, 74, 65, 63, 70
 ```
 
-Trace:
+过程：
 
 ```text
-Visit 60
-Then left subtree of 60: 41, 16, 25, 53, 46, 55
-Then right subtree of 60: 74, 65, 63, 70
+先访问 60
+再访问 60 的 left subtree： 41, 16, 25, 53, 46, 55
+再访问 60 的 right subtree： 74, 65, 63, 70
 ```
 
 ### Q3(d)
 
-**Postorder traversal:**
+**Postorder traversal：**
 
-Postorder means:
+Postorder 的意思是：
 
 ```text
 left subtree -> right subtree -> root
 ```
 
-**Result:**
+**结果：**
 
 ```text
 25, 16, 46, 55, 53, 41, 63, 70, 65, 74, 60
 ```
 
-Trace:
+过程：
 
 ```text
-Left subtree of 60 gives: 25, 16, 46, 55, 53, 41
-Right subtree of 60 gives: 63, 70, 65, 74
-Then root: 60
+60 的 left subtree 给出： 25, 16, 46, 55, 53, 41
+60 的 right subtree 给出： 63, 70, 65, 74
+最后访问 root： 60
 ```
 
 ## Question 4 AVL Tree
 
 ### Q4(a)
 
-**Minimum height of an AVL tree with n nodes:**
+**n 个 nodes 的 AVL tree 最小高度：**
 
-If height is counted by edges:
+如果 height 按 edge 数计算：
 
 ```text
 minimum height = ceil(log2(n + 1)) - 1
 ```
 
-If height is counted by number of levels/nodes on the longest path:
+如果 height 按最长路径上的 level/node 数计算：
 
 ```text
 minimum height = ceil(log2(n + 1))
 ```
 
-Most data structure lectures define height as number of edges on the longest path from root to leaf, so the first formula is usually the expected one.
+多数 data structure 课程把 height 定义为从 root 到 leaf 的最长路径上的 edge 数，所以第一条公式通常是预期答案。
 
-Reason:
+原因：
 
-For any binary tree with height `h` counted by edges, the maximum number of nodes is:
+对于任何 binary tree，如果 height `h` 按 edge 数计算，最多 nodes 数量是：
 
 ```text
 2^(h + 1) - 1
 ```
 
-To store `n` nodes with minimum possible height:
+如果要用尽量小的 height 存下 `n` 个 nodes：
 
 ```text
 n <= 2^(h + 1) - 1
@@ -540,7 +540,7 @@ log2(n + 1) <= h + 1
 h >= log2(n + 1) - 1
 ```
 
-Therefore:
+所以：
 
 ```text
 h = ceil(log2(n + 1)) - 1
@@ -548,7 +548,7 @@ h = ceil(log2(n + 1)) - 1
 
 ### Q4(b)
 
-**Complexities in AVL tree:**
+**AVL tree 的复杂度：**
 
 ```text
 search:    O(log n)
@@ -556,15 +556,15 @@ insertion: O(log n)
 deletion:  O(log n)
 ```
 
-Explanation:
+解释：
 
-An AVL tree keeps itself balanced. The height of the tree is always `O(log n)`, so search follows at most one path from root to leaf, which is `O(log n)`.
+AVL tree 会保持平衡，所以 tree 的 height 一直是 `O(log n)`。Search 最多只需要从 root 走一条路径到 leaf，因此是 `O(log n)`。
 
-Insertion and deletion first do normal BST insertion/deletion along a root-to-leaf path, then rebalance on the way back using rotations. The number of checked ancestors is proportional to height, and each rotation is `O(1)`, so insertion and deletion are also `O(log n)`.
+Insertion 和 deletion 会先按照普通 BST 规则沿着 root-to-leaf path 操作，然后回溯时用 rotation 重新平衡。需要检查的 ancestors 数量和 height 成正比，而每次 rotation 是 `O(1)`，所以 insertion 和 deletion 也是 `O(log n)`。
 
 ### Q4(c)
 
-Initial AVL tree:
+初始 AVL tree：
 
 ```text
         60
@@ -574,15 +574,15 @@ Initial AVL tree:
         80     120
 ```
 
-Insert `70` using normal BST rule:
+按照普通 BST 规则插入 `70`：
 
 ```text
-70 > 60, go right to 100
-70 < 100, go left to 80
-70 < 80, insert as left child of 80
+70 > 60，往右走到 100
+70 < 100，往左走到 80
+70 < 80，插入为 80 的 left child
 ```
 
-Tree immediately after insertion:
+插入后暂时得到：
 
 ```text
         60
@@ -594,26 +594,26 @@ Tree immediately after insertion:
      70
 ```
 
-Now check balance:
+现在检查 balance：
 
-- Node 80 is still balanced: left height 0, right height -1 if empty tree has height -1.
-- Node 100 is still balanced: left subtree height 1, right subtree height 0.
-- Node 60 becomes unbalanced: left subtree height 0, right subtree height 2, difference is 2.
+- Node 80 仍然平衡：left height 是 0；如果 empty tree height 记作 -1，那么 right height 是 -1。
+- Node 100 仍然平衡：left subtree height 是 1，right subtree height 是 0。
+- Node 60 变得不平衡：left subtree height 是 0，right subtree height 是 2，差值是 2。
 
-The inserted value went to:
+新插入的值走的是：
 
 ```text
 right child of 60 -> left child of 100
 ```
 
-So this is a **Right-Left (RL) case** at node 60.
+所以这是 node 60 上的 **Right-Left (RL) case**。
 
-For RL case, use two rotations:
+RL case 要做两次 rotation：
 
-1. Right rotation at 100.
-2. Left rotation at 60.
+1. 先在 100 做 right rotation。
+2. 再在 60 做 left rotation。
 
-Step 1: right rotation at 100:
+Step 1：在 100 做 right rotation：
 
 ```text
         60
@@ -625,7 +625,7 @@ Step 1: right rotation at 100:
                 120
 ```
 
-Step 2: left rotation at 60:
+Step 2：在 60 做 left rotation：
 
 ```text
           80
@@ -635,7 +635,7 @@ Step 2: left rotation at 60:
    20    70      120
 ```
 
-**Final updated AVL tree:**
+**最终更新后的 AVL tree：**
 
 ```text
           80
@@ -645,15 +645,15 @@ Step 2: left rotation at 60:
    20    70      120
 ```
 
-Check final tree:
+检查最终 tree：
 
-- Node 60 has children 20 and 70, balanced.
-- Node 100 has right child 120 only, balanced.
-- Root 80 has left subtree height 1 and right subtree height 1, balanced.
+- Node 60 有 children 20 和 70，平衡。
+- Node 100 只有 right child 120，仍然平衡。
+- Root 80 的 left subtree height 和 right subtree height 都是 1，平衡。
 
 ## Question 5 Sorting
 
-Array:
+数组：
 
 ```text
 2, 6, 5, 7, 9, 8, 3, 4
@@ -661,37 +661,37 @@ Array:
 
 ### Q5(a) Merge Sort
 
-Merge sort idea:
+Merge Sort 思路：
 
 ```text
-split into halves -> sort each half -> merge sorted halves
+分成左右两半 -> 分别 sort -> merge 两个 sorted halves
 ```
 
-Steps:
+步骤：
 
 ```text
 [2, 6, 5, 7, 9, 8, 3, 4]
 
-Split:
+拆分：
 [2, 6, 5, 7]            [9, 8, 3, 4]
 
-Split again:
+继续拆分：
 [2, 6] [5, 7]           [9, 8] [3, 4]
 
-Split to single elements:
+拆到 single element：
 [2] [6] [5] [7]         [9] [8] [3] [4]
 
-Merge pairs:
+两两 merge：
 [2, 6] [5, 7]           [8, 9] [3, 4]
 
-Merge halves:
+merge 两个 half：
 [2, 5, 6, 7]            [3, 4, 8, 9]
 
-Final merge:
+最终 merge：
 [2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-Final sorted array:
+最终 sorted array：
 
 ```text
 2, 3, 4, 5, 6, 7, 8, 9
@@ -699,15 +699,15 @@ Final sorted array:
 
 ### Q5(b) Quick Sort
 
-Since the question does not specify the pivot rule, use a clear common rule: **choose the first element as pivot**.
+题目没有指定 pivot rule，所以这里用一个清楚常见的规则：**选择第一个 element 作为 pivot**。
 
-Quick sort idea:
+Quick Sort 思路：
 
 ```text
-choose pivot -> partition smaller values to left and larger values to right -> recursively sort both sides
+选择 pivot -> 把较小值 partition 到左边、较大值 partition 到右边 -> 递归 sort 左右两边
 ```
 
-Steps:
+步骤：
 
 ```text
 [2, 6, 5, 7, 9, 8, 3, 4]
@@ -717,7 +717,7 @@ right = [6, 5, 7, 9, 8, 3, 4]
 => [] 2 [6, 5, 7, 9, 8, 3, 4]
 ```
 
-Sort the right side:
+Sort 右边部分：
 
 ```text
 [6, 5, 7, 9, 8, 3, 4]
@@ -727,7 +727,7 @@ right = [7, 9, 8]
 => [5, 3, 4] 6 [7, 9, 8]
 ```
 
-Sort `[5, 3, 4]`:
+Sort `[5, 3, 4]`：
 
 ```text
 [5, 3, 4]
@@ -737,7 +737,7 @@ right = []
 => [3, 4] 5 []
 ```
 
-Sort `[3, 4]`:
+Sort `[3, 4]`：
 
 ```text
 [3, 4]
@@ -748,13 +748,13 @@ right = [4]
 => [3, 4]
 ```
 
-So the left part of 6 becomes:
+所以 6 的左边部分变成：
 
 ```text
 [3, 4, 5]
 ```
 
-Sort `[7, 9, 8]`:
+Sort `[7, 9, 8]`：
 
 ```text
 [7, 9, 8]
@@ -764,7 +764,7 @@ right = [9, 8]
 => [] 7 [9, 8]
 ```
 
-Sort `[9, 8]`:
+Sort `[9, 8]`：
 
 ```text
 [9, 8]
@@ -775,80 +775,80 @@ right = []
 => [8, 9]
 ```
 
-So the right part of 6 becomes:
+所以 6 的右边部分变成：
 
 ```text
 [7, 8, 9]
 ```
 
-Combine:
+合并：
 
 ```text
 [] 2 [3, 4, 5, 6, 7, 8, 9]
 => [2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-Final sorted array:
+最终 sorted array：
 
 ```text
 2, 3, 4, 5, 6, 7, 8, 9
 ```
 
-Exam note: Quick Sort 的中间步骤可能因为 pivot choice 不同而不同。只要 partition 逻辑合理，最后 sorted result 一样。
+考试注意：Quick Sort 的中间步骤可能因为 pivot choice 不同而不同。只要 partition 逻辑合理，最后 sorted result 一样。
 
 ### Q5(c)
 
-**Merge Sort average time complexity:**
+**Merge Sort average time complexity：**
 
 ```text
 O(n log n)
 ```
 
-**Merge Sort worst case time complexity:**
+**Merge Sort worst case time complexity：**
 
 ```text
 O(n log n)
 ```
 
-Reason:
+原因：
 
-Merge Sort always splits the array into two halves, giving about `log n` levels. At each level, merging all elements together costs `O(n)`. Therefore:
+Merge Sort 每次都会把 array 分成两半，所以大约有 `log n` 层。每一层把所有 elements merge 起来，总成本是 `O(n)`。所以：
 
 ```text
-O(n) per level * O(log n) levels = O(n log n)
+每层 O(n) * O(log n) 层 = O(n log n)
 ```
 
-This does not depend much on whether the input is already sorted or not, so average and worst case are both `O(n log n)`.
+这个复杂度不太依赖 input 原本是不是 sorted，所以 average case 和 worst case 都是 `O(n log n)`。
 
 ### Q5(d)
 
-**Quick Sort average time complexity:**
+**Quick Sort average time complexity：**
 
 ```text
 O(n log n)
 ```
 
-**Quick Sort worst case time complexity:**
+**Quick Sort worst case time complexity：**
 
 ```text
 O(n^2)
 ```
 
-Reason:
+原因：
 
-In the average case, the pivot splits the array reasonably evenly, so there are about `log n` levels and each level does `O(n)` partition work:
+Average case 里，pivot 通常能把 array 分得比较平均，所以大约有 `log n` 层；每一层做 `O(n)` 的 partition 工作：
 
 ```text
 average = O(n log n)
 ```
 
-In the worst case, the pivot is always the smallest or largest element, so the split is extremely unbalanced:
+Worst case 里，pivot 每次都刚好是最小或最大 element，导致 partition 极度不平衡：
 
 ```text
-n-1 elements on one side, 0 elements on the other side
+一边有 n-1 个 elements，另一边有 0 个 elements
 ```
 
-Then the work becomes:
+那么总工作量变成：
 
 ```text
 n + (n - 1) + (n - 2) + ... + 1 = O(n^2)
@@ -858,7 +858,7 @@ n + (n - 1) + (n - 2) + ... + 1 = O(n^2)
 
 ### Q6(a)
 
-One correct implementation:
+一种正确写法：
 
 ```java
 class Animal {
@@ -882,29 +882,29 @@ class Fish extends Animal {
 }
 ```
 
-Explanation:
+解释：
 
-- `Animal` is the superclass.
-- `Bird extends Animal`, so Bird is a subclass of Animal.
-- `Fish extends Animal`, so Fish is also a subclass of Animal.
-- Both `Bird` and `Fish` override `eat()`.
-- When the subclass version of `eat()` is called, Java uses the overridden method in the subclass.
+- `Animal` 是 superclass。
+- `Bird extends Animal` 表示 Bird 是 Animal 的 subclass。
+- `Fish extends Animal` 表示 Fish 也是 Animal 的 subclass。
+- `Bird` 和 `Fish` 都 override 了 `eat()`。
+- 调用 `eat()` 时，如果 actual object 是 subclass object，Java 会执行 subclass 里面 override 后的 method。
 
-Example test:
+测试例子：
 
 ```java
 Animal a1 = new Bird();
 Animal a2 = new Fish();
 
-a1.eat();  // The bird is eating worms
-a2.eat();  // The fish is eating shrimps
+a1.eat();  // 输出：The bird is eating worms
+a2.eat();  // 输出：The fish is eating shrimps
 ```
 
-This demonstrates polymorphism: the variable type can be `Animal`, but the actual object decides which overridden method runs.
+这体现了 polymorphism：变量类型可以写成 `Animal`，但真正运行哪个 overridden method，由 actual object 决定。
 
 ### Q6(b)
 
-One correct implementation:
+一种正确写法：
 
 ```java
 interface Animal {
@@ -928,43 +928,43 @@ class Eagle implements Animal, Wings {
 }
 ```
 
-Example test:
+测试例子：
 
 ```java
 Eagle eagle = new Eagle();
-eagle.eat();  // The eagle is eating
-eagle.fly();  // The eagle is flying
+eagle.eat();  // 输出：The eagle is eating
+eagle.fly();  // 输出：The eagle is flying
 ```
 
-Explanation:
+解释：
 
-- `Animal` is an interface with the required behavior `eat()`.
-- `Wings` is another interface with the required behavior `fly()`.
-- `Eagle implements Animal, Wings`, meaning Eagle promises to provide both methods.
-- Java class can implement multiple interfaces, so this avoids the single-inheritance limitation of classes.
+- `Animal` 是一个 interface，规定必须有 `eat()` 这个行为。
+- `Wings` 是另一个 interface，规定必须有 `fly()` 这个行为。
+- `Eagle implements Animal, Wings` 表示 Eagle 承诺会实现这两个 interfaces 里面要求的 methods。
+- Java 的 Class 可以 implement 多个 interfaces，所以这可以避开 Class 只能 single inheritance 的限制。
 
 ### Q6(c)
 
-**Preferred answer: interfaces, if the goal is flexibility.**
+**偏好的答案：如果目标是灵活性，我更推荐 interfaces。**
 
-Reason:
+原因：
 
-Java only allows a class to extend one superclass, but it allows a class to implement multiple interfaces. In this question, `Eagle` needs both eating behavior and flying behavior. Interfaces are better for modeling abilities or contracts such as `eat()` and `fly()`, because one class can combine several abilities.
+Java 只允许一个 Class extend 一个 superclass，但允许一个 Class implement 多个 interfaces。在这题里，`Eagle` 既需要 eating behavior，也需要 flying behavior。Interfaces 更适合表达 ability 或 contract，例如 `eat()` 和 `fly()`，因为一个 Class 可以组合多个 abilities。
 
-A good exam answer:
+可以直接写进考试的答案：
 
 ```text
-I prefer the interface implementation because it is more flexible. Java does not support multiple inheritance for classes, so a class can only extend one superclass. However, a class can implement multiple interfaces. In this example, Eagle can implement both Animal and Wings, so it can have both eat() and fly() behavior. Interfaces are suitable when we want to define required methods without forcing all classes to share the same superclass implementation.
+我更推荐 interface implementation，因为它更灵活。Java 不支持 Class 的 multiple inheritance，所以一个 Class 只能 extend 一个 superclass。但是一个 Class 可以 implement 多个 interfaces。在这个例子里，Eagle 可以同时 implement Animal 和 Wings，所以它可以同时有 eat() 和 fly() 行为。Interfaces 适合用来规定必须实现的方法，而不强迫所有 Class 共享同一个 superclass implementation。
 ```
 
-However, inheritance is still useful when subclasses truly share common code:
+不过，如果 subclasses 真的需要共享 common code，inheritance 仍然有用：
 
 ```text
-If Bird and Fish share common fields or methods from Animal, class inheritance is useful because it expresses an is-a relationship and supports code reuse.
+如果 Bird 和 Fish 需要共享 Animal 里面的 common fields 或 methods，那么 class inheritance 有用，因为它表达的是 is-a relationship，并且可以 code reuse。
 ```
 
-So the balanced final answer:
+所以比较完整的最终答案是：
 
 ```text
-Use class inheritance when there is a strong is-a relationship and shared implementation. Use interfaces when the design is based on abilities or when a class needs to combine multiple behaviors. For this question, I prefer interfaces because Eagle can implement both Animal and Wings.
+当对象之间有强烈的 is-a relationship，而且需要 shared implementation 时，用 class inheritance。 当设计重点是 abilities，或者一个 Class 需要组合多个 behaviors 时，用 interfaces。对这题来说，我更推荐 interfaces，因为 Eagle 可以同时 implement Animal 和 Wings。
 ```
