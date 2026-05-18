@@ -9,9 +9,96 @@
 ## 0. 使用方式
 
 - 先看 **Past Paper 速查表**，快速定位题目对应的知识点。
+- 如果不知道某道题属于哪一类，先查 **0.2 问题快查表**。
 - 再到对应的 **Part** 查看完整解释、代码和手算步骤。
 - 代码块、输出结果、Java 关键字和算法名称保持英文，方便考试时直接对照题目。
 - 标记为 **需要复核** 的地方，表示原始资料里前后有不一致，最终版应再对照 Past Paper 或 lecture slides。
+
+---
+
+### 0.1 多层级目录
+
+这份笔记按“先定位题型，再进入对应知识点”的方式组织。一级目录告诉你大方向；二级目录告诉你具体章节；三级目录告诉你最常查的小点。
+
+| 一级目录 | 二级目录 | 三级目录 / 重点小节 | 适合什么时候查 |
+|---|---|---|---|
+| 0. 使用方式与索引 | 0.1 多层级目录 | 本表 | 不知道整份资料怎么用时 |
+| 0. 使用方式与索引 | 0.2 问题快查表 | 按问题定位章节 | 看到题目但不知道查哪里时 |
+| 1. 整体考试地图 | 1.1 Past Paper 2025 考点分布 | Q1-Q6 对应知识点 | 想知道每道大题考什么时 |
+| 1. 整体考试地图 | 1.2 10 个 Part 总览 | 10 个复习模块 | 想按章节系统复习时 |
+| 2. Past Paper 速查表 | Q1-Q5 关键答案 | MCQ/output/BST/AVL/sorting 答案 | 考前快速背答案时 |
+| 3. Java Basics / Output Tracing | 3.1-3.6 | JVM、default value、package、`final`、`String`、array/reference | Q1 MCQ 或 Q2(a) output tracing |
+| Part 1. Interface | 1.1-1.8 | interface 默认规则、`implements`、多 interfaces、`Comparable` | Q6 interface 或 `Comparable` 题 |
+| Part 2. Inheritance | 2.1-2.11 | `extends`、`protected`、`this/super`、overriding、abstract class | Q6 inheritance / abstract class 题 |
+| Part 3. Polymorphism | 3.1-3.7 | late binding、declared type、casting、interface polymorphism | 看到 parent reference 指向 child object 时 |
+| Part 4. Exceptions | 4.1-4.11 | `try-catch-finally`、propagation、checked/unchecked、`throw` | Q1 exception MCQ 或 Q2(b)(c) output |
+| Part 5. Recursion | 5.1-5.8 | base case、factorial、sum、maze、Towers of Hanoi | 递归概念题或理解 merge/quick sort 前置知识 |
+| Part 6. Sorting I | 6.1-6.9 | Bubble、Insertion、Selection、Big-O | 简单 sorting 和 complexity 基础 |
+| Part 7. Sorting II | 7.1-7.11 | Merge Sort、Quick Sort、Past Paper array、complexity | Q5 手算 sorting 或复杂度 |
+| Part 8. Data Structures | 8.1-8.12 | Linked List、Queue、Stack、Graph、Generics | stack/queue/linked list 概念题 |
+| Part 9. Trees & BST | 9.1-9.10 | traversal、BST insertion、Past Paper Q3、deletion | Q3 BST 画图和 traversal |
+| Part 10. Advanced Trees | 10.1-10.11 | AVL height、AVL rotation、insert 70、Heap、Heap Sort | Q4 AVL 或 heap 题 |
+| 最后一页速查 | Java Basics / OOP / Sorting / Trees | 最短公式表 | 打印后最后几分钟快速扫 |
+
+### 0.2 问题快查表：遇到什么问题查哪里？
+
+| 你遇到的问题 / 题目关键词 | 先查哪里 | 具体位置 |
+|---|---|---|
+| JVM 是什么？Java 怎么执行？ | Java Basics | 第 3 大条 -> 3.1 Java 执行流程和 JVM |
+| `boolean` 默认值是什么？`Boolean` 呢？ | Java Basics | 第 3 大条 -> 3.2 Default Values |
+| `System`、`String`、`Scanner`、`IOException` 在哪个 package？ | Java Basics | 第 3 大条 -> 3.3 Package 记忆 |
+| `final` 能做什么？ | Java Basics | 第 3 大条 -> 3.4 `final` Keyword |
+| `String.concat()` 为什么没有改变原来的 string？ | Java Basics | 第 3 大条 -> 3.5 `String` Immutable、`concat()` 和拼接 |
+| `"Result: " + 10 + 20` 输出什么？ | Java Basics | 第 3 大条 -> 3.5 `String` Immutable、`concat()` 和拼接 |
+| method 传 `int` 和传 `int[]` 有什么区别？ | Java Basics | 第 3 大条 -> 3.6 Method 参数、Primitive 和 Array Reference |
+| Q2(a) array output tracing 怎么做？ | Java Basics | 第 3 大条 -> 3.6 Method 参数、Primitive 和 Array Reference |
+| interface 是什么？method 为什么没有 body？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
+| interface method 默认是什么 modifier？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
+| interface variable 默认是什么？ | Interface | Part 1 -> 1.1 什么是 Interface？ |
+| class 怎样实现 interface？ | Interface | Part 1 -> 1.2 怎样 implement 一个 Interface？ |
+| interface 能不能当作 variable type 或 parameter type？ | Interface | Part 1 -> 1.3 / 1.4 |
+| Java 能不能 class 多继承？能不能 implements 多个 interfaces？ | Interface / Inheritance | Part 1 -> 1.5 一个 Class 可以 implement 多个 Interfaces |
+| `Comparable` 是什么？`compareTo` 返回值怎么看？ | Interface | Part 1 -> 1.6 `Comparable` |
+| `extends` 是什么？inheritance 的 is-a 关系是什么？ | Inheritance | Part 2 -> 2.1 / 2.2 |
+| `private` 和 `protected` 在 subclass 中有什么区别？ | Inheritance | Part 2 -> 2.3 `protected` |
+| `this` 和 `super` 怎么区分？ | Inheritance | Part 2 -> 2.4 `super` |
+| `super()` 必须写在哪里？ | Inheritance | Part 2 -> 2.4 `super` |
+| Overloading 和 Overriding 怎么区分？ | Inheritance | Part 2 -> 2.6 Overloading vs Overriding |
+| abstract class 和 interface 有什么区别？ | Inheritance | Part 2 -> 2.9 Abstract Class |
+| parent class reference 指向 child object 时，调用哪个 method？ | Polymorphism | Part 3 -> 3.2 Late Binding |
+| 为什么 reference type 是 parent/interface 时，不能调用 child 独有 method？ | Polymorphism | Part 3 -> 3.2 Late Binding |
+| upcasting / downcasting 是什么？ | Polymorphism | Part 3 -> 3.4 References 和 Inheritance |
+| `try-catch-finally` 有 exception 时怎么输出？ | Exceptions | Part 4 -> 4.4 `finally` / 4.5 Past Paper Q2b/c |
+| `try-catch-finally` 没有 exception 时怎么输出？ | Exceptions | Part 4 -> 4.4 `finally` / 4.5 Past Paper Q2b/c |
+| checked exception 和 unchecked exception 怎么区分？ | Exceptions | Part 4 -> 4.8 Checked vs Unchecked Exceptions |
+| `Compile-time exception` 是不是 Java exception 类型？ | Exceptions | Part 4 -> 4.8 Checked vs Unchecked Exceptions |
+| exception propagation 是什么？ | Exceptions | Part 4 -> 4.6 Exception Propagation |
+| recursion 必须有什么？ | Recursion | Part 5 -> 5.2 两个必要部分 |
+| factorial / sum recursion 怎么 trace？ | Recursion | Part 5 -> 5.3 / 5.4 |
+| Towers of Hanoi 需要几步？ | Recursion | Part 5 -> 5.7 Towers Of Hanoi |
+| Bubble Sort、Insertion Sort、Selection Sort 怎么区分？ | Sorting I | Part 6 -> 6.2 / 6.3 / 6.4 / 6.5 |
+| Big-O 怎么化简？ | Sorting I | Part 6 -> 6.7 Big-O |
+| 为什么简单 sorting 是 `O(n^2)`？ | Sorting I | Part 6 -> 6.8 为什么简单 sorting 是 `O(n^2)`？ |
+| Merge Sort 怎么手算 Past Paper 数组？ | Sorting II | Part 7 -> 7.3 Past Paper 数组 |
+| Merge Sort complexity 是什么？ | Sorting II | Part 7 -> 7.5 Merge Sort Complexity |
+| Quick Sort 用 first element as pivot 怎么手算？ | Sorting II | Part 7 -> 7.7 Past Paper 数组，选择第一个元素作为 pivot |
+| Quick Sort average / worst complexity 是什么？ | Sorting II | Part 7 -> 7.9 Quick Sort Complexity |
+| Linked List 插入时为什么顺序不能反？ | Data Structures | Part 8 -> 8.5 Linked List 基本操作 |
+| Queue 是 FIFO 还是 LIFO？ | Data Structures | Part 8 -> 8.8 Queue |
+| Stack 是 FIFO 还是 LIFO？ | Data Structures | Part 8 -> 8.9 Stack |
+| Preorder / Inorder / Postorder 顺序是什么？ | Trees & BST | Part 9 -> 9.3 Tree Traversal |
+| BST 为什么 inorder 得到 sorted order？ | Trees & BST | Part 9 -> 9.4 Binary Search Tree |
+| Past Paper Q3 BST 怎么画？ | Trees & BST | Part 9 -> 9.6 Past Paper Q3 BST 构造 |
+| Past Paper Q3 traversal 答案是什么？ | Trees & BST | Part 9 -> 9.7 Past Paper Q3 Traversal Answers |
+| BST 删除三种情况是什么？ | Trees & BST | Part 9 -> 9.8 BST Deletion |
+| AVL Tree 的定义是什么？ | Advanced Trees | Part 10 -> 10.2 AVL Definition |
+| AVL Tree 有 `n` 个 nodes 的 minimum height 是什么？ | Advanced Trees | Part 10 -> 10.3 Past Paper Q4a |
+| AVL search/insert/delete complexity 是什么？ | Advanced Trees | Part 10 -> 10.4 Past Paper Q4b |
+| AVL rotation 怎么判断 single / double？ | Advanced Trees | Part 10 -> 10.5 AVL Rotations |
+| Past Paper Q4 插入 `70` 后怎么 rotate？ | Advanced Trees | Part 10 -> 10.6 Past Paper Q4c |
+| Heap 是什么？min-heap root 是什么？ | Advanced Trees | Part 10 -> 10.7 什么是 Heap？ |
+| Heap delete minimum / insert 怎么做？ | Advanced Trees | Part 10 -> 10.8 Heap Operations |
+| Heap 用 array 怎么存？child/parent index 是什么？ | Advanced Trees | Part 10 -> 10.10 Heap 的 Array Implementation |
 
 ---
 
