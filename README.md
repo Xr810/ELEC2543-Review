@@ -2,6 +2,19 @@
 
 ## Notes
 
+- [Lecture 1 Java Introduction Exam Notes](Lecture_01_Java_Introduction_Exam_Notes.md)
+- [Lecture 2 Expression Java Syntax Exam Notes](Lecture_02_Expression_Java_Syntax_Exam_Notes.md)
+- [Lecture 3 Introduction to Classes Exam Notes](Lecture_03_Introduction_to_Classes_Exam_Notes.md)
+- [Lecture 4 Creating Objects Exam Notes](Lecture_04_Creating_Objects_Exam_Notes.md)
+- [Lecture 5 Data Visibility Exam Notes](Lecture_05_Data_Visibility_Exam_Notes.md)
+- [Lecture 6 Class Libraries Exam Notes](Lecture_06_Class_Libraries_Exam_Notes.md)
+- [Lecture 7 Enumerated Type Exam Notes](Lecture_07_Enumerated_Type_Exam_Notes.md)
+- [Lecture 8 Arrays and ArrayList Exam Notes](Lecture_08_Arrays_and_ArrayList_Exam_Notes.md)
+- [Lecture 9 Methods Exam Notes](Lecture_09_Methods_Exam_Notes.md)
+- [Lecture 10 Static Modifier Exam Notes](Lecture_10_Static_Modifier_Exam_Notes.md)
+- [Lecture 11 Object Comparison Exam Notes](Lecture_11_Object_Comparison_Exam_Notes.md)
+- [Lecture 12 Wrapper Classes Exam Notes](Lecture_12_Wrapper_Classes_Exam_Notes.md)
+- [Lecture 13 Interface Exam Notes](Lecture_13_Interface_Exam_Notes.md)
 - [Lecture 14 Inheritance Exam Notes](Lecture_14_Inheritance_Exam_Notes.md)
 - [Lecture 15 Polymorphism Exam Notes](Lecture_15_Polymorphism_Exam_Notes.md)
 - [Lecture 16 Exceptions Exam Notes](Lecture_16_Exceptions_Exam_Notes.md)
