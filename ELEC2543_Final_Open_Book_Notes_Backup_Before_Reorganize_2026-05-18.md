@@ -1,367 +1,24 @@
-# ELEC2543 Final 开卷考试复习资料
+# ELEC2543 Final 开卷考试复习资料草稿
 
-> 范围：Past Paper 2025 + Chapters 1-21。
-> 风格：解释用简体中文；Java keyword / class / sorting / Big-O 等术语保留英文。
-> 重点：Chapters 14 起（**Inheritance → Advanced Trees**）= 主考区，对应本资料 **Part 1-10**。
-> 打印建议：A4 纵向，两面打印。每个 `# Part` 强制换页时，主考区会从奇数页开始。
-
----
-
-```
-╔══════════════════════════════════════════════════════════════════╗
-║              【第 1 张速查卡】Past Paper 2025 速答              ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-**Q1（20分，MCQ）**
-
-| 题 | 答案 | 一句话理由 | 详见 |
-|---|---|---|---|
-| i  | **a) JVM** | JVM 执行编译后的 bytecode | Part 0 → 0.1 |
-| ii | **c) False** | primitive `boolean` 默认 `false`（`Boolean` wrapper 才是 `null`） | Part 0 → 0.1 / 0.4 |
-| iii| **c) Multiple inheritance** | Java class 不支持，只能 `extends` 一个；interface 可多个 | Part 1 → 1.5 |
-| iv | **c) java.lang** | `System` `String` `Math` `Object` 都在 lang | Part 0 → 0.4 |
-| v  | **d) Compile-time exception** | 正式分类只有 checked / unchecked | Part 4 → 4.8 |
-| vi | **d) All of the above** | `final` 可修饰 variable / method / class | Part 0 → 0.1 |
-| vii| **b) Runtime error** | 编译通过，运行时 `main method not found` | Part 0 → 0.1 |
-| viii| **a) immediate superclass object** | `super` 指直接父类 | Part 2 → 2.4 |
-| ix | **a) blue** | `String` 不可变；`concat` 返回新对象，原 `s` 不变 | Part 0 → 0.4 |
-| x  | **a) Result: 1020** | `"..." + 10 + 20` 从左到右，先变 string 再拼接 | Part 0 → 0.4 |
-
-**Q2a（8分，array + method）**
-
-```
-2 3 0 0 10 0
-1 0 10 0 10 0
-```
-要点：第一次 `mystery(a,1,3)` 进 else 分支 → `a[3]=10`；第二次 `mystery(a,1,0)` 进 if → `x++=1`, `a[1]=10`。array 参数是引用，两次调用共享同一个 `a`。详见 Part 0 → 0.3 / 0.6。
-
-**Q2b（4分）**：`abcde`（throw 后被 catch 接住，finally 仍执行）
-**Q2c（4分）**：`abde`（无 exception 时 catch 跳过，finally 仍执行）
-详见 **Part 4 → 4.5**。
-
-**Q2d（4分）**
-
-```
-num1 == num2
-num3 != num4
-```
-原因：`Integer` cache 范围 `-128 ~ 127`，100 命中缓存返回同一对象，500 超出返回不同对象。详见 **Part 0 → 0.7**。
-
-**Q3（20分，BST: 60, 41, 74, 16, 53, 65, 25, 46, 55, 63, 70）**
-
-```
-              60
-            /    \
-          41      74
-         /  \    /
-        16   53  65
-          \  / \  / \
-          25 46 55 63 70
-```
-
-插入顺序口诀：每个新值从 root 比，小走左、大走右，落空就放下。
-（25 是 16 的 right child，46 是 53 的 left child，55 是 53 的 right child，63 是 65 的 left child，70 是 65 的 right child。）
-
-| 题 | 答案 |
-|---|---|
-| b) Inorder | `16, 25, 41, 46, 53, 55, 60, 63, 65, 70, 74` |
-| c) Preorder | `60, 41, 16, 25, 53, 46, 55, 74, 65, 63, 70` |
-| d) Postorder | `25, 16, 46, 55, 53, 41, 63, 70, 65, 74, 60` |
-
-详见 **Part 9 → 9.6 / 9.7**。
-
-**Q4（14分，AVL Tree）**
-
-| 题 | 答案 |
-|---|---|
-| a) min height (n nodes) | `⌊log₂ n⌋` |
-| b) search / insert / delete | 全部 `O(log n)` |
-| c) 插入 70 后 | **RL case** → 先对 100 做 right rotation，再对 60 做 left rotation |
-
-c) 最终 tree:
-```
-        80
-       /  \
-      60   100
-     / \     \
-    20 70    120
-```
-详见 **Part 10 → 10.3-10.6**。
-
-**Q5（16分，数组 2, 6, 5, 7, 9, 8, 3, 4）**
-
-| 题 | 答案要点 |
-|---|---|
-| a) Merge Sort 步骤 | 拆分至单元素 → 两两合并 → 最终 `2 3 4 5 6 7 8 9` |
-| b) Quick Sort 步骤 | 选 2 为 pivot → `[] [2] [6,5,7,9,8,3,4]` → 递归 |
-| c) Merge Sort | Average = Worst = **O(n log n)** |
-| d) Quick Sort | Average = **O(n log n)**，Worst = **O(n²)** |
-
-详见 **Part 7 → 7.3 (Merge) / 7.7 (Quick)**。
-
-**Q6（10分，Animal + Bird + Fish + Eagle）** → 见下方【第 3 张速查卡】现成代码。
+> 状态：可继续修改的打印草稿。
+> 范围：Past Paper 2025 + Chapters 13-21 的复习整理。
+> 风格：解释性文字用简体中文；Java 关键字、class、object、sorting、Big-O 等考试术语保留英文。
+> Merge working copy：这是从主笔记复制出来的融合草稿；原始 `ELEC2543_Final_Open_Book_Notes_Draft.md` 没有直接修改。
+> 本轮 merge 来源：`Libera-sudo/ELEC2543-Course-Notes`。目前先合入高价值缺口，不覆盖原有结构。
 
 ---
 
-```
-╔══════════════════════════════════════════════════════════════════╗
-║      【第 2 张速查卡】公式 / 复杂度 / 数据结构 一页背完         ║
-╚══════════════════════════════════════════════════════════════════╝
-```
+## 0. 使用方式
 
-**Sorting 复杂度（必背）**
-
-| Algorithm | Best | Average | Worst | Stable | 备注 |
-|---|---|---|---|---|---|
-| Bubble | O(n) | O(n²) | O(n²) | ✓ | 简单 |
-| Insertion | O(n) | O(n²) | O(n²) | ✓ | 接近有序时快 |
-| Selection | O(n²) | O(n²) | O(n²) | ✗ | 交换最少 |
-| Merge | O(n log n) | O(n log n) | O(n log n) | ✓ | 稳定但需 extra space |
-| Quick | O(n log n) | O(n log n) | **O(n²)** | ✗ | pivot 选最大/最小退化 |
-| Heap | O(n log n) | O(n log n) | O(n log n) | ✗ | in-place |
-
-**Tree Traversal（必背口诀）**
-
-```
-Preorder  = Root → Left → Right       (根左右)
-Inorder   = Left → Root → Right       (左根右) ← BST 得 sorted
-Postorder = Left → Right → Root       (左右根)
-Level     = 一层一层从左到右           (BFS, 用 queue)
-```
-
-**BST 规则**
-
-```
-left subtree 所有值 < node value
-right subtree 所有值 ≥ node value
-插入：从 root 比较，小走左，大走右，到 null 就放
-inorder ⇒ 升序排列
-```
-
-**AVL Rotation 四种 case（看新插入 node 在哪边）**
-
-| Case | 触发条件 | 操作 |
-|---|---|---|
-| **LL** | 不平衡 node 的 left-left 太高 | 对当前 node 做 1 次 **right** rotation |
-| **RR** | 不平衡 node 的 right-right 太高 | 对当前 node 做 1 次 **left** rotation |
-| **LR** | left-right 太高 | 先对 left child **left** rotation，再对 node **right** rotation |
-| **RL** | right-left 太高 | 先对 right child **right** rotation，再对 node **left** rotation |
-
-记忆：**同侧 single，异侧 double**。Past Paper Q4c 是 **RL case**。
-
-**AVL 其它公式**
-
-```
-n 个 node 的 min height = ⌊log₂ n⌋
-height(空树) = -1, height(单 node) = 0
-height h 的 binary tree 最多 2^(h+1) - 1 个 node
-search / insert / delete 都是 O(log n)
-```
-
-**Heap（默认 min-heap）**
-
-```
-complete binary tree + heap property
-min-heap: 每个 node ≤ 它的所有 children
-root = 最小值
-insert：放末尾 → 向上比 parent 小就交换 (sift up)
-deleteMin：末尾顶替 root → 向下与较小 child 交换 (sift down)
-array index: left=2i+1, right=2i+2, parent=(i-1)/2
-Heap Sort = O(n log n)
-```
-
-**Huffman Coding**
-
-```
-每次合并 frequency 最小的两棵 trees
-高频字符 → 短 code（靠近 root）
-prefix code：无歧义解码
-left edge=0, right edge=1（约定即可）
-```
-
-**Big-O（按速度从快到慢）**
-
-```
-O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
-```
-
-**Exception 输出模板（Past Paper 直接套）**
-
-```
-try 内 throw + 被 catch：try 截断 → catch → finally → 后续
-try 内 throw + 未被 catch：try 截断 → finally → 程序终止（无后续）
-try 无 throw：try 全跑 → 跳过 catch → finally → 后续
-```
-
-**Integer / String 陷阱**
-
-```
-Integer cache: -128 ~ 127 命中缓存，== 为 true；超出范围 == 为 false
-String 不可变：s.concat("x")、s.replace(...) 返回新对象，原 s 不变
-String == 比 reference，比内容用 .equals()
-"x" + 1 + 2 → "x12"（从左到右）
-1 + 2 + "x" → "3x"（先算数再拼）
-```
+- 先看 **Past Paper 速查表**，快速定位题目对应的知识点。
+- 如果不知道某道题属于哪一类，先查 **0.2 问题快查表**。
+- 再到对应的 **Part** 查看完整解释、代码和手算步骤。
+- 代码块、输出结果、Java 关键字和算法名称保持英文，方便考试时直接对照题目。
+- 我已经把目前发现的前后不一致处改成了明确说明；后续如果新增资料，再按同样方式归并和复查。
 
 ---
 
-```
-╔══════════════════════════════════════════════════════════════════╗
-║          【第 3 张速查卡】Q6 现成代码（直接抄进答题纸）         ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-**Q6(a) — 用 inheritance 实现 Animal / Bird / Fish**
-
-```java
-class Animal {
-    public void eat() {
-        System.out.println("The animal is eating");
-    }
-}
-
-class Bird extends Animal {
-    @Override
-    public void eat() {
-        System.out.println("The bird is eating worms");
-    }
-}
-
-class Fish extends Animal {
-    @Override
-    public void eat() {
-        System.out.println("The fish is eating shrimps");
-    }
-}
-```
-
-**Q6(b) — 用 interface 实现 Animal + Wings → Eagle**
-
-```java
-interface Animal {
-    public void eat();
-}
-
-interface Wings {
-    public void fly();
-}
-
-class Eagle implements Animal, Wings {
-    @Override
-    public void eat() {
-        System.out.println("The eagle is eating");
-    }
-
-    @Override
-    public void fly() {
-        System.out.println("The eagle is flying");
-    }
-}
-```
-
-**Q6(c) — 哪种好？答题模板（4 分作答框架）**
-
-> 在这道题中我更倾向于使用 **interface**。原因有三：
->
-> 1. **Java 不支持 class 的 multiple inheritance**，但允许一个 class 同时 `implements` 多个 interfaces。`Eagle` 既要会 `eat` 又要会 `fly`，这两种行为来自不同维度，用两个 interface 自然组合。
-> 2. Interface 强调 **行为契约 (behavior contract)**，不强制共享实现。`Animal` 和 `Wings` 之间没有 is-a 关系，硬塞进 inheritance 树会破坏单继承结构。
-> 3. Inheritance 适合 **强 is-a 关系且需要共享实现** 的场合，例如所有动物都默认会 eat 时，用 `class Animal` + 覆盖更省代码。如果只是规定"必须有 eat / fly"，interface 更灵活。
->
-> 结论：**Eagle 这种"多技能组合"用 interface；如果题目只要 Bird/Fish 都覆盖父类同一方法，inheritance 更省代码。**
-
----
-
-```
-╔══════════════════════════════════════════════════════════════════╗
-║              【第 4 张速查卡】高频易错点 TOP 10                 ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-| # | 易错点 | 正确处理 |
-|---|---|---|
-| 1 | `String.concat()` / `replace()` 不改原对象 | `s = s.concat("x")` 才有效 |
-| 2 | `"R: " + 10 + 20` ≠ `30` | 从左到右 → `"R: 1020"` |
-| 3 | `Integer 100 == 100` true，`500 == 500` false | cache 范围 `-128 ~ 127` |
-| 4 | `==` 比 reference，比内容用 `.equals()` | `String`、object 必须 `.equals()` |
-| 5 | `finally` 永远执行（除非 `System.exit`） | 哪怕 try / catch return 也跑 |
-| 6 | `super(...)` 必须是 constructor 第一行 | 否则 compile error |
-| 7 | abstract class 不能 `new` | 只能被 extend |
-| 8 | interface 默认 `public abstract`；variable 默认 `public static final` | 不写也是这样 |
-| 9 | array 是 reference，传 method 后修改会影响原 array | primitive 是值传递 |
-| 10 | BST `inorder` 才得升序，preorder/postorder 不是 | 题目问 sorted 一定选 inorder |
-
-**手算检查清单（每题做完前过一遍）**
-
-```
-□ MCQ：每个错项写一句为什么错（拿到全分关键）
-□ 追踪输出：逐行 trace，每行写当前 x/y/array 的值
-□ BST/AVL：每插入一个 value，画一次树，避免漏 step
-□ Sorting 手算：每一步写完整数组，最后再写复杂度
-□ 代码题：先 class header → field → constructor → method
-□ Override 方法记得加 @Override（虽然非必须）
-```
-
----
-
-```
-╔══════════════════════════════════════════════════════════════════╗
-║                  【第 5 张速查卡】章节导航地图                  ║
-╚══════════════════════════════════════════════════════════════════╝
-```
-
-**Part 总览（按考试重要性排序）**
-
-| Part | 主题 | 对应讲 | 主要考察 | 重要性 |
-|---|---|---|---|---|
-| ★ **9** | Trees & BST | L20 | Q3 BST 构造 + traversal | ★★★ |
-| ★ **10** | AVL + Heap + Huffman | L21 | Q4 AVL rotation | ★★★ |
-| ★ **7** | Merge / Quick Sort | L18 | Q5 手算 + 复杂度 | ★★★ |
-| ★ **2** | Inheritance | L14 | Q6 a) | ★★★ |
-| ★ **1** | Interface | L13 | Q6 b) / Q1 multi-inheritance | ★★★ |
-| ★ **4** | Exceptions | L16 | Q1v / Q2b/c | ★★ |
-| **3** | Polymorphism | L15 | 概念辅助 Q6 | ★★ |
-| **6** | Sorting I + Big-O | L18 | 复杂度概念 | ★★ |
-| **8** | Linked List / Stack / Queue | L19 | 概念题 | ★ |
-| **5** | Recursion | L17 | Merge/Quick 前置 | ★ |
-| **0** | Java 基础（L1-L12） | L1-L12 | Q1 MCQ + Q2a / Q2d | ★★★ |
-
-**按 Past Paper 题号反查**
-
-| 题号 | 主要 Part | 辅助 Part |
-|---|---|---|
-| Q1 (MCQ) | Part 0（基础）+ Part 1（多继承）+ Part 4（exception）+ Part 2（super） | — |
-| Q2a (array+method) | Part 0 → 0.3 / 0.6 | — |
-| Q2b/c (try-catch-finally) | Part 4 → 4.5 | — |
-| Q2d (Integer cache) | Part 0 → 0.7 | — |
-| Q3 (BST) | Part 9 → 9.6 / 9.7 | — |
-| Q4 (AVL) | Part 10 → 10.3-10.6 | — |
-| Q5 (Merge/Quick) | Part 7 → 7.3 / 7.7 | Part 6 (Big-O) |
-| Q6 (Animal/Eagle) | Part 1 + Part 2 + 上方速查卡 3 | Part 3 |
-
----
-
-> **接下来的内容分两大块：**
-> - **Part 0**（Java 基础区，L1-L12）— Q1 MCQ + Q2a/d 速查
-> - **Part 1-10**（主考区，L13-L21）— Q3-Q6 大题主力
->
-> 想直接跳到主考区？翻到 **`# Part 1 / 10：Interface`** 之前的横线分隔条（页面上有显眼的 `★★★ 主考区开始 ★★★`）。
-
----
-
-## 附录 A：详细索引（速查卡之外的深度 lookup）
-
-> **优先用上面的 5 张速查卡。** 如果速查卡没有答到你的问题，下面 3 张表会按"问题关键词 / 题号 / Part"细化定位。
->
-> - **A.0** Merge 覆盖记录（资料来源说明，可跳过）
-> - **A.1** 多层级目录（同时显示 Part 内三级小节标题）
-> - **A.2** 问题快查表（按你脑子里浮现的关键词反查章节）
-> - **A.3** 整体考试地图（Past Paper 题号 vs Part 重要性）
-> - **A.4** Past Paper 速查表的展开版（每个小问的关键答案）
-
----
-
-### A.0 Merge 覆盖记录（本复制稿专用）
+### 0.0 Merge 覆盖记录（本复制稿专用）
 
 本文件是 merge working copy，不是主笔记终稿。本轮从朋友仓库先吸收“主笔记缺口明显、考试可能直接查”的内容；已经与原笔记重复的章节暂时不整段搬运，避免把打印稿变得太长。
 
@@ -379,7 +36,7 @@ class Eagle implements Animal, Wings {
 
 ---
 
-### A.1 多层级目录
+### 0.1 多层级目录
 
 这份笔记按“先定位题型，再进入对应知识点”的方式组织。一级目录告诉你大方向；二级目录告诉你具体章节；三级目录告诉你最常查的小点。
 
@@ -403,7 +60,7 @@ class Eagle implements Animal, Wings {
 | Part 10. Advanced Trees | 10.1-10.12 | AVL height、AVL rotation、insert 70、Heap、Heap Sort、Huffman Coding | Q4 AVL、heap 或 coding tree 题 |
 | 最后一页速查 | Java Basics / OOP / Sorting / Trees | 最短公式表 | 打印后最后几分钟快速扫 |
 
-### A.2 问题快查表：遇到什么问题查哪里？
+### 0.2 问题快查表：遇到什么问题查哪里？
 
 | 你遇到的问题 / 题目关键词 | 先查哪里 | 具体位置 |
 |---|---|---|
@@ -497,9 +154,9 @@ class Eagle implements Animal, Wings {
 
 ---
 
-### A.3 整体考试地图
+## 1. 整体考试地图
 
-#### A.3.1 Past Paper 2025 考点分布
+### 1.1 Past Paper 2025 考点分布
 
 | 题号 | 主题 | 需要掌握 |
 |---|---|---|
@@ -512,7 +169,7 @@ class Eagle implements Animal, Wings {
 | Q5 | Merge Sort + Quick Sort | 手算步骤、average/worst complexity |
 | Q6 | Inheritance + Interface | `extends`、`implements`、abstract class vs interface |
 
-#### A.3.2 Part 0 + 10 个 Part 总览
+### 1.2 Part 0 + 10 个 Part 总览
 
 | Part | 内容 | 考试重要性 |
 |---|---|---|
@@ -530,9 +187,7 @@ class Eagle implements Animal, Wings {
 
 ---
 
-### A.4 Past Paper 速查表（展开版）
-
-> 已在最顶端的【第 1 张速查卡】给出。这里保留以备双重检索。
+## 2. Past Paper 速查表
 
 | 题号 | 考点 | 关键答案 |
 |---|---|---|
@@ -559,17 +214,6 @@ class Eagle implements Animal, Wings {
 | Q5d | Quick Sort complexity | Average = `O(n log n)`，Worst = `O(n^2)` |
 
 ---
-
-```
-████████████████████████████████████████████████████████████████████
-█                                                                  █
-█    Part 0   Java 基础区 (Ch.1-12)                                █
-█    本章何时查：Q1 MCQ、Q2a (array+method)、Q2d (Integer cache)、 █
-█              代码题里的语法疑问、constructor / array 模板        █
-█    主考区在后面：从 ★ Part 1 起 (Ch.13-21)                       █
-█                                                                  █
-████████████████████████████████████████████████████████████████████
-```
 
 # Part 0：第 13 讲以前 Java 基础区
 
@@ -2043,27 +1687,7 @@ k = k % nums.length
 见 String 前算术，见 String 后拼接。
 ```
 
-```
-████████████████████████████████████████████████████████████████████
-█                                                                  █
-█  ★★★  主 考 区 从 这 里 开 始  (Ch.13 - Ch.21)  ★★★              █
-█                                                                  █
-█   接下来是 Part 1 - Part 10                                      █
-█   占 Final 约 60+ 分；重点是：                                   █
-█     • Q3 BST 画图与 traversal       (Part 9)                     █
-█     • Q4 AVL rotation               (Part 10)                    █
-█     • Q5 Merge / Quick Sort         (Part 7)                     █
-█     • Q6 Inheritance vs Interface   (Part 1 + Part 2)            █
-█     • Q2b/c try-catch-finally       (Part 4)                     █
-█                                                                  █
-████████████████████████████████████████████████████████████████████
-```
-
----
-
 # Part 1 / 10：Interface
-
-> **本部分何时查**：Q6(b)/(c) 的 interface 写法；Q1(iii) Java 不支持 class 多继承但支持 implements 多 interfaces；`Comparable` / `compareTo` 题。
 
 ## 1.1 什么是 Interface？
 
@@ -2439,8 +2063,6 @@ public class MyCalculator implements Calculator {
 
 # Part 2 / 10：Inheritance
 
-> **本部分何时查**：Q6(a) Animal/Bird/Fish；Q1(viii) `super` 用途；`extends`、abstract class、override 题；判断 `this` vs `super`。
-
 ## 2.1 什么是 Inheritance？
 
 Inheritance 让一个新 class 从已有 class 派生出来。child class 会自动得到 parent class 中可访问的 variables 和 methods。
@@ -2783,8 +2405,6 @@ public class FoodItem {
 
 # Part 3 / 10：Polymorphism
 
-> **本部分何时查**：parent reference 指向 child object 时调用哪个 method（late binding）；upcasting / downcasting；interface 多态；为什么 reference type 限定可调用 method。
-
 ## 3.1 Polymorphic Reference
 
 polymorphic reference 指一个 reference variable 可以在不同时刻指向不同类型的 object。
@@ -3108,8 +2728,6 @@ public class Contact implements Comparable {
 
 # Part 4 / 10：Exceptions
 
-> **本部分何时查**：Q2(b)(c) try-catch-finally 输出（看 4.5 直接对答案）；Q1(v) 哪个不是 Java exception 类型；checked vs unchecked；exception propagation。
-
 ## 4.1 什么是 Exception？
 
 exception 是一个描述异常或错误情况的 object。
@@ -3367,8 +2985,6 @@ public static void main(String[] args) throws IOException {
 
 # Part 5 / 10：Recursion
 
-> **本部分何时查**：Recursion 概念题；base case 缺失会怎样；factorial / sum 追踪；Tower of Hanoi 步数；理解 Merge / Quick Sort 递归思想。
-
 ## 5.1 什么是 Recursion？
 
 recursion 指用自己定义自己，或者 method 调用自己。
@@ -3565,8 +3181,6 @@ time complexity = O(2^N)
 
 # Part 6 / 10：Sorting I - Simple Sorting Algorithms + Big-O
 
-> **本部分何时查**：Bubble / Insertion / Selection Sort 区分；Big-O 化简规则；为什么简单 sorting 都是 O(n²)；Q5 的复杂度部分基础。
-
 ## 6.1 Sorting 基础
 
 sorting 是把元素按照某种顺序排列，通常默认升序。
@@ -3752,8 +3366,6 @@ Insertion Sort 和 Selection Sort 的分析类似。
 ---
 
 # Part 7 / 10：Sorting II - Merge Sort + Quick Sort
-
-> **本部分何时查**：Q5(a) Merge Sort 手算（7.3 有 Past Paper 数组逐步解）；Q5(b) Quick Sort 手算（7.7）；Q5(c)(d) 两种排序的 average/worst 复杂度（7.5 / 7.9）。
 
 ## 7.1 Divide And Conquer
 
@@ -4052,8 +3664,6 @@ n + (n - 1) + (n - 2) + ... + 1
 ---
 
 # Part 8 / 10：Data Structures - Linked List, Stack, Queue
-
-> **本部分何时查**：Linked List 插入顺序；Stack (LIFO) vs Queue (FIFO)；Java Collections / Generics 写法；ADT 概念题。
 
 ## 8.1 Static vs Dynamic Data Structures
 
@@ -4380,8 +3990,6 @@ Book b = list.get(0);
 
 # Part 9 / 10：Trees & BST
 
-> **本部分何时查**：Q3(a) BST 画图（看 9.6 直接对答案）；Q3(b)(c)(d) Inorder/Preorder/Postorder（9.7 已写好答案）；BST 删除三种情况；tree 术语 (root/leaf/height/depth)。
-
 ## 9.1 Tree Terminology（树的术语）
 
 例子：
@@ -4610,8 +4218,6 @@ public void inorder(Node root) {
 ---
 
 # Part 10 / 10：Advanced Trees - AVL Tree + Heap + Huffman Coding
-
-> **本部分何时查**：Q4(a) AVL min height (10.3)；Q4(b) AVL 操作复杂度 (10.4)；Q4(c) 插入 70 后 RL rotation (10.6)；Heap 插入 / delete min；Huffman tree 构造。
 
 ---
 
@@ -5154,16 +4760,7 @@ Huffman Coding：
 
 ---
 
-```
-████████████████████████████████████████████████████████████████████
-█                                                                  █
-█    【末页速查】考前最后 10 分钟扫一眼                            █
-█    （这是开头第 2 张速查卡的精简备份，翻到这里也能用）           █
-█                                                                  █
-████████████████████████████████████████████████████████████████████
-```
-
-# 末页速查
+# 最后一页速查
 
 ## Java Basics
 
