@@ -61,6 +61,7 @@
 | Q1(viii) | `super` 关键字 | 引用直接 parent class |
 | Q1(ix) | `String.concat()` | `String` 不可变，原 object 不变，例如 `blue` |
 | Q1(x) | 字符串 + 数字拼接 | `Result: 1020` |
+| Q2a | Array + method 参数传递输出 | `2 3 0 0 10 0` / `1 0 10 0 10 0` |
 | Q2b | 有 exception 的 `try-catch-finally` | `abcde` |
 | Q2c | 没有 exception 的 `try-catch-finally` | `abde` |
 | Q2d | `Integer` cache | 小整数可能 `==` 为 true；大整数通常比较的是不同 reference |
@@ -71,6 +72,208 @@
 | Q4b | AVL Tree 操作复杂度 | Search / Insert / Delete 都是 `O(log n)` |
 | Q5c | Merge Sort complexity | Average = Worst = `O(n log n)` |
 | Q5d | Quick Sort complexity | Average = `O(n log n)`，Worst = `O(n^2)` |
+
+---
+
+## 3. Java Basics / Output Tracing 补充速查
+
+这一节放的是 Past Paper MCQ 和 output tracing 里容易散落出现的小规则。考试时如果题目不是某个大算法，而是在问 Java 基础语法，优先查这里。
+
+### 3.1 Java 执行流程和 JVM
+
+```text
+.java source code
+-> javac compiler
+-> .class bytecode
+-> JVM executes bytecode
+```
+
+记忆：
+
+```text
+Compiler translates; JVM executes.
+```
+
+`JVM` = `Java Virtual Machine`，作用是在具体平台上执行 Java bytecode。
+
+### 3.2 Default Values
+
+Java 的 instance variables 有 default value，但 local variables 没有自动 default value。
+
+| Type | Default value |
+|---|---|
+| `int` | `0` |
+| `double` | `0.0` |
+| `boolean` | `false` |
+| `char` | `'\u0000'` |
+| object reference | `null` |
+
+重点坑：
+
+```java
+class Test {
+    boolean b;  // primitive, default false
+    Boolean B;  // wrapper object, default null
+}
+```
+
+记忆：
+
+```text
+primitive 有自己的 default value；object reference 默认 null。
+```
+
+### 3.3 Package 记忆
+
+| Package | 常见 classes | 记法 |
+|---|---|---|
+| `java.lang` | `String`, `System`, `Math`, `Object` | Java 最基础的东西，自动 import |
+| `java.util` | `Scanner`, `Random`, `ArrayList`, `HashMap` | 工具箱 |
+| `java.io` | `File`, `FileReader`, `IOException`, `FileNotFoundException` | 文件 / 输入输出 |
+| `java.text` | `NumberFormat`, `DecimalFormat` | 数字、钱、百分比格式化 |
+
+`java.lang` 会自动 import，所以不用写：
+
+```java
+import java.lang.String;
+import java.lang.System;
+```
+
+记忆：
+
+```text
+String/System/Math/Object -> java.lang
+Scanner/Random/ArrayList -> java.util
+File/IOException -> java.io
+NumberFormat/DecimalFormat -> java.text
+```
+
+### 3.4 `final` Keyword
+
+`final` 常见用途：
+
+```text
+final variable  -> constant，不能重新 assign
+final method    -> 不能被 override
+final class     -> 不能被 extended
+```
+
+所以 Past Paper MCQ 里如果问 `final` 的用途，通常是 `All of the above`。
+
+### 3.5 `String` Immutable、`concat()` 和拼接
+
+`String` 是 immutable。`concat()` 会返回一个新的 `String`，但不会改变原来的 object。
+
+```java
+String s = "blue";
+s.concat("berry");
+System.out.println(s);
+```
+
+输出仍然是：
+
+```text
+blue
+```
+
+要得到 `"blueberry"`，必须保存返回值：
+
+```java
+s = s.concat("berry");
+```
+
+也可以写：
+
+```java
+s = s + "berry";
+```
+
+字符串和数字拼接时，一旦左边已经是 `String`，后面的 `+` 会继续做 string concatenation。
+
+```java
+System.out.println("Result: " + 10 + 20);
+```
+
+输出：
+
+```text
+Result: 1020
+```
+
+Java 大小写敏感：
+
+```java
+System.out.println(s);  // correct
+system.out.println(s);  // wrong
+```
+
+### 3.6 Method 参数、Primitive 和 Array Reference
+
+method header：
+
+```java
+public static void mystery(int[] a, int x, int y)
+```
+
+意思是：
+
+```text
+第 1 个参数：int[] a，int array
+第 2 个参数：int x，整数
+第 3 个参数：int y，整数
+```
+
+如果调用：
+
+```java
+mystery(a, y, x);
+```
+
+对应关系是：
+
+```text
+method 的 a = main 的 a
+method 的 x = main 的 y
+method 的 y = main 的 x
+```
+
+核心规则：
+
+- `int` 是 primitive，传进 method 是复制 value。method 里改 `x`、`y` 不影响 main 里的 `x`、`y`。
+- `int[]` 是 array object，传进 method 是复制 reference。method 里改 `a[2]` 会影响 main 里的同一个 array。
+
+输出代码：
+
+```java
+System.out.print(x + " " + y + " ");
+
+for (int element: a)
+    System.out.print(element + " ");
+
+System.out.println();
+```
+
+逻辑：
+
+```text
+先打印 x 和 y
+再依次打印 array a 里的每个 element
+最后 println() 换行
+```
+
+Past Paper Q2(a) 的答案输出：
+
+```text
+2 3 0 0 10 0
+1 0 10 0 10 0
+```
+
+记忆：
+
+```text
+primitive parameter = copy value
+array parameter = copy reference to same array object
+```
 
 ---
 
@@ -101,6 +304,70 @@ public interface Doable {
 - method header 后面直接写 `;`，不能写 `{}`。
 - interface 不能直接 instantiate。
 - 传统 interface 不能有普通 instance variables，但可以有 constants。
+
+interface method 的默认修饰符是：
+
+```text
+public abstract
+```
+
+所以下面三种写法等价：
+
+```java
+public interface Animal {
+    public abstract void eat();
+}
+```
+
+```java
+public interface Animal {
+    public void eat();
+}
+```
+
+```java
+public interface Animal {
+    void eat();
+}
+```
+
+考试里建议写得最清楚：
+
+```java
+public interface Animal {
+    public void eat();
+}
+```
+
+interface 里的 variable 默认是：
+
+```text
+public static final
+```
+
+所以：
+
+```java
+public interface Constants {
+    int MAX_SIZE = 100;
+}
+```
+
+等价于：
+
+```java
+public interface Constants {
+    public static final int MAX_SIZE = 100;
+}
+```
+
+记忆：
+
+```text
+interface method = public abstract by default
+interface variable = public static final by default
+interface defines behavior, not object state
+```
 
 ## 1.2 怎样 implement 一个 Interface？
 
@@ -219,9 +486,36 @@ public class Eagle implements Animal, Wings {
 
 `Eagle` 同时 implements `Animal` 和 `Wings`，所以必须写出 `eat()` 和 `fly()`。
 
+Inheritance / interface 关系总结：
+
+```text
+class extends class: 只能一个
+class implements interface: 可以多个
+interface extends interface: 可以多个
+```
+
+错误：
+
+```java
+class C extends A, B {
+}
+```
+
+正确：
+
+```java
+class C extends A {
+}
+
+class C implements A, B {
+}
+```
+
 ## 1.6 `Comparable`
 
 `Comparable` 是 Java 标准库中用来定义 object 比较规则的 interface。
+
+`Comparable` 已经由 Java 标准库提供，不需要自己重新写这个 interface。你需要做的是让自己的 class `implements Comparable`，然后写出 `compareTo(Object other)` 的 method body。
 
 ```java
 public interface Comparable {
@@ -257,6 +551,43 @@ public class Salary implements Comparable {
 ```
 
 这里先把 `other` cast 成 `Salary`，再比较两个 salary object 的总收入。
+
+另一个简单例子：
+
+```java
+public class Student implements Comparable {
+    private int score;
+
+    public int compareTo(Object other) {
+        Student s = (Student) other;
+        return this.score - s.score;
+    }
+}
+```
+
+如果写：
+
+```java
+return this.score - s.score;
+```
+
+就是按 `score` 从小到大比较。
+
+如果写：
+
+```java
+return s.score - this.score;
+```
+
+就是按 `score` 从大到小比较。
+
+总结：
+
+```text
+Comparable 已经写好的是：compareTo 的 method 要求。
+Comparable 没有写好的是：具体比较逻辑。
+implements Comparable 后：必须自己写 compareTo 的 method body。
+```
 
 `Comparable` 也可以作为参数或返回类型：
 
@@ -411,6 +742,18 @@ Book
 ```
 
 ## 2.4 `super`
+
+先区分 `this` 和 `super`：
+
+```text
+this = current object
+super = parent part of current object
+```
+
+- `this` 表示当前 object。
+- `super` 表示当前 object 的 immediate superclass 部分。
+- `super.eat()` 是调用 parent class 版本的 `eat()`。
+- `super()` 是调用 parent constructor，但 `super` 本身不等于 constructor。
 
 ### 用法一：调用 parent constructor
 
@@ -1155,7 +1498,7 @@ Throwable
 |---|---|---|
 | 定义 | `Exception` subclass，但不是 `RuntimeException` subclass | `RuntimeException` 及其 subclasses |
 | compiler 要求 | 必须 catch 或用 `throws` 声明 | compiler 不强制 |
-| 例子 | `IOException`, `ClassNotFoundException`, `NoSuchMethodException` | `NullPointerException`, `ArithmeticException`, `IndexOutOfBoundsException` |
+| 例子 | `IOException`, `FileNotFoundException`, `ClassNotFoundException`, `NoSuchMethodException` | `NullPointerException`, `ArithmeticException`, `ArrayIndexOutOfBoundsException`, `NumberFormatException` |
 
 Past Paper Q1(v)：
 
@@ -1163,6 +1506,15 @@ Past Paper Q1(v)：
 - Unchecked exception：存在。
 - Runtime exception：存在。
 - Compile-time exception：不存在。
+
+注意：正确说法是 `compile-time error`，不是 `compile-time exception`。
+
+例子：
+
+```java
+int x = ;              // syntax error
+System.out.println(y); // cannot find symbol
+```
 
 ## 4.9 `throw`
 
@@ -2310,6 +2662,12 @@ all values in right subtree > N
 
 因此，BST 的 Inorder traversal 一定是 ascending order。
 
+记忆：
+
+```text
+BST + sorted order = inorder
+```
+
 ## 9.5 BST Insertion
 
 插入规则：
@@ -2534,6 +2892,12 @@ AVL Tree 有 `n` 个 nodes 时，minimum height：
 floor(log2 n)
 ```
 
+等价写法：
+
+```text
+ceil(log2(n + 1)) - 1
+```
+
 常见值：
 
 | Nodes `n` | Minimum Height |
@@ -2637,28 +3001,56 @@ step 2: rotate current node left
 
 ## 10.6 Past Paper Q4c：Insert And Rotate
 
-**需要复核：** 当前整理来源里 Q4c 的原始 tree 有两种不一致版本：
+Sample Final 里插入 `70` 前的 AVL Tree：
 
 ```text
-        8
-       / \
-      2   9
-     / \
-    4   5
-       /
-      6
+        60
+       /  \
+     20    100
+           /  \
+         80    120
 ```
 
-以及：
+按 BST insertion 规则插入 `70`：
+
+- `70 > 60`，去 right subtree。
+- `70 < 100`，去 left subtree。
+- `70 < 80`，成为 `80` 的 left child。
 
 ```text
-    5
-   / \
-  3   7
- / \   \
-1   4   8
- \
-  2
+        60
+       /  \
+     20    100
+           /  \
+         80    120
+        /
+      70
+```
+
+此时 `60` 的 right-left side 太高，所以是 **RL case**。
+
+处理步骤：
+
+1. 对 `100` 做 right rotation。
+2. 对 `60` 做 left rotation。
+
+最终结果：
+
+```text
+        80
+       /  \
+     60    100
+    / \      \
+  20  70     120
+```
+
+判断逻辑：
+
+```text
+60 的 right subtree 太高
+new node 70 在 60 的 right child 100 的 left subtree
+=> right-left case
+=> double rotation
 ```
 
 考试时按下面方法处理 AVL 插入题：
@@ -2669,8 +3061,6 @@ step 2: rotate current node left
 4. 判断是 LL、RR、LR、RL。
 5. 按类型做 single 或 double rotation。
 6. 画出最后 balanced AVL tree。
-
-如果题目是 insert `70`，必须以 Past Paper 原图为准判断最后 rotation。
 
 Rotation 必背规则：
 
@@ -2854,6 +3244,19 @@ Heap：
 ---
 
 # 最后一页速查
+
+## Java Basics
+
+```text
+.java -> javac -> .class bytecode -> JVM executes
+java.lang: String, System, Math, Object
+java.util: Scanner, Random, ArrayList
+java.io: FileReader, IOException
+java.text: NumberFormat, DecimalFormat
+String is immutable: s.concat("berry") 不改变原来的 s
+primitive parameter = copy value
+array parameter = copy reference
+```
 
 ## Java OOP
 
