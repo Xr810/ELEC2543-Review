@@ -1,90 +1,90 @@
-# ELEC2543 Final Open-Book Notes Draft
+# ELEC2543 Final 开卷考试复习资料草稿
 
-> Status: editable draft for printing and later revision.  
-> Scope: Past Paper 2025 + Chapters 13-21 review notes, organized into 10 Parts.  
-> Goal: keep all exam-relevant material in one place for fast open-book lookup.
-
----
-
-## 0. How To Use This File
-
-- Use **Past Paper Quick Lookup** before doing practice questions.
-- Use each **Part** as the full explanation section.
-- Use code blocks for syntax and output tracing.
-- Before final printing, re-check any section marked **Needs source check** against the original paper or slides.
+> 状态：可继续修改的打印草稿。
+> 范围：Past Paper 2025 + Chapters 13-21 的复习整理。
+> 风格：解释性文字用简体中文；Java 关键字、class、object、sorting、Big-O 等考试术语保留英文。
 
 ---
 
-## 1. Overall Exam Map
+## 0. 使用方式
 
-### Past Paper 2025 Coverage
+- 先看 **Past Paper 速查表**，快速定位题目对应的知识点。
+- 再到对应的 **Part** 查看完整解释、代码和手算步骤。
+- 代码块、输出结果、Java 关键字和算法名称保持英文，方便考试时直接对照题目。
+- 标记为 **需要复核** 的地方，表示原始资料里前后有不一致，最终版应再对照 Past Paper 或 lecture slides。
 
-| Question | Main Topic | What To Know |
+---
+
+## 1. 整体考试地图
+
+### 1.1 Past Paper 2025 考点分布
+
+| 题号 | 主题 | 需要掌握 |
 |---|---|---|
-| Q1 | Java MCQ basics | JVM, data types, `final`, `super`, `String`, exception types |
-| Q2a | Array + method parameter passing | reference behavior and mutation |
-| Q2b/c | `try-catch-finally` | exact execution order and output |
+| Q1 | Java MCQ 基础 | JVM、数据类型、`final`、`super`、`String`、exception 类型 |
+| Q2a | Array + method 参数传递 | reference 行为、array 被 method 修改后的结果 |
+| Q2b/c | `try-catch-finally` | 精确判断执行顺序和输出 |
 | Q2d | `Integer` wrapper cache | `==` vs `equals` |
-| Q3 | Binary Search Tree | insertion, inorder, preorder, postorder |
-| Q4 | AVL Tree | height, operation complexity, rotations |
-| Q5 | Merge Sort + Quick Sort | step tracing and complexity |
-| Q6 | Inheritance + Interface | `extends`, `implements`, abstract class vs interface |
+| Q3 | Binary Search Tree | 插入、Inorder、Preorder、Postorder |
+| Q4 | AVL Tree | 最小高度、操作复杂度、rotation |
+| Q5 | Merge Sort + Quick Sort | 手算步骤、average/worst complexity |
+| Q6 | Inheritance + Interface | `extends`、`implements`、abstract class vs interface |
 
-### 10-Part Review Plan
+### 1.2 10 个 Part 总览
 
-| Part | Topic | Exam Importance |
+| Part | 内容 | 考试重要性 |
 |---|---|---|
-| Part 1 | Interface: definition, `implements`, `Comparable` | High |
-| Part 2 | Inheritance: `extends`, `protected`, `super`, abstract class | Very High |
-| Part 3 | Polymorphism: late binding, interface/inheritance polymorphism | High |
-| Part 4 | Exceptions: `try-catch-finally`, propagation, checked vs unchecked | Very High |
-| Part 5 | Recursion: base case, recursive case, Towers of Hanoi | Medium |
-| Part 6 | Sorting I: Bubble, Insertion, Selection Sort + Big-O | Very High |
-| Part 7 | Sorting II: Merge Sort + Quick Sort | Very High |
-| Part 8 | Data Structures: Linked List, Stack, Queue | High |
-| Part 9 | Trees & BST | Very High |
-| Part 10 | Advanced Trees: AVL Tree + Heap | Very High |
+| Part 1 | Interface：定义、`implements`、`Comparable` | 高 |
+| Part 2 | Inheritance：`extends`、`protected`、`super`、abstract class | 很高 |
+| Part 3 | Polymorphism：late binding、inheritance/interface polymorphism | 高 |
+| Part 4 | Exceptions：`try-catch-finally`、propagation、checked vs unchecked | 很高 |
+| Part 5 | Recursion：base case、recursive case、Towers of Hanoi | 中 |
+| Part 6 | Sorting I：Bubble、Insertion、Selection Sort + Big-O | 很高 |
+| Part 7 | Sorting II：Merge Sort + Quick Sort | 很高 |
+| Part 8 | Data Structures：Linked List、Stack、Queue | 高 |
+| Part 9 | Trees & BST | 很高 |
+| Part 10 | Advanced Trees：AVL Tree + Heap | 很高 |
 
 ---
 
-## 2. Past Paper Quick Lookup
+## 2. Past Paper 速查表
 
-| Question | Topic | Key Answer |
+| 题号 | 考点 | 关键答案 |
 |---|---|---|
 | Q1(i) | JVM | Java Virtual Machine |
-| Q1(ii) | Boolean default value | `false` |
-| Q1(iii) | Java does not support | Multiple inheritance by classes |
-| Q1(iv) | `System` / `String` package | `java.lang` |
-| Q1(v) | Non-existent exception type | Compile-time exception |
-| Q1(vi) | `final` keyword | All of the above |
-| Q1(vii) | No `main` method | Runtime error |
-| Q1(viii) | `super` keyword | Refers to direct parent class |
-| Q1(ix) | `String.concat()` immutability | original string unchanged, e.g. `blue` |
-| Q1(x) | String + number concatenation | `Result: 1020` |
-| Q2b | `try-catch-finally` with exception | `abcde` |
-| Q2c | `try-catch-finally` without exception | `abde` |
-| Q2d | `Integer` cache | small cached values may compare `==` true; larger values compare by reference |
-| Q3b | BST traversal giving sorted order | Inorder traversal |
+| Q1(ii) | Boolean 默认值 | `false` |
+| Q1(iii) | Java 不支持什么 | class 的 multiple inheritance |
+| Q1(iv) | `System` / `String` 在哪个 package | `java.lang` |
+| Q1(v) | 不存在的 exception 类型 | Compile-time exception |
+| Q1(vi) | `final` 关键字用途 | All of the above |
+| Q1(vii) | 没有 `main` method | Runtime error |
+| Q1(viii) | `super` 关键字 | 引用直接 parent class |
+| Q1(ix) | `String.concat()` | `String` 不可变，原 object 不变，例如 `blue` |
+| Q1(x) | 字符串 + 数字拼接 | `Result: 1020` |
+| Q2b | 有 exception 的 `try-catch-finally` | `abcde` |
+| Q2c | 没有 exception 的 `try-catch-finally` | `abde` |
+| Q2d | `Integer` cache | 小整数可能 `==` 为 true；大整数通常比较的是不同 reference |
+| Q3b | BST 哪种 traversal 得到升序 | Inorder traversal |
 | Q3c | BST preorder | `60, 41, 16, 25, 53, 46, 55, 74, 65, 63, 70` |
 | Q3d | BST postorder | `25, 16, 46, 55, 53, 41, 63, 70, 65, 74, 60` |
-| Q4a | AVL minimum height with `n` nodes | `floor(log2 n)` |
-| Q4b | AVL operation complexity | Search / Insert / Delete all `O(log n)` |
+| Q4a | AVL Tree 有 `n` 个 nodes 的最小高度 | `floor(log2 n)` |
+| Q4b | AVL Tree 操作复杂度 | Search / Insert / Delete 都是 `O(log n)` |
 | Q5c | Merge Sort complexity | Average = Worst = `O(n log n)` |
-| Q5d | Quick Sort complexity | Average = `O(n log n)`, Worst = `O(n^2)` |
+| Q5d | Quick Sort complexity | Average = `O(n log n)`，Worst = `O(n^2)` |
 
 ---
 
-# Part 1 / 10: Interface
+# Part 1 / 10：Interface
 
-## 1.1 What Is An Interface?
+## 1.1 什么是 Interface？
 
-An **interface** defines a set of behavior requirements. It tells a class what methods it must implement, but it normally does not provide the method bodies.
+Interface 是一组行为要求。它告诉一个 class 必须实现哪些 methods，但它自己通常不写 method body。
 
-Think of an interface as a **contract**:
+可以把 interface 理解成一份合同：
 
-- Interface = contract / job description.
-- `implements` = a class accepts the contract.
-- A class implementing the interface must implement all required methods.
+- Interface = 合同 / 行为规范。
+- `implements` = 某个 class 接受这份合同。
+- 只要 class implements 某个 interface，就必须实现 interface 里的所有 required methods。
 
 ```java
 public interface Doable {
@@ -94,17 +94,17 @@ public interface Doable {
 }
 ```
 
-Important points:
+重点：
 
-- Use `interface`, not `class`.
-- Methods are implicitly `public` and `abstract`.
-- Method headers end with `;`, not `{}`.
-- Interfaces cannot be instantiated directly.
-- Traditional interfaces do not contain instance variables. They may contain constants.
+- 用 `interface`，不是 `class`。
+- interface 里的 methods 默认是 `public` 和 `abstract`。
+- method header 后面直接写 `;`，不能写 `{}`。
+- interface 不能直接 instantiate。
+- 传统 interface 不能有普通 instance variables，但可以有 constants。
 
-## 1.2 Implementing An Interface
+## 1.2 怎样 implement 一个 Interface？
 
-Use `implements`:
+class 用 `implements` 实现 interface。
 
 ```java
 public class CanDo implements Doable {
@@ -122,11 +122,11 @@ public class CanDo implements Doable {
 }
 ```
 
-If the class does not implement all interface methods, it will not compile unless the class is abstract.
+如果 class 没有实现 interface 里的所有 methods，编译会报错，除非这个 class 本身是 abstract class。
 
-## 1.3 Interface As A Type
+## 1.3 Interface 可以当作 Type 使用
 
-An interface cannot be instantiated, but it can be used as a reference type.
+interface 不能直接 new object，但可以作为 reference type。
 
 ```java
 public interface Hello {
@@ -168,11 +168,11 @@ c1.sayHello();
 e1.sayHello();
 ```
 
-This is a form of **polymorphism**: one interface type can refer to different implementation objects.
+这里 `Hello` 这个 interface type 可以指向 `Chinese` object，也可以指向 `English` object。这就是 polymorphism 的一种表现。
 
-## 1.4 Interface As A Parameter
+## 1.4 Interface 可以当作 Parameter
 
-An interface can be used as a method parameter type.
+interface type 可以作为 method 参数，这样一个 method 就能接收任何 implements 了这个 interface 的 object。
 
 ```java
 public static void invoke_method(Hello person) {
@@ -183,11 +183,11 @@ invoke_method(new Chinese("Liu", "Bang"));
 invoke_method(new English("Obama", "Barack"));
 ```
 
-Benefit: one method can handle many object types as long as they implement the same interface.
+好处：method 不需要关心具体 class，只需要知道传进来的 object 一定有 interface 规定的 methods。
 
-## 1.5 Implementing Multiple Interfaces
+## 1.5 一个 Class 可以 implement 多个 Interfaces
 
-Java does not support multiple inheritance by classes, but one class can implement multiple interfaces.
+Java 不支持 class 的 multiple inheritance，但一个 class 可以 implement 多个 interfaces。
 
 ```java
 class ManyThings implements Interface1, Interface2, Interface3 {
@@ -195,7 +195,7 @@ class ManyThings implements Interface1, Interface2, Interface3 {
 }
 ```
 
-Past Paper-style example:
+Past Paper 相关例子：
 
 ```java
 public interface Animal {
@@ -217,9 +217,11 @@ public class Eagle implements Animal, Wings {
 }
 ```
 
+`Eagle` 同时 implements `Animal` 和 `Wings`，所以必须写出 `eat()` 和 `fly()`。
+
 ## 1.6 `Comparable`
 
-`Comparable` is a standard Java interface for defining comparison logic.
+`Comparable` 是 Java 标准库中用来定义 object 比较规则的 interface。
 
 ```java
 public interface Comparable {
@@ -227,15 +229,15 @@ public interface Comparable {
 }
 ```
 
-Return value rule:
+`compareTo` 的返回值含义：
 
-| Return Value | Meaning |
+| 返回值 | 含义 |
 |---|---|
-| Negative | `this < other` |
+| 负数 | `this < other` |
 | `0` | `this == other` |
-| Positive | `this > other` |
+| 正数 | `this > other` |
 
-Example:
+例子：
 
 ```java
 public class Salary implements Comparable {
@@ -254,7 +256,9 @@ public class Salary implements Comparable {
 }
 ```
 
-Generic-looking method using `Comparable`:
+这里先把 `other` cast 成 `Salary`，再比较两个 salary object 的总收入。
+
+`Comparable` 也可以作为参数或返回类型：
 
 ```java
 public static Comparable largest(Comparable c1, Comparable c2, Comparable c3) {
@@ -264,16 +268,16 @@ public static Comparable largest(Comparable c1, Comparable c2, Comparable c3) {
 }
 ```
 
-Examples:
+例子：
 
 ```java
 largest(1, 8, 6);                      // 8
-largest("apple", "bye", "ELEC2543");   // "bye" by dictionary order
+largest("apple", "bye", "ELEC2543");   // "bye"，按 dictionary order
 ```
 
-## 1.7 Interface Hierarchy
+## 1.7 Interface 之间也可以继承
 
-Interfaces can extend other interfaces.
+interface 可以用 `extends` 继承其他 interfaces。
 
 ```java
 interface Add_Sub {
@@ -302,34 +306,34 @@ public class MyCalculator implements Calculator {
 }
 ```
 
-## 1.8 Summary
+如果 class implements `Calculator`，它必须实现 `Calculator` 继承到的所有 methods。
 
-- Interface defines required behavior.
-- A class uses `implements` to implement an interface.
-- A class must implement all interface methods.
-- Interface cannot be instantiated, but can be used as variable type and parameter type.
-- A class can implement multiple interfaces.
-- `Comparable` defines `compareTo`.
-- Interfaces can extend other interfaces.
+## 1.8 小结
+
+- Interface 是行为规范，不是普通 class。
+- class 用 `implements` 实现 interface。
+- implement interface 后必须实现所有 methods。
+- interface 不能 instantiate，但可以作为 variable type 和 parameter type。
+- 一个 class 可以 implement 多个 interfaces。
+- `Comparable` 用 `compareTo` 定义 object 比较规则。
+- interface 可以 `extends` 其他 interfaces。
 
 ---
 
-# Part 2 / 10: Inheritance
+# Part 2 / 10：Inheritance
 
-## 2.1 What Is Inheritance?
+## 2.1 什么是 Inheritance？
 
-Inheritance lets a new class derive from an existing class. The child class automatically receives the parent class's accessible methods and variables.
+Inheritance 让一个新 class 从已有 class 派生出来。child class 会自动得到 parent class 中可访问的 variables 和 methods。
 
-Terminology:
+常用术语：
 
-| English | Synonyms | Chinese |
+| 英文 | 同义词 | 中文 |
 |---|---|---|
 | parent class | superclass / base class | 父类 |
 | child class | subclass / derived class | 子类 |
 
-Inheritance should represent an **is-a** relationship.
-
-Example:
+Inheritance 应该表示 **is-a** 关系。
 
 ```text
 Vehicle
@@ -338,9 +342,11 @@ Vehicle
   Car
 ```
 
-Car is a Vehicle.
+这个关系表示：Car is a Vehicle。
 
 ## 2.2 `extends`
+
+Java 用 `extends` 表示 class 继承。
 
 ```java
 public class Book {
@@ -372,7 +378,7 @@ public class Dictionary extends Book {
 }
 ```
 
-Usage:
+使用：
 
 ```java
 Dictionary webster = new Dictionary();
@@ -381,21 +387,21 @@ System.out.println(webster.getDefinitions());
 System.out.println(webster.computeRatio());
 ```
 
-`Dictionary` can call `getPages()` because it inherits it from `Book`.
+`Dictionary` object 可以调用 `getPages()`，因为这个 method 是从 `Book` 继承来的。
 
 ## 2.3 `protected`
 
-| Modifier | Same Class | Subclass | Other Classes |
+| Modifier | 同一个 class | subclass | 其他 class |
 |---|---:|---:|---:|
-| `private` | yes | no | no |
-| `protected` | yes | yes | no, except same package |
-| `public` | yes | yes | yes |
+| `private` | 可以 | 不可以 | 不可以 |
+| `protected` | 可以 | 可以 | 通常不可以，同 package 除外 |
+| `public` | 可以 | 可以 | 可以 |
 
-Important:
+重点：
 
-- `private` members exist in the object, but subclasses cannot access them directly.
-- `protected` members are directly accessible in subclasses.
-- In UML, `#` means protected and `+` means public.
+- `private` member 仍然存在于 object 内部，但 subclass 不能直接用名字访问。
+- `protected` member 可以被 subclass 直接访问。
+- UML 中 `#` 表示 protected，`+` 表示 public。
 
 ```text
 Book
@@ -406,9 +412,9 @@ Book
 
 ## 2.4 `super`
 
-### Use 1: Calling Parent Constructor
+### 用法一：调用 parent constructor
 
-`super(...)` must be the first line of the child constructor.
+`super(...)` 必须写在 child constructor 的第一行。
 
 ```java
 public class Book2 {
@@ -429,7 +435,9 @@ public class Dictionary2 extends Book2 {
 }
 ```
 
-### Use 2: Calling Parent Method
+### 用法二：调用 parent method
+
+如果 child class override 了 parent method，但仍想调用 parent 版本，就用 `super.methodName()`。
 
 ```java
 public class Advice extends Thought {
@@ -442,7 +450,7 @@ public class Advice extends Thought {
 
 ## 2.5 Method Overriding
 
-Overriding means a subclass redefines an inherited method with the same name and same parameter list.
+Overriding 指 child class 重新定义 parent class 已有的 method。要求 method name 和 parameter list 完全相同。
 
 ```java
 public class Thought {
@@ -460,14 +468,18 @@ public class Advice extends Thought {
 }
 ```
 
+当调用 `Advice` object 的 `message()` 时，执行的是 child class 版本。这个 child class 版本里面又用 `super.message()` 调用了 parent class 版本。
+
 ## 2.6 Overloading vs Overriding
 
 | | Overloading | Overriding |
 |---|---|---|
-| Where | Same class | Parent-child classes |
-| Method name | Same | Same |
-| Parameter list | Different | Same |
-| Purpose | Same operation with different parameters | Subclass behavior replaces parent behavior |
+| 发生位置 | 同一个 class 内 | parent class 和 child class 之间 |
+| method name | 相同 | 相同 |
+| parameter list | 不同 | 相同 |
+| 作用 | 同名 method 处理不同参数 | child class 改写 parent behavior |
+
+Overloading：
 
 ```java
 public class Calculator {
@@ -480,6 +492,8 @@ public class Calculator {
     }
 }
 ```
+
+Overriding：
 
 ```java
 public class Animal {
@@ -495,14 +509,16 @@ public class Dog extends Animal {
 }
 ```
 
-Rules:
+规则：
 
-- `final` method cannot be overridden.
-- `final` class cannot be extended.
-- Constructors are not inherited, so they cannot be overridden.
-- A child class can define a variable with the same name as parent class variable, but this is shadowing and is usually poor style.
+- `final` method 不能被 override。
+- `final` class 不能被继承。
+- constructor 不会被继承，所以 constructor 不存在 overriding。
+- child class 可以定义和 parent class 同名的 variable，但这叫 shadowing，通常不推荐。
 
 ## 2.7 Class Hierarchy
+
+Inheritance 可以形成多层 class hierarchy。
 
 ```text
         HKUPerson
@@ -510,27 +526,27 @@ Rules:
    Student    Staff
 ```
 
-- A subclass may also become a superclass.
-- Subclasses of the same parent are siblings.
-- A subclass inherits accessible members from all ancestor classes.
+- 一个 subclass 可以继续作为其他 class 的 superclass。
+- 同一个 parent class 的多个 child classes 叫 siblings。
+- child class 会继承所有 ancestor classes 中可访问的 members。
 
 ## 2.8 `Object` Class
 
-All Java classes directly or indirectly extend `Object`.
+所有 Java class 都直接或间接继承自 `Object`。
 
-Common inherited methods:
+常见 inherited methods：
 
-| Method | Purpose |
+| Method | 作用 |
 |---|---|
-| `String toString()` | returns string representation |
-| `boolean equals(Object obj)` | default compares references |
-| `Object clone()` | creates copy |
+| `String toString()` | 返回 object 的 string 表示 |
+| `boolean equals(Object obj)` | 默认比较 reference |
+| `Object clone()` | 复制 object |
 
-When writing `toString()`, you are overriding `Object.toString()`.
+我们写 `toString()` 时，其实是在 override `Object.toString()`。
 
 ## 2.9 Abstract Class
 
-An abstract class cannot be instantiated. It represents a general concept.
+abstract class 不能 instantiate，通常用来表示一个抽象概念。
 
 ```java
 public abstract class HKUPerson {
@@ -549,7 +565,7 @@ public abstract class HKUPerson {
 }
 ```
 
-Subclasses must implement all abstract methods, or they must also be declared abstract.
+child class 必须实现所有 abstract methods，否则 child class 也必须声明成 abstract class。
 
 ```java
 public class Student extends HKUPerson {
@@ -591,17 +607,17 @@ public class Staff extends HKUPerson {
 
 | | Abstract Class | Interface |
 |---|---|---|
-| Keyword | `abstract class` | `interface` |
-| Non-abstract methods | yes | traditionally no |
-| Instance variables | yes | no |
-| Relationship keyword | `extends` | `implements` |
-| Multiple inheritance | no | a class can implement multiple interfaces |
-| Instantiable | no | no |
-| Purpose | shared base implementation | behavior contract |
+| 关键字 | `abstract class` | `interface` |
+| 可以有 implemented methods | 可以 | 传统上不可以 |
+| 可以有 instance variables | 可以 | 不可以 |
+| 关系关键字 | `extends` | `implements` |
+| 多继承 | class 只能 extends 一个 class | class 可以 implements 多个 interfaces |
+| 能否 instantiate | 不可以 | 不可以 |
+| 主要用途 | 有共同变量或共同实现的父类 | 行为合同 / 规范 |
 
-## 2.10 Visibility And Indirect Access
+## 2.10 Visibility 和 Indirect Access
 
-Subclasses cannot directly access parent `private` members, but can access them indirectly through public/protected methods.
+subclass 不能直接访问 parent class 的 `private` members，但可以通过 public/protected methods 间接访问。
 
 ```java
 public class FoodItem {
@@ -618,65 +634,67 @@ public class FoodItem {
 }
 ```
 
-## 2.11 Summary
+这里 `calories()` 是 private method，subclass 不能直接调用，但可以调用 public method `caloriesPerServing()` 间接使用它。
 
-- Use `extends` for inheritance.
-- Inheritance should represent an is-a relationship.
-- `protected` allows subclass access while limiting outside access.
-- `super(...)` calls parent constructor and must be first in child constructor.
-- `super.method()` calls parent method.
-- Overriding: same signature in subclass.
-- Overloading: same method name, different parameters.
-- Abstract classes cannot be instantiated.
-- All Java classes inherit from `Object`.
+## 2.11 小结
+
+- `extends` 用来建立 inheritance。
+- inheritance 应该表示 is-a 关系。
+- `protected` 让 subclass 可以访问，同时限制外部 class。
+- `super(...)` 调用 parent constructor，必须在 constructor 第一行。
+- `super.method()` 调用 parent method。
+- Overriding：child class 中同名同参数。
+- Overloading：同一个 class 中同名不同参数。
+- abstract class 不能 instantiate。
+- 所有 Java class 都继承自 `Object`。
 
 ---
 
-# Part 3 / 10: Polymorphism
+# Part 3 / 10：Polymorphism
 
 ## 3.1 Polymorphic Reference
 
-A polymorphic reference can refer to different object types at different times.
+polymorphic reference 指一个 reference variable 可以在不同时刻指向不同类型的 object。
 
 ```java
 Holiday day;
 day = new Christmas();
 ```
 
-Parent class reference can point to child class object.
+parent class type 的 reference 可以指向 child class object。
 
 ## 3.2 Late Binding
 
-Binding means connecting a method call to the actual method implementation.
+Binding 指把 method call 和具体 method implementation 连接起来。
 
-| Type | Time |
+| 类型 | 决定时间 |
 |---|---|
 | Early binding | compile time |
 | Late binding / dynamic binding | runtime |
 
-Java uses late binding for overridden methods. The method version called depends on the object's actual runtime type, not the reference's declared type.
+Java 对 overridden methods 使用 late binding。真正调用哪个 method 版本，取决于 object 的 actual runtime type，而不是 reference 的 declared type。
 
 ```java
 Holiday day = new Christmas();
-day.celebrate();  // calls Christmas celebrate() if overridden
+day.celebrate();  // 如果 Christmas override 了 celebrate()，就调用 Christmas 版本
 ```
 
-Important compile-time rule:
+重要规则：compiler 会根据 declared type 检查 method 是否存在。
 
 ```java
 Holiday day = new Christmas();
-day.getTree();  // compile error if Holiday does not define getTree()
+day.getTree();  // 如果 Holiday 没有 getTree()，这里 compile error
 ```
 
-To call child-specific method:
+如果要调用 child class 独有 method，需要 cast。
 
 ```java
 ((Christmas) day).getTree();
 ```
 
-## 3.3 Polymorphism Through Inheritance
+## 3.3 通过 Inheritance 实现 Polymorphism
 
-Class hierarchy:
+class hierarchy：
 
 ```text
         StaffMember
@@ -703,6 +721,8 @@ abstract public class StaffMember {
     public abstract double pay();
 }
 ```
+
+不同 child classes 用不同方式实现 `pay()`：
 
 ```java
 public class Volunteer extends StaffMember {
@@ -775,7 +795,7 @@ public class Hourly extends Employee {
 }
 ```
 
-Polymorphic array:
+用 `StaffMember[]` 统一管理不同类型的 staff object：
 
 ```java
 public class Staff {
@@ -805,31 +825,36 @@ public class Staff {
 }
 ```
 
-`staffList[count].pay()` calls different `pay()` methods based on actual object type.
+`staffList[count].pay()` 是 polymorphic method call：
 
-## 3.4 References And Inheritance
+- actual object 是 `Executive`，就调用 `Executive.pay()`。
+- actual object 是 `Employee`，就调用 `Employee.pay()`。
+- actual object 是 `Hourly`，就调用 `Hourly.pay()`。
+- actual object 是 `Volunteer`，就调用 `Volunteer.pay()`。
 
-Upcasting: child to parent, safe and implicit.
+## 3.4 References 和 Inheritance
+
+Upcasting：child type 到 parent type，安全，不需要显式 cast。
 
 ```java
 MusicPlayer mplayer = new CDPlayer();
 ```
 
-Downcasting: parent to child, explicit and risky.
+Downcasting：parent type 到 child type，需要显式 cast，有 runtime 风险。
 
 ```java
 CDPlayer cdplayer = (CDPlayer) mplayer;
 ```
 
-Bad example:
+危险例子：
 
 ```java
-CDPlayer cdplayer = (CDPlayer) new MusicPlayer();  // may compile, runtime error
+CDPlayer cdplayer = (CDPlayer) new MusicPlayer();  // 可能 compile，但 runtime error
 ```
 
-Reason: every CDPlayer is a MusicPlayer, but not every MusicPlayer is a CDPlayer.
+原因：所有 `CDPlayer` 都是 `MusicPlayer`，但不是所有 `MusicPlayer` 都是 `CDPlayer`。
 
-## 3.5 Polymorphism Through Interfaces
+## 3.5 通过 Interface 实现 Polymorphism
 
 ```java
 public interface Speaker {
@@ -870,14 +895,14 @@ guest = new Dog();
 guest.speak();
 ```
 
-Compile-time restriction:
+限制仍然一样：declared type 是 `Speaker`，所以只能调用 `Speaker` interface 里声明过的 methods。
 
 ```java
 Speaker special = new Philosopher();
-special.pontificate();  // error: Speaker does not define pontificate()
+special.pontificate();  // error: Speaker 里没有 pontificate()
 ```
 
-Quick Check:
+Quick Check：
 
 ```java
 Speaker first = new Dog();              // legal
@@ -886,9 +911,9 @@ second.pontificate();                   // legal
 first = second;                         // legal
 ```
 
-## 3.6 Polymorphism In Sorting
+## 3.6 Polymorphism 在 Sorting 中的用途
 
-Use `Comparable[]` to sort different comparable object types.
+用 `Comparable[]` 可以写出通用 selection sort。
 
 ```java
 public static void selectionSort(Comparable[] list) {
@@ -910,13 +935,13 @@ public static void selectionSort(Comparable[] list) {
 }
 ```
 
-`compareTo` call is polymorphic:
+`compareTo` 的实际调用版本由 actual object type 决定：
 
-- `String[]` calls `String.compareTo`.
-- `Contact[]` calls `Contact.compareTo`.
-- `Salary[]` calls `Salary.compareTo`.
+- 如果 array 里是 `String` objects，就调用 `String.compareTo()`。
+- 如果 array 里是 `Contact` objects，就调用 `Contact.compareTo()`。
+- 如果 array 里是 `Salary` objects，就调用 `Salary.compareTo()`。
 
-Example `Contact`:
+`Contact` 例子：
 
 ```java
 public class Contact implements Comparable {
@@ -934,30 +959,33 @@ public class Contact implements Comparable {
 }
 ```
 
-## 3.7 Summary
+这个 `compareTo` 先按 last name 比；last name 一样时，再按 first name 比。
 
-- Polymorphism means one reference can point to many object types.
-- Late binding decides overridden method at runtime.
-- Compiler checks methods using declared reference type.
-- Upcasting is safe; downcasting needs explicit cast and may fail.
-- Polymorphism works through both inheritance and interfaces.
-- `Comparable` + polymorphism enables generic sorting.
+## 3.7 小结
+
+- Polymorphism 表示同一个 reference 可以指向不同类型的 object。
+- Late binding 在 runtime 决定调用哪个 overridden method。
+- compiler 用 declared type 检查能不能调用某个 method。
+- actual runtime object 决定 method 的真正执行版本。
+- Upcasting 安全；downcasting 需要显式 cast，可能 runtime error。
+- Polymorphism 可以通过 inheritance，也可以通过 interface 实现。
+- `Comparable` + polymorphism 可以实现通用 sorting method。
 
 ---
 
-# Part 4 / 10: Exceptions
+# Part 4 / 10：Exceptions
 
-## 4.1 What Is An Exception?
+## 4.1 什么是 Exception？
 
-An exception is an object describing an unusual or error condition.
+exception 是一个描述异常或错误情况的 object。
 
-Options when exception occurs:
+遇到 exception 后有三种处理方式：
 
-- Ignore it: program terminates and prints stack trace.
-- Handle it locally with `try-catch`.
-- Let it propagate upward to caller.
+- 忽略它：程序终止并打印 stack trace。
+- 在发生处用 `try-catch` 处理。
+- 不在当前 method 处理，让 exception 向上层 caller propagation。
 
-## 4.2 Ignoring An Exception
+## 4.2 不处理 Exception 的结果
 
 ```java
 public class Zero {
@@ -971,14 +999,14 @@ public class Zero {
 }
 ```
 
-Output includes:
+输出包含：
 
 ```text
 Exception in thread "main" java.lang.ArithmeticException: / by zero
     at Zero.main(Zero.java:17)
 ```
 
-The second `println` does not execute.
+第二个 `println` 不会执行，因为程序已经在除以 0 的地方终止。
 
 ## 4.3 `try-catch`
 
@@ -995,15 +1023,15 @@ catch (NumberFormatException exception) {
 }
 ```
 
-Rules:
+规则：
 
-- When exception occurs in `try`, execution immediately leaves the `try` block.
-- Java executes the first matching `catch`.
-- If no exception occurs, all `catch` blocks are skipped.
+- `try` 里一旦出现 exception，马上跳出 `try` block。
+- Java 只执行第一个匹配的 `catch` block。
+- 如果没有 exception，所有 `catch` blocks 都跳过。
 
 ## 4.4 `finally`
 
-`finally` always executes, whether or not an exception occurred.
+`finally` 一定会执行，不管有没有 exception。
 
 ```java
 try {
@@ -1017,10 +1045,10 @@ finally {
 }
 ```
 
-Execution:
+执行顺序：
 
-- With exception: partial `try` -> matching `catch` -> `finally` -> following code.
-- Without exception: full `try` -> skip `catch` -> `finally` -> following code.
+- 有 exception：`try` 部分执行 -> 匹配的 `catch` -> `finally` -> 后续代码。
+- 无 exception：`try` 完整执行 -> 跳过 `catch` -> `finally` -> 后续代码。
 
 ## 4.5 Past Paper Q2b/c
 
@@ -1043,27 +1071,27 @@ public class Demo {
 }
 ```
 
-With `throw`:
+有 `throw` 时：
 
 ```text
 a -> b -> exception -> catch RuntimeException -> c -> finally d -> e
 ```
 
-Output:
+输出：
 
 ```text
 abcde
 ```
 
-Reason: `IllegalArgumentException` is a subclass of `RuntimeException`.
+原因：`IllegalArgumentException` 是 `RuntimeException` 的 subclass，所以 `catch (RuntimeException e)` 能接住它。
 
-If `throw` line is commented out:
+如果把 `throw` 那行注释掉：
 
 ```text
 a -> b -> no exception -> skip catch -> finally d -> e
 ```
 
-Output:
+输出：
 
 ```text
 abde
@@ -1071,7 +1099,7 @@ abde
 
 ## 4.6 Exception Propagation
 
-If a method does not handle an exception, the exception propagates up the call chain.
+如果 method 里出现 exception 但不处理，exception 会沿着 method call chain 向上传播。
 
 ```java
 public void level3() {
@@ -1092,7 +1120,13 @@ public void level1() {
 }
 ```
 
-After exception occurs in `level3`, statements after the exception in `level3` and `level2` do not execute.
+exception 在 `level3` 出现后：
+
+- `level3` 中 exception 后面的语句不执行。
+- `level2` 中调用 `level3()` 后面的语句不执行。
+- exception 一直向上传到 `level1`，被 `catch` 处理后程序继续。
+
+如果传播到 `main` 仍没人处理，程序终止。
 
 ## 4.7 Exception Class Hierarchy
 
@@ -1113,24 +1147,26 @@ Throwable
         └── NoSuchMethodException
 ```
 
+`Error` 通常表示严重问题，一般程序不主动 catch。
+
 ## 4.8 Checked vs Unchecked Exceptions
 
 | | Checked Exception | Unchecked Exception |
 |---|---|---|
-| Definition | `Exception` subclass but not `RuntimeException` subclass | `RuntimeException` and its subclasses |
-| Compiler requirement | must catch or declare with `throws` | not forced by compiler |
-| Examples | `IOException`, `ClassNotFoundException`, `NoSuchMethodException` | `NullPointerException`, `ArithmeticException`, `IndexOutOfBoundsException` |
+| 定义 | `Exception` subclass，但不是 `RuntimeException` subclass | `RuntimeException` 及其 subclasses |
+| compiler 要求 | 必须 catch 或用 `throws` 声明 | compiler 不强制 |
+| 例子 | `IOException`, `ClassNotFoundException`, `NoSuchMethodException` | `NullPointerException`, `ArithmeticException`, `IndexOutOfBoundsException` |
 
-Past Paper Q1(v):
+Past Paper Q1(v)：
 
-- Checked exception: exists.
-- Unchecked exception: exists.
-- Runtime exception: exists.
-- Compile-time exception: does not exist.
+- Checked exception：存在。
+- Unchecked exception：存在。
+- Runtime exception：存在。
+- Compile-time exception：不存在。
 
 ## 4.9 `throw`
 
-Use `throw` to manually throw an exception.
+`throw` 用来主动抛出 exception。
 
 ```java
 public class OutOfRangeException extends Exception {
@@ -1150,11 +1186,11 @@ public static void main(String[] args) throws OutOfRangeException {
 }
 ```
 
-Code immediately after `throw` in the same path is unreachable.
+在同一条执行路径上，`throw` 后面的代码 unreachable。
 
-## 4.10 I/O And `IOException`
+## 4.10 I/O 和 `IOException`
 
-File I/O may throw checked exceptions.
+文件 I/O 可能抛出 checked exception，所以要处理或声明 `throws IOException`。
 
 ```java
 import java.io.*;
@@ -1166,32 +1202,32 @@ public static void main(String[] args) throws IOException {
 }
 ```
 
-Standard streams:
+标准 I/O streams：
 
-- `System.out`: standard output.
-- `System.in`: standard input.
-- `System.err`: standard error output.
+- `System.out`：standard output。
+- `System.in`：standard input。
+- `System.err`：standard error output。
 
-## 4.11 Summary
+## 4.11 小结
 
-- `try` contains risky code.
-- `catch` handles matching exception.
-- `finally` always executes.
-- Checked exceptions must be caught or declared.
-- Unchecked exceptions are `RuntimeException` subclasses.
-- Exception propagation passes unhandled exceptions up the call chain.
-- Q2b output: `abcde`.
-- Q2c output: `abde`.
+- `try` 放可能出错的代码。
+- `catch` 处理匹配的 exception。
+- `finally` 一定执行。
+- checked exception 必须 catch 或 `throws`。
+- unchecked exception 是 `RuntimeException` subclasses。
+- exception propagation 会把未处理的 exception 向 caller 传递。
+- Q2b 输出：`abcde`。
+- Q2c 输出：`abde`。
 
 ---
 
-# Part 5 / 10: Recursion
+# Part 5 / 10：Recursion
 
-## 5.1 What Is Recursion?
+## 5.1 什么是 Recursion？
 
-Recursion means defining or solving something in terms of itself.
+recursion 指用自己定义自己，或者 method 调用自己。
 
-Example recursive list definition:
+递归定义一个 list：
 
 ```text
 A List is:
@@ -1199,32 +1235,34 @@ A List is:
   or a number comma List
 ```
 
-Example:
+例子：
 
 ```text
 24, 88, 40, 37
 = 24, (88, (40, (37)))
 ```
 
-## 5.2 Two Required Parts
+## 5.2 两个必要部分
 
-Every recursive method needs:
+每个 recursive method 都必须有：
 
-| Part | Meaning |
+| 部分 | 含义 |
 |---|---|
-| Base case | stopping condition; no recursive call |
-| Recursive case | calls itself, moving closer to base case |
+| Base case | 停止条件，不再 recursive call |
+| Recursive case | 调用自己，并且每次更接近 base case |
 
-Missing base case leads to infinite recursion and stack overflow.
+没有 base case 会导致 infinite recursion，最后 stack overflow。
 
 ## 5.3 Factorial
 
-Definition:
+数学定义：
 
 ```text
 1! = 1
 N! = N * (N - 1)!
 ```
+
+Java：
 
 ```java
 public int factorial(int n) {
@@ -1235,7 +1273,7 @@ public int factorial(int n) {
 }
 ```
 
-Trace:
+追踪：
 
 ```text
 factorial(5)
@@ -1247,7 +1285,7 @@ factorial(5)
 = 120
 ```
 
-Each recursive call creates its own execution environment.
+每次 recursive call 都有自己的 execution environment，包括自己的参数和 local variables。
 
 ## 5.4 Sum From 1 To N
 
@@ -1269,7 +1307,7 @@ public int sum(int num) {
 }
 ```
 
-Trace:
+追踪：
 
 ```text
 sum(4)
@@ -1279,11 +1317,11 @@ sum(4)
 = 10
 ```
 
-Important: recursion is not always better. For simple sums, iteration may be clearer.
+注意：能用 recursion 不代表一定该用 recursion。像简单求和，loop 通常更清楚。
 
 ## 5.5 Direct vs Indirect Recursion
 
-Direct recursion:
+Direct recursion：method 直接调用自己。
 
 ```java
 public void methodA() {
@@ -1291,17 +1329,17 @@ public void methodA() {
 }
 ```
 
-Indirect recursion:
+Indirect recursion：多个 methods 之间绕一圈再回到自己。
 
 ```text
 m1() -> m2() -> m3() -> m1()
 ```
 
-Both require a base case.
+两种 recursion 都需要 base case。
 
 ## 5.6 Maze Traversal
 
-Recursive search with backtracking:
+递归走迷宫通常使用 backtracking。
 
 ```java
 public boolean traverse(int row, int column) {
@@ -1327,21 +1365,23 @@ public boolean traverse(int row, int column) {
 }
 ```
 
+逻辑：当前位置无效就返回 false；到终点就返回 true；否则向四个方向继续 recursive search。
+
 ## 5.7 Towers Of Hanoi
 
-Rules:
+规则：
 
-- 3 pegs.
-- N disks start on peg 1.
-- Move all disks to peg 3.
-- Move one disk at a time.
-- Larger disk cannot be placed on smaller disk.
+- 3 根柱子。
+- N 个 disks 起始都在第 1 根柱子。
+- 目标是全部移动到第 3 根柱子。
+- 每次只能移动一个 disk。
+- 大 disk 不能放在小 disk 上。
 
-Recursive idea:
+递归思路：
 
-1. Move top `N - 1` disks from start to temp.
-2. Move largest disk from start to end.
-3. Move `N - 1` disks from temp to end.
+1. 把上面 `N - 1` 个 disks 从 start 移到 temp。
+2. 把最大的 disk 从 start 移到 end。
+3. 把 `N - 1` 个 disks 从 temp 移到 end。
 
 ```java
 private void moveTower(int numDisks, int start, int end, int temp) {
@@ -1359,41 +1399,41 @@ private void moveOneDisk(int start, int end) {
 }
 ```
 
-For N disks:
+N 个 disks：
 
 ```text
 number of moves = 2^N - 1
 time complexity = O(2^N)
 ```
 
-## 5.8 Summary
+## 5.8 小结
 
-- Recursion = method calls itself.
-- Must have base case and recursive case.
-- Missing base case causes infinite recursion / stack overflow.
-- Factorial, sum, maze traversal, and Towers of Hanoi are key examples.
-- Towers of Hanoi takes `2^N - 1` moves.
-- Recursion is best for naturally recursive problems.
+- Recursion = method 调用自己。
+- 必须有 base case 和 recursive case。
+- 没有 base case 会 infinite recursion / stack overflow。
+- Factorial、sum、maze traversal、Towers of Hanoi 是重点例子。
+- Towers of Hanoi 需要 `2^N - 1` 步。
+- recursion 适合天然能拆成同结构小问题的问题。
 
 ---
 
-# Part 6 / 10: Sorting I - Simple Sorting Algorithms + Big-O
+# Part 6 / 10：Sorting I - Simple Sorting Algorithms + Big-O
 
-## 6.1 Sorting Basics
+## 6.1 Sorting 基础
 
-Sorting means arranging elements in a chosen order, usually ascending.
+sorting 是把元素按照某种顺序排列，通常默认升序。
 
-Bubble Sort, Insertion Sort, and Selection Sort:
+Bubble Sort、Insertion Sort、Selection Sort 的共同点：
 
-- use repeated passes.
-- make the array more sorted each pass.
-- have time complexity `O(n^2)`.
+- 都用多轮 passes。
+- 每一轮让 array 更接近 sorted。
+- time complexity 都是 `O(n^2)`。
 
 ## 6.2 Bubble Sort
 
-Strategy: compare adjacent elements and swap them, so small elements bubble upward.
+策略：相邻元素两两比较，需要时交换，让较小元素一步步向前移动。
 
-Example first pass on `[2, 4, 6, 1, 3, 5]`, scanning from bottom:
+例子：对 `[2, 4, 6, 1, 3, 5]` 做第一轮，从底部开始扫描。
 
 ```text
 [2, 4, 6, 1, 3, 5]
@@ -1404,7 +1444,7 @@ compare 4,1 -> swap -> [2, 1, 4, 6, 3, 5]
 compare 2,1 -> swap -> [1, 2, 4, 6, 3, 5]
 ```
 
-Code:
+代码：
 
 ```java
 public static void bubbleSort(int[] list) {
@@ -1422,12 +1462,12 @@ public static void bubbleSort(int[] list) {
 
 ## 6.3 Insertion Sort
 
-Strategy: maintain a sorted left region and insert the next element into the correct position.
+策略：左边维护一个 sorted region，每次把下一个元素插入到正确位置。
 
-Example:
+例子：
 
 ```text
-Initial: [2] | [4, 6, 1, 3, 5]
+初始: [2] | [4, 6, 1, 3, 5]
 Insert 4 -> [2, 4] | [6, 1, 3, 5]
 Insert 6 -> [2, 4, 6] | [1, 3, 5]
 Insert 1 -> [1, 2, 4, 6] | [3, 5]
@@ -1435,7 +1475,7 @@ Insert 3 -> [1, 2, 3, 4, 6] | [5]
 Insert 5 -> [1, 2, 3, 4, 5, 6]
 ```
 
-Code:
+代码：
 
 ```java
 public static void insertionSort(int[] list) {
@@ -1455,9 +1495,9 @@ public static void insertionSort(int[] list) {
 
 ## 6.4 Selection Sort
 
-Strategy: find the smallest value in the unsorted region and swap it into the first unsorted position.
+策略：每一轮在 unsorted region 找最小值，把它 swap 到当前第一个 unsorted position。
 
-Example:
+例子：
 
 ```text
 [2, 4, 6, 1, 3, 5]
@@ -1468,7 +1508,7 @@ round 4: min 4, already correct
 round 5: min 5, swap with 6 -> [1, 2, 3, 4, 5, 6]
 ```
 
-Code:
+代码：
 
 ```java
 public static void selectionSort(int[] list) {
@@ -1487,31 +1527,31 @@ public static void selectionSort(int[] list) {
 }
 ```
 
-## 6.5 Comparison
+## 6.5 三种简单 sorting 对比
 
-| Algorithm | Main Idea | Result Of Each Pass | Complexity |
+| Algorithm | 核心思路 | 每轮结果 | Complexity |
 |---|---|---|---|
-| Bubble Sort | adjacent swaps | smallest reaches correct position | `O(n^2)` |
-| Insertion Sort | insert into sorted region | sorted region grows | `O(n^2)` |
-| Selection Sort | select minimum | one element fixed | `O(n^2)` |
+| Bubble Sort | 相邻比较和 swap | 最小值逐步到正确位置 | `O(n^2)` |
+| Insertion Sort | 插入到 sorted region | sorted region 扩大 | `O(n^2)` |
+| Selection Sort | 找最小值并 swap | 一个元素固定 | `O(n^2)` |
 
 ## 6.6 Running Time Analysis
 
-Common cases:
+常见分析角度：
 
-- Worst case: maximum operations.
-- Average case: typical operations.
-- Best case: minimum operations.
+- Worst case：最多操作次数。
+- Average case：平均操作次数。
+- Best case：最少操作次数。
 
 ## 6.7 Big-O
 
-Big-O describes growth rate as input size `n` grows. Ignore constants and lower-order terms.
+Big-O 描述 input size `n` 变大时，algorithm running time 的增长趋势。它忽略常数和低阶项。
 
 ```text
 3n^3 + 90n^2 - 2n + 5 = O(n^3)
 ```
 
-Formal idea:
+正式含义：
 
 ```text
 f(n) = O(g(n))
@@ -1519,30 +1559,30 @@ if there exist constants c and n0 such that
 for all n >= n0, f(n) <= c * g(n)
 ```
 
-Common order, fastest to slowest:
+常见复杂度从快到慢：
 
-| Big-O | Name | Example |
+| Big-O | 名称 | 例子 |
 |---|---|---|
 | `O(1)` | constant | array random access |
 | `O(log n)` | logarithmic | binary search |
 | `O(n)` | linear | scanning array |
-| `O(n log n)` | linearithmic | Merge Sort, average Quick Sort |
-| `O(n^2)` | quadratic | Bubble, Insertion, Selection |
+| `O(n log n)` | linearithmic | Merge Sort，average Quick Sort |
+| `O(n^2)` | quadratic | Bubble，Insertion，Selection |
 | `O(2^n)` | exponential | Towers of Hanoi |
 
-Example:
+例子：
 
 ```text
-2n^2 = O(n^2)  correct and tight
-2n^2 = O(n^3)  correct but not tight
-2n^2 = O(n)    incorrect
+2n^2 = O(n^2)  正确，而且是 tight bound
+2n^2 = O(n^3)  也正确，但不 tight
+2n^2 = O(n)    错误
 ```
 
-Usually use the tightest bound.
+考试通常写最紧的上界。
 
-## 6.8 Why Simple Sorts Are `O(n^2)`
+## 6.8 为什么简单 sorting 是 `O(n^2)`？
 
-Bubble Sort comparison count:
+以 Bubble Sort 为例：
 
 ```text
 (n - 1) + (n - 2) + ... + 2 + 1
@@ -1551,33 +1591,33 @@ Bubble Sort comparison count:
 = O(n^2)
 ```
 
-Insertion Sort and Selection Sort have similar quadratic behavior.
+Insertion Sort 和 Selection Sort 的分析类似。
 
-## 6.9 Summary
+## 6.9 小结
 
-- Bubble Sort: adjacent swaps, `O(n^2)`.
-- Insertion Sort: insert into sorted left region, `O(n^2)`.
-- Selection Sort: find minimum and swap, `O(n^2)`.
-- Big-O focuses on growth trend.
-- Complexity order: `O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)`.
+- Bubble Sort：相邻比较和 swap，`O(n^2)`。
+- Insertion Sort：插入到左侧 sorted region，`O(n^2)`。
+- Selection Sort：找最小值并 swap，`O(n^2)`。
+- Big-O 看增长趋势，不看常数和低阶项。
+- 复杂度顺序：`O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)`。
 
 ---
 
-# Part 7 / 10: Sorting II - Merge Sort + Quick Sort
+# Part 7 / 10：Sorting II - Merge Sort + Quick Sort
 
 ## 7.1 Divide And Conquer
 
-Both Merge Sort and Quick Sort use divide-and-conquer:
+Merge Sort 和 Quick Sort 都使用 divide-and-conquer。
 
-- Divide: split problem.
-- Conquer: solve subproblems.
-- Combine: combine subproblem results.
+- Divide：把大问题拆成小问题。
+- Conquer：解决小问题。
+- Combine：把小问题结果合并成大问题结果。
 
 ---
 
 ## 7A. Merge Sort
 
-## 7.2 Merge Sort Idea
+## 7.2 Merge Sort 思路
 
 ```text
 Split array into two halves
@@ -1586,11 +1626,11 @@ Sort right half recursively
 Merge two sorted halves
 ```
 
-Key point: merging two sorted arrays is `O(n)`.
+关键：merge 两个已经 sorted 的 arrays 是 `O(n)`。
 
-## 7.3 Past Paper Array: `[2, 6, 5, 7, 9, 8, 3, 4]`
+## 7.3 Past Paper 数组：`[2, 6, 5, 7, 9, 8, 3, 4]`
 
-Divide:
+Divide：
 
 ```text
 [2, 6, 5, 7, 9, 8, 3, 4]
@@ -1599,7 +1639,7 @@ Divide:
 -> [2] [6] [5] [7] [9] [8] [3] [4]
 ```
 
-Merge level 1:
+第一层 merge：
 
 ```text
 [2] + [6] -> [2, 6]
@@ -1608,7 +1648,7 @@ Merge level 1:
 [3] + [4] -> [3, 4]
 ```
 
-Merge level 2:
+第二层 merge：
 
 ```text
 [2, 6] + [5, 7]
@@ -1625,7 +1665,7 @@ remaining 8, 9
 => [3, 4, 8, 9]
 ```
 
-Final merge:
+最后 merge：
 
 ```text
 [2, 5, 6, 7] + [3, 4, 8, 9]
@@ -1639,7 +1679,7 @@ remaining 8, 9
 => [2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-## 7.4 Merge Sort Code
+## 7.4 Merge Sort 代码
 
 ```java
 public static void mergeSort(int[] list) {
@@ -1676,14 +1716,14 @@ public static void mergeSort(int[] list) {
 
 ## 7.5 Merge Sort Complexity
 
-Recurrence:
+递推式：
 
 ```text
 T(1) = c
 T(n) = 2T(n/2) + kn
 ```
 
-Expansion:
+展开：
 
 ```text
 T(n) = 2[kn/2 + 2T(n/4)] + kn
@@ -1692,26 +1732,26 @@ T(n) = 2[kn/2 + 2T(n/4)] + kn
      = i*kn + 2^i*T(n/2^i)
 ```
 
-When `n / 2^i = 1`, `i = log2 n`.
+当 `n / 2^i = 1`，有 `i = log2 n`。
 
 ```text
 T(n) = kn log n + cn
      = O(n log n)
 ```
 
-| Case | Complexity |
+| 情况 | Complexity |
 |---|---|
 | Best | `O(n log n)` |
 | Average | `O(n log n)` |
 | Worst | `O(n log n)` |
 
-Merge Sort is stable in time complexity.
+Merge Sort 的 running time 很稳定，best、average、worst 都是 `O(n log n)`。
 
 ---
 
 ## 7B. Quick Sort
 
-## 7.6 Quick Sort Idea
+## 7.6 Quick Sort 思路
 
 ```text
 Choose pivot
@@ -1722,24 +1762,24 @@ Put pivot in final correct position
 Recursively sort both sides
 ```
 
-Key point: after partitioning, the pivot is permanently in its correct position.
+关键：partition 后，pivot 已经在它最终正确的位置。
 
-## 7.7 Past Paper Array With First Element As Pivot
+## 7.7 Past Paper 数组，选择第一个元素作为 pivot
 
-Initial:
+初始：
 
 ```text
 [2, 6, 5, 7, 9, 8, 3, 4]
 ```
 
-First partition, pivot = `2`:
+第一次 partition，pivot = `2`：
 
 ```text
-No value <= 2 on right side except pivot itself.
-Result: [2] | [6, 5, 7, 9, 8, 3, 4]
+右边没有比 2 更小或等于 2 的元素。
+结果: [2] | [6, 5, 7, 9, 8, 3, 4]
 ```
 
-Partition right side, pivot = `6`:
+对右边继续 partition，pivot = `6`：
 
 ```text
 [6, 5, 7, 9, 8, 3, 4]
@@ -1760,20 +1800,20 @@ swap pivot 6 with right pointer value 3:
 [3, 5, 4, 6, 8, 9, 7]
 ```
 
-Now:
+现在：
 
 ```text
 [2] [3, 5, 4] [6] [8, 9, 7]
 ```
 
-Continue recursively:
+继续 recursive sorting：
 
 ```text
 [2] [3] [4, 5] [6] [7] [8, 9]
 => [2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-## 7.8 Quick Sort Code
+## 7.8 Quick Sort 代码
 
 ```java
 public static void quickSort(int[] list) {
@@ -1820,69 +1860,69 @@ private static int findPivot(int[] list, int i, int j) {
 
 ## 7.9 Quick Sort Complexity
 
-Best / average case:
+Best / average case：
 
 ```text
-pivot splits array roughly in half
+pivot 每次大致把 array 分成两半
 number of levels = log2 n
 work per level = n
 total = O(n log n)
 ```
 
-Worst case:
+Worst case：
 
 ```text
-pivot is always smallest or largest
+pivot 每次都是最小值或最大值
 n + (n - 1) + (n - 2) + ... + 1
 = O(n^2)
 ```
 
-Common worst case: already sorted array while always choosing first element as pivot.
+常见 worst case：array 已经 sorted，同时每次选第一个元素作为 pivot。
 
 ## 7.10 Merge Sort vs Quick Sort
 
 | | Merge Sort | Quick Sort |
 |---|---|---|
-| Strategy | split then merge | partition around pivot |
-| Pivot | no | yes |
+| 核心策略 | split 后 merge | around pivot partition |
+| Pivot | 没有 | 有 |
 | Average | `O(n log n)` | `O(n log n)` |
 | Worst | `O(n log n)` | `O(n^2)` |
-| Extra space | `O(n)` | often in-place |
+| Extra space | `O(n)` | 通常 in-place |
 | Stability | stable | not stable |
-| Practical note | consistent but extra memory | often fast, memory efficient |
+| 实际特点 | 稳定但需要额外 memory | 通常很快，memory efficient |
 
-## 7.11 Summary
+## 7.11 小结
 
-- Merge Sort: divide, recursively sort, merge.
-- Quick Sort: choose pivot, partition, recursively sort.
-- Merge Sort average and worst: `O(n log n)`.
-- Quick Sort average: `O(n log n)`, worst: `O(n^2)`.
-- Quick Sort worst case can happen when data is sorted and pivot is first element.
+- Merge Sort：divide、recursive sort、merge。
+- Quick Sort：choose pivot、partition、recursive sort。
+- Merge Sort average 和 worst 都是 `O(n log n)`。
+- Quick Sort average 是 `O(n log n)`，worst 是 `O(n^2)`。
+- Quick Sort worst case 常见于 already sorted array + first element as pivot。
 
 ---
 
-# Part 8 / 10: Data Structures - Linked List, Stack, Queue
+# Part 8 / 10：Data Structures - Linked List, Stack, Queue
 
 ## 8.1 Static vs Dynamic Data Structures
 
 | | Static | Dynamic |
 |---|---|---|
-| Size | fixed at compile time | can grow/shrink at runtime |
-| Examples | array | linked list, stack, queue, tree |
-| Strength | simple, efficient | flexible |
-| Cost | inflexible size | reference overhead |
+| size | compile time 固定 | runtime 可增减 |
+| 例子 | array | linked list、stack、queue、tree |
+| 优点 | 简单、高效 | 灵活 |
+| 成本 | 大小不灵活 | 需要额外 reference |
 
-Here, "static" is about data structure size, not Java's `static` keyword.
+这里的 static 指 data structure size 是否固定，不是 Java 的 `static` keyword。
 
 ## 8.2 Abstract Data Type
 
-An ADT packages:
+ADT 把以下内容打包在一起：
 
-- data organization.
-- operations on the data.
-- hidden implementation details.
+- 数据组织方式。
+- 对数据的操作。
+- 隐藏内部 implementation details。
 
-Java collection ADTs include:
+Java collection ADTs 包括：
 
 - `List`
 - `Stack`
@@ -1890,9 +1930,11 @@ Java collection ADTs include:
 - `Set`
 - `Map`
 
-ADT users care about what operations are available, not how they are implemented.
+使用者只关心能做什么 operations，不关心内部如何实现。
 
 ## 8.3 Object References As Links
+
+动态 data structure 的核心是用 object reference 连接 nodes。
 
 ```java
 class Node {
@@ -1901,41 +1943,41 @@ class Node {
 }
 ```
 
-`next` stores a reference to another `Node`.
+`next` 存的是下一个 `Node` object 的 reference。
 
 ## 8.4 Linked List
 
-Singly linked list:
+Singly linked list：
 
 ```text
 head -> [data|next] -> [data|next] -> [data|null]
 ```
 
-Doubly linked list:
+Doubly linked list：
 
 ```text
 null <- [prev|data|next] <-> [prev|data|next] <-> [prev|data|next] -> null
 ```
 
-## 8.5 Linked List Operations
+## 8.5 Linked List 基本操作
 
-Insert `newNode` after `current`:
+在 `current` 后插入 `newNode`：
 
 ```java
 newNode.next = current.next;
 current.next = newNode;
 ```
 
-Order matters. If `current.next = newNode` happens first, the original next node may be lost.
+顺序很重要。必须先让 `newNode.next` 指向原来的下一个 node，再让 `current.next` 指向 `newNode`。如果顺序反了，原来的下一个 node 可能会丢失。
 
-Delete node after `current`:
+删除 `current` 后面的 node：
 
 ```java
 if (current.next != null)
     current.next = current.next.next;
 ```
 
-Doubly linked list deletion:
+Doubly linked list 删除：
 
 ```java
 if (current.next != null) {
@@ -1945,7 +1987,7 @@ if (current.next != null) {
 }
 ```
 
-## 8.6 MagazineList Example
+## 8.6 MagazineList 例子
 
 ```java
 public class MagazineList {
@@ -1983,7 +2025,7 @@ public class MagazineList {
 }
 ```
 
-This uses an inner class for list nodes.
+这里 `MagazineNode` 是 inner class，用来表示 linked list 里的 node。
 
 ## 8.7 Java `LinkedList`
 
@@ -2004,19 +2046,19 @@ for (String s : list)
 
 ## 8.8 Queue
 
-Queue is FIFO: First-In, First-Out.
+Queue 是 FIFO：First-In, First-Out。
 
-Analogy: bank line. First person in line is served first.
+类比：排队。先进入队伍的人先被服务。
 
-Operations:
+操作：
 
-| Operation | Meaning |
+| Operation | 含义 |
 |---|---|
-| `enqueue(item)` | add item to rear |
-| `dequeue()` | remove and return item from front |
-| `empty()` | check whether queue is empty |
+| `enqueue(item)` | 从 rear 加入 item |
+| `dequeue()` | 从 front 移除并返回 item |
+| `empty()` | 判断 queue 是否为空 |
 
-Exercise:
+练习：
 
 ```text
 enqueue(45), enqueue(12), enqueue(28), dequeue(), dequeue(), enqueue(69), enqueue(27)
@@ -2032,7 +2074,7 @@ enqueue(27) -> [28, 69, 27]
 final head -> tail: 28, 69, 27
 ```
 
-Linked-list implementation:
+Linked-list implementation：
 
 ```java
 public class MyQueue {
@@ -2065,7 +2107,7 @@ public class MyQueue {
 }
 ```
 
-ArrayList implementation:
+ArrayList implementation：
 
 ```java
 public class MyQueue {
@@ -2084,20 +2126,20 @@ public class MyQueue {
 
 ## 8.9 Stack
 
-Stack is LIFO: Last-In, First-Out.
+Stack 是 LIFO：Last-In, First-Out。
 
-Analogy: stack of plates. Last plate placed on top is removed first.
+类比：一叠盘子，最后放上去的最先拿走。
 
-Operations:
+操作：
 
-| Operation | Meaning |
+| Operation | 含义 |
 |---|---|
-| `push(item)` | add item to top |
-| `pop()` | remove and return top |
-| `peek()` | view top without removing |
-| `empty()` | check whether stack is empty |
+| `push(item)` | 把 item 放到 top |
+| `pop()` | 移除并返回 top item |
+| `peek()` | 查看 top item，但不移除 |
+| `empty()` | 判断 stack 是否为空 |
 
-Exercise:
+练习：
 
 ```text
 push(45), push(12), push(28), pop(), pop(), push(69), push(27), push(99)
@@ -2114,46 +2156,46 @@ push(99) -> [45, 69, 27, 99]
 final bottom -> top: 45, 69, 27, 99
 ```
 
-String reverse example:
+用 stack 反转 string 的例子：
 
 ```java
 Stack word = new Stack();
 ```
 
-Input:
+Input：
 
 ```text
 artxE eseehc esaelp
 ```
 
-Output:
+输出：
 
 ```text
 Extra cheese please
 ```
 
-Java provides `java.util.Stack` with `push`, `pop`, `peek`, `empty`.
+Java 有 `java.util.Stack`，内置 `push`、`pop`、`peek`、`empty`。
 
 ## 8.10 Graph
 
-Graph:
+Graph 的特点：
 
-- nodes connected by edges.
-- no required root.
-- arbitrary connections.
+- nodes 通过 edges 连接。
+- 不一定有 root。
+- nodes 之间可以任意连接。
 
-Directed graph / digraph:
+Directed graph / digraph：
 
-- edges have direction.
-- directed edges are also called arcs.
+- edge 有方向。
+- directed edge 也叫 arc。
 
-Undirected graph:
+Undirected graph：
 
-- edges have no direction.
+- edge 没有方向。
 
-Tree is a special graph: rooted, hierarchical, and without cycles.
+Tree 是 graph 的特殊情况：有 root、有层次结构、没有 cycle。
 
-## 8.11 Java Collections And Generics
+## 8.11 Java Collections 和 Generics
 
 ```java
 LinkedList<Book> myList = new LinkedList<Book>();
@@ -2161,7 +2203,7 @@ ArrayList<String> myArray = new ArrayList<String>();
 Stack<Integer> myStack = new Stack<Integer>();
 ```
 
-Generics:
+Generics：
 
 ```java
 LinkedList<Book> list = new LinkedList<Book>();
@@ -2169,26 +2211,26 @@ list.add(new Book("Java"));
 Book b = list.get(0);
 ```
 
-Benefit: type safety and no cast needed when retrieving.
+好处：type safe，取出 object 时不用 cast。
 
-## 8.12 Summary
+## 8.12 小结
 
-- Dynamic structures use references as links and can change size at runtime.
-- Linked list nodes contain data and next reference.
-- Insert: set `newNode.next` first, then update `current.next`.
-- Queue: FIFO, `enqueue` at rear, `dequeue` at front.
-- Stack: LIFO, `push` and `pop` at top.
-- Queue exercise final: `28, 69, 27`.
-- Stack exercise final: `45, 69, 27, 99`.
-- Java Collections include `LinkedList`, `ArrayList`, `Stack`, etc.
+- Dynamic data structures 用 references 连接 nodes，size 可以 runtime 改变。
+- Linked list node 包含 data 和 next reference。
+- 插入时先设置 `newNode.next`，再改 `current.next`。
+- Queue：FIFO，`enqueue` 从 rear 进，`dequeue` 从 front 出。
+- Stack：LIFO，`push` 和 `pop` 都在 top。
+- Queue 练习最终：`28, 69, 27`。
+- Stack 练习最终：`45, 69, 27, 99`。
+- Java Collections 包括 `LinkedList`、`ArrayList`、`Stack` 等。
 
 ---
 
-# Part 9 / 10: Trees & BST
+# Part 9 / 10：Trees & BST
 
-## 9.1 Tree Terminology
+## 9.1 Tree Terminology（树的术语）
 
-Example:
+例子：
 
 ```text
             10
@@ -2200,31 +2242,31 @@ Example:
           5   11
 ```
 
-| Term | Meaning |
+| Term | 含义 |
 |---|---|
-| root | top node, no parent |
-| leaf | node with no children |
-| internal node | node with one or two children |
-| parent / child | directly connected upper/lower nodes |
-| siblings | nodes with same parent |
-| subtree | a node and all its descendants |
-| ancestor | nodes on path from root to a node |
-| descendant | nodes below a node |
-| height of tree | number of edges from root to farthest leaf |
+| root | 最顶部 node，没有 parent |
+| leaf | 没有 children 的 node |
+| internal node | 有一个或两个 children 的 node |
+| parent / child | 上下直接相连的 nodes |
+| siblings | 有同一个 parent 的 nodes |
+| subtree | 某个 node 和它所有 descendants |
+| ancestor | 从 root 到某 node 路径上的上层 nodes |
+| descendant | 某 node 下面的 nodes |
+| height of tree | root 到最远 leaf 的边数 |
 
 ## 9.2 Binary Tree
 
-A binary tree is a tree where each node has at most two children: left child and right child.
+Binary tree 是每个 node 最多有两个 children 的 tree：left child 和 right child。
 
 ## 9.3 Tree Traversal
 
-| Traversal | Order | Memory Tip |
+| Traversal | 顺序 | 记忆 |
 |---|---|---|
-| Preorder | Root -> Left -> Right | root first |
-| Inorder | Left -> Root -> Right | root middle |
-| Postorder | Left -> Right -> Root | root last |
+| Preorder | Root -> Left -> Right | root 先 |
+| Inorder | Left -> Root -> Right | root 中 |
+| Postorder | Left -> Right -> Root | root 后 |
 
-Example tree:
+例子：
 
 ```text
         10
@@ -2236,29 +2278,29 @@ Example tree:
       5   11
 ```
 
-Preorder:
+Preorder：
 
 ```text
 10, 6, 2, 5, 8, 11, 15, 13
 ```
 
-Inorder:
+Inorder：
 
 ```text
 2, 5, 6, 8, 11, 10, 13, 15
 ```
 
-Postorder:
+Postorder：
 
 ```text
 5, 2, 11, 8, 6, 13, 15, 10
 ```
 
-Note: for a valid BST, inorder traversal gives ascending order.
+注意：如果是 valid BST，Inorder traversal 会得到 ascending order。
 
 ## 9.4 Binary Search Tree
 
-BST property:
+BST property：
 
 ```text
 For any node N:
@@ -2266,11 +2308,11 @@ all values in left subtree <= N
 all values in right subtree > N
 ```
 
-Therefore, inorder traversal of BST is sorted ascending.
+因此，BST 的 Inorder traversal 一定是 ascending order。
 
 ## 9.5 BST Insertion
 
-Rule:
+插入规则：
 
 ```text
 if new value <= current node value -> go left
@@ -2278,15 +2320,15 @@ if new value > current node value -> go right
 if current position is null -> insert new node there
 ```
 
-## 9.6 Past Paper Q3 BST Construction
+## 9.6 Past Paper Q3 BST 构造
 
-Insert in order:
+插入顺序：
 
 ```text
 60, 41, 74, 16, 53, 65, 25, 46, 55, 63, 70
 ```
 
-Step logic:
+步骤：
 
 ```text
 60 -> root
@@ -2302,19 +2344,7 @@ Step logic:
 70 > 60, 70 < 74, 70 > 65 -> right of 65
 ```
 
-Correct final BST:
-
-```text
-            60
-           /  \
-         41    74
-        /  \   /
-      16   53 65
-        \  / \ / \
-        25 46 55 63 70
-```
-
-Same tree with spacing:
+正确 final BST：
 
 ```text
             60
@@ -2326,29 +2356,29 @@ Same tree with spacing:
        25 46 55 63 70
 ```
 
-**Needs source check note:** the original text version previously placed `63` under `55`, but the insertion rule and traversal answers require `63` to be the left child of `65`.
+**需要复核：** 原始整理中曾把 `63` 放在 `55` 下面，但按照 insertion rule 和 traversal answers，`63` 应该是 `65` 的 left child。
 
 ## 9.7 Past Paper Q3 Traversal Answers
 
-Q3b: traversal giving sorted order:
+Q3b：哪种 traversal 得到 sorted order？
 
 ```text
 Inorder traversal
 ```
 
-Inorder:
+Inorder：
 
 ```text
 16, 25, 41, 46, 53, 55, 60, 63, 65, 70, 74
 ```
 
-Preorder:
+Preorder：
 
 ```text
 60, 41, 16, 25, 53, 46, 55, 74, 65, 63, 70
 ```
 
-Postorder:
+Postorder：
 
 ```text
 25, 16, 46, 55, 53, 41, 63, 70, 65, 74, 60
@@ -2356,13 +2386,13 @@ Postorder:
 
 ## 9.8 BST Deletion
 
-Three cases:
+删除分三种情况：
 
-1. Delete leaf node: remove directly.
-2. Delete node with one child: replace deleted node with its child.
-3. Delete node with two children: replace with smallest node in right subtree.
+1. 删除 leaf node：直接删。
+2. 删除只有一个 child 的 node：用 child 替代被删 node。
+3. 删除有两个 children 的 node：用 right subtree 中最小的 node 替代。
 
-Find smallest value in right subtree:
+找 right subtree 中最小值：
 
 ```java
 private int findSmallestValue(Node root) {
@@ -2375,7 +2405,7 @@ private int findSmallestValue(Node root) {
 
 ## 9.9 BST Java Implementation
 
-Insertion:
+Insertion：
 
 ```java
 public void insert(int value) {
@@ -2395,7 +2425,7 @@ private Node insertRec(Node root, int value) {
 }
 ```
 
-Inorder traversal:
+Inorder traversal：
 
 ```java
 public void inorder(Node root) {
@@ -2407,29 +2437,29 @@ public void inorder(Node root) {
 }
 ```
 
-## 9.10 Summary
+## 9.10 小结
 
-- BST left subtree values are `<=` node value.
-- BST right subtree values are `>` node value.
-- Insertion follows comparisons until reaching `null`.
-- Inorder gives sorted order.
-- Preorder: root-left-right.
-- Postorder: left-right-root.
-- Delete leaf directly; replace one-child node with child; replace two-child node with right subtree minimum.
+- BST left subtree values `<=` node value。
+- BST right subtree values `>` node value。
+- insertion 按比较结果一直走到 `null`。
+- Inorder 得到 sorted order。
+- Preorder：root-left-right。
+- Postorder：left-right-root。
+- 删除 leaf 直接删；删除 one-child node 用 child 替代；删除 two-child node 用 right subtree minimum 替代。
 
 ---
 
-# Part 10 / 10: Advanced Trees - AVL Tree + Heap
+# Part 10 / 10：Advanced Trees - AVL Tree + Heap
 
 ---
 
 ## 10A. AVL Tree
 
-## 10.1 Why AVL Tree?
+## 10.1 为什么需要 AVL Tree？
 
-Regular BST can become a linked list if inserted data is sorted.
+普通 BST 如果插入顺序已经 sorted，可能退化成 linked list。
 
-Example:
+例子：
 
 ```text
 insert 1, 2, 3, 4, 5
@@ -2445,26 +2475,26 @@ insert 1, 2, 3, 4, 5
         5
 ```
 
-Search becomes `O(n)` instead of `O(log n)`.
+这时 search 会从 `O(log n)` 退化成 `O(n)`。
 
-AVL Tree keeps the tree balanced through rotations.
+AVL Tree 通过 rotation 保持平衡。
 
-## 10.2 AVL Definition
+## 10.2 AVL Definition（AVL 定义）
 
-AVL Tree is a self-balancing BST.
+AVL Tree 是 self-balancing BST。
 
-For every node:
+对每个 node 都要求：
 
 ```text
 height difference between left subtree and right subtree <= 1
 ```
 
-Height convention:
+高度定义：
 
-- empty tree height = `-1`.
-- single node height = `0`.
+- empty tree height = `-1`。
+- single node height = `0`。
 
-Example not AVL:
+不是 AVL 的例子：
 
 ```text
         5
@@ -2482,7 +2512,7 @@ difference = 2 > 1
 not AVL
 ```
 
-Example AVL:
+是 AVL 的例子：
 
 ```text
         5
@@ -2496,15 +2526,15 @@ node 3 difference = 0
 AVL
 ```
 
-## 10.3 Past Paper Q4a: Minimum Height
+## 10.3 Past Paper Q4a：Minimum Height
 
-For an AVL Tree with `n` nodes, minimum height:
+AVL Tree 有 `n` 个 nodes 时，minimum height：
 
 ```text
 floor(log2 n)
 ```
 
-Common values:
+常见值：
 
 | Nodes `n` | Minimum Height |
 |---|---|
@@ -2513,13 +2543,13 @@ Common values:
 | 4-7 | 2 |
 | 8-15 | 3 |
 
-For height `h`, maximum nodes:
+高度为 `h` 的 binary tree 最多有：
 
 ```text
 2^(h + 1) - 1
 ```
 
-## 10.4 Past Paper Q4b: Operation Complexity
+## 10.4 Past Paper Q4b：Operation Complexity
 
 | Operation | Complexity |
 |---|---|
@@ -2527,20 +2557,20 @@ For height `h`, maximum nodes:
 | Insert | `O(log n)` |
 | Delete | `O(log n)` |
 
-Reason: AVL height is always `O(log n)`.
+原因：AVL Tree 的 height 始终保持在 `O(log n)`。
 
 ## 10.5 AVL Rotations
 
-After insertion, if a node becomes unbalanced, use rotations.
+插入后，如果某个 node 不平衡，就用 rotation 修复。
 
 ### Single Rotation
 
-Use single rotation when imbalance is on the same side:
+同侧不平衡用 single rotation：
 
-- left-left too high -> right rotation.
-- right-right too high -> left rotation.
+- left-left 太高 -> right rotation。
+- right-right 太高 -> left rotation。
 
-Right-right example, left rotation:
+Right-right 例子，做 left rotation：
 
 ```text
 before:              after:
@@ -2551,7 +2581,7 @@ before:              after:
     Y   Z           X   Y
 ```
 
-Concrete example:
+具体例子：
 
 ```text
 before:        after:
@@ -2564,19 +2594,19 @@ before:        after:
 
 ### Double Rotation
 
-Use double rotation when imbalance is on opposite sides:
+异侧不平衡用 double rotation：
 
-- left-right too high -> rotate left child left, then current node right.
-- right-left too high -> rotate right child right, then current node left.
+- left-right 太高 -> 先对 left child 做 left rotation，再对当前 node 做 right rotation。
+- right-left 太高 -> 先对 right child 做 right rotation，再对当前 node 做 left rotation。
 
-Memory rule:
+记忆规则：
 
 ```text
 same side -> single rotation
 opposite side -> double rotation
 ```
 
-Table:
+表格：
 
 | Imbalance | Rotation |
 |---|---|
@@ -2585,7 +2615,7 @@ Table:
 | left-right | double |
 | right-left | double |
 
-Right-left example:
+Right-left 例子：
 
 ```text
 step 1: rotate right child right
@@ -2605,9 +2635,9 @@ step 2: rotate current node left
         9
 ```
 
-## 10.6 Past Paper Q4c: Insert And Rotate
+## 10.6 Past Paper Q4c：Insert And Rotate
 
-**Needs source check:** the provided notes for Q4c contain inconsistent original trees:
+**需要复核：** 当前整理来源里 Q4c 的原始 tree 有两种不一致版本：
 
 ```text
         8
@@ -2619,7 +2649,7 @@ step 2: rotate current node left
       6
 ```
 
-and later:
+以及：
 
 ```text
     5
@@ -2631,18 +2661,18 @@ and later:
   2
 ```
 
-The general exam method is:
+考试时按下面方法处理 AVL 插入题：
 
-1. Insert the new value using normal BST insertion.
-2. Walk upward from inserted node.
-3. Find first node whose left/right subtree height difference exceeds 1.
-4. Determine imbalance type: LL, RR, LR, or RL.
-5. Apply single or double rotation.
-6. Redraw final balanced AVL tree.
+1. 先按普通 BST insertion 插入新 value。
+2. 从 inserted node 往上检查每个 ancestor。
+3. 找到第一个 left/right subtree height difference 超过 1 的 node。
+4. 判断是 LL、RR、LR、RL。
+5. 按类型做 single 或 double rotation。
+6. 画出最后 balanced AVL tree。
 
-If the inserted value is `70`, use the exact original Past Paper tree diagram to determine the final rotation.
+如果题目是 insert `70`，必须以 Past Paper 原图为准判断最后 rotation。
 
-Keep this rotation rule for the exam:
+Rotation 必背规则：
 
 ```text
 LL -> right single rotation
@@ -2655,22 +2685,22 @@ RL -> right rotation on child, then left rotation on node
 
 ## 10B. Heap
 
-## 10.7 What Is A Heap?
+## 10.7 什么是 Heap？
 
-A heap is a complete binary tree satisfying heap property.
+Heap 是 complete binary tree，并满足 heap property。
 
-Complete binary tree:
+Complete binary tree：
 
-- every level except possibly the bottom is full.
-- bottom level is filled from left to right.
+- 除了最底层，每一层都填满。
+- 最底层从左到右填。
 
-Min-heap property:
+Min-heap property：
 
 ```text
 each node value <= each child value
 ```
 
-Valid min-heap:
+合法 min-heap：
 
 ```text
         4
@@ -2680,7 +2710,7 @@ Valid min-heap:
     16 10 15
 ```
 
-Invalid heap:
+不合法 heap：
 
 ```text
         4
@@ -2690,19 +2720,19 @@ Invalid heap:
     5  10 16
 ```
 
-Root is always the minimum value.
+min-heap 的 root 永远是 minimum value。
 
 ## 10.8 Heap Operations
 
 ### Delete Minimum
 
-Steps:
+步骤：
 
-1. Copy last node value to root.
-2. Delete last node.
-3. Re-heapify downward by swapping with smaller child until heap property is restored.
+1. 把最后一个 node 的 value 复制到 root。
+2. 删除最后一个 node。
+3. 从 root 向下 re-heapify：和较小 child 交换，直到恢复 heap property。
 
-Example:
+例子：
 
 ```text
 original:
@@ -2736,12 +2766,12 @@ swap 15 with smaller child 10:
 
 ### Insert
 
-Steps:
+步骤：
 
-1. Add new node at bottom-leftmost available position.
-2. Re-heapify upward by swapping with parent while new value is smaller.
+1. 把新 node 加到最底层最左边可用位置，也就是 array 表示里的末尾。
+2. 从新 node 向上 re-heapify：如果新 value 比 parent 小，就交换。
 
-Example insert `4` into heap `[5, 7, 15, 16, 10]`:
+例子：把 `4` 插入 heap `[5, 7, 15, 16, 10]`。
 
 ```text
 add at end:
@@ -2764,21 +2794,21 @@ final:
 
 ## 10.9 Heap Sort
 
-Idea:
+思路：
 
-1. Insert all numbers into heap: `O(n log n)`.
-2. Delete minimum repeatedly: `O(n log n)`.
-3. Deletion order is sorted ascending.
+1. 把所有 numbers insert 进 heap：`O(n log n)`。
+2. 重复 delete minimum：`O(n log n)`。
+3. delete 出来的顺序就是 ascending order。
 
-Total complexity:
+总 complexity：
 
 ```text
 O(n log n)
 ```
 
-## 10.10 Array Implementation Of Heap
+## 10.10 Heap 的 Array Implementation
 
-Level-order storage:
+按 level-order 存入 array。
 
 ```text
         4
@@ -2791,7 +2821,7 @@ array: {4, 5, 7, 16, 10, 15}
 index:  0  1  2   3   4   5
 ```
 
-For node at index `i`:
+对 index `i` 的 node：
 
 ```text
 left child index  = 2*i + 1
@@ -2799,52 +2829,52 @@ right child index = 2*i + 2
 parent index      = (i - 1) / 2
 ```
 
-## 10.11 Summary
+## 10.11 小结
 
-AVL Tree:
+AVL Tree：
 
-- Self-balancing BST.
-- Every node has left/right subtree height difference at most 1.
-- Empty tree height = `-1`.
-- Single node height = `0`.
-- Minimum height with `n` nodes = `floor(log2 n)`.
-- Search, insert, delete = `O(log n)`.
-- Same-side imbalance -> single rotation.
-- Opposite-side imbalance -> double rotation.
+- Self-balancing BST。
+- 每个 node 的 left/right subtree height difference 最多为 1。
+- empty tree height = `-1`。
+- single node height = `0`。
+- `n` 个 nodes 的 minimum height = `floor(log2 n)`。
+- Search、Insert、Delete 都是 `O(log n)`。
+- same-side imbalance -> single rotation。
+- opposite-side imbalance -> double rotation。
 
-Heap:
+Heap：
 
-- Complete binary tree + heap property.
-- Min-heap root is minimum.
-- Delete min: replace root with last node, then re-heapify down.
-- Insert: add at end, then re-heapify up.
-- Heap Sort = `O(n log n)`.
-- Array indices: left `2i + 1`, right `2i + 2`, parent `(i - 1) / 2`.
+- Complete binary tree + heap property。
+- min-heap 的 root 是 minimum。
+- Delete min：最后 node 替换 root，然后向下 re-heapify。
+- Insert：加到末尾，然后向上 re-heapify。
+- Heap Sort = `O(n log n)`。
+- Array index：left `2i + 1`，right `2i + 2`，parent `(i - 1) / 2`。
 
 ---
 
-# Final One-Page Formula Sheet
+# 最后一页速查
 
 ## Java OOP
 
 ```text
-interface: behavior contract
-implements: class implements interface
-extends: class inherits class / interface extends interface
-super(...): parent constructor, must be first line
-super.method(): call parent method
-overloading: same class, same method name, different parameters
-overriding: child class, same method signature, different body
-abstract class: cannot instantiate, can have variables and implemented methods
+interface: 行为合同
+implements: class 实现 interface
+extends: class 继承 class / interface 继承 interface
+super(...): 调用 parent constructor，必须是第一行
+super.method(): 调用 parent method
+overloading: 同一个 class，同名 method，不同 parameters
+overriding: child class，同名同 parameters，改写 body
+abstract class: 不能 instantiate，可以有 variables 和 implemented methods
 ```
 
 ## Polymorphism
 
 ```text
-declared type controls what methods compiler allows
-actual runtime object controls which overridden method executes
-upcasting: child -> parent, safe
-downcasting: parent -> child, explicit cast, runtime risk
+declared type 决定 compiler 允许调用哪些 methods
+actual runtime object 决定 overridden method 的执行版本
+upcasting: child -> parent，安全
+downcasting: parent -> child，需要 explicit cast，有 runtime risk
 ```
 
 ## Exceptions
@@ -2856,7 +2886,7 @@ checked: must catch or throws
 unchecked: RuntimeException subclasses
 ```
 
-Past Paper outputs:
+Past Paper 输出：
 
 ```text
 with throw: abcde
@@ -2896,4 +2926,3 @@ complete binary tree
 min-heap root is minimum
 array: left=2i+1, right=2i+2, parent=(i-1)/2
 ```
-
